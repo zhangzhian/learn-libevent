@@ -1,0 +1,1221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_helper_functions_and_types_for_libevent">Helper functions and types for Libevent</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The &lt;event2/util.h&gt; header defines many functions that you might find
+helpful for implementing portable applications using Libevent.
+Libevent uses these types and functions internally.</p></div>
+<div class="sect2">
+<h3 id="_basic_types">Basic types</h3>
+<div class="sect3">
+<h4 id="_evutil_socket_t">evutil_socket_t</h4>
+<div class="paragraph"><p>Most everywhere except Windows, a socket is an int, and the operating
+system hands them out in numeric order.  Using the Windows socket API,
+however, a socket is of type SOCKET, which is really a pointer-like OS
+handle, and the order you receive them is undefined.  We define the
+evutil_socket_t type to be an integer that can hold the output of
+socket() or accept() without risking pointer truncation on Windows.</p></div>
+<div class="listingblock">
+<div class="title">Definition</div>
+<div class="content">
+<pre><code>#ifdef WIN32
+#define evutil_socket_t intptr_t
+#<strong>else</strong>
+#define evutil_socket_t <strong>int</strong>
+#endif</code></pre>
+</div></div>
+<div class="paragraph"><p>This type was introduced in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_standard_integer_types">Standard integer types</h4>
+<div class="paragraph"><p>Often you will find yourself on a C system that missed out on the 21st
+century and therefore does not implement the standard C99
+stdint.h header.  For this situation, Libevent defines its own
+versions of the bit-width-specific integers from stdint.h:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="70%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top">  Type      </th>
+<th align="left" valign="top">Width  </th>
+<th align="left" valign="top">Signed </th>
+<th align="left" valign="top"> Maximum       </th>
+<th align="left" valign="top"> Minimum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">ev_uint64_t</p></td>
+<td align="left" valign="top"><p class="table">64</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+<td align="left" valign="top"><p class="table">EV_UINT64_MAX</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_int64_t</p></td>
+<td align="left" valign="top"><p class="table">64</p></td>
+<td align="left" valign="top"><p class="table">Yes</p></td>
+<td align="left" valign="top"><p class="table">EV_INT64_MAX</p></td>
+<td align="left" valign="top"><p class="table">EV_INT64_MIN</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_uint32_t</p></td>
+<td align="left" valign="top"><p class="table">32</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+<td align="left" valign="top"><p class="table">EV_UINT32_MAX</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_int32_t</p></td>
+<td align="left" valign="top"><p class="table">32</p></td>
+<td align="left" valign="top"><p class="table">Yes</p></td>
+<td align="left" valign="top"><p class="table">EV_INT32_MAX</p></td>
+<td align="left" valign="top"><p class="table">EV_INT32_MIN</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_uint16_t</p></td>
+<td align="left" valign="top"><p class="table">16</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+<td align="left" valign="top"><p class="table">EV_UINT16_MAX</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_int16_t</p></td>
+<td align="left" valign="top"><p class="table">16</p></td>
+<td align="left" valign="top"><p class="table">Yes</p></td>
+<td align="left" valign="top"><p class="table">EV_INT16_MAX</p></td>
+<td align="left" valign="top"><p class="table">EV_INT16_MIN</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_uint8_t</p></td>
+<td align="left" valign="top"><p class="table">8</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+<td align="left" valign="top"><p class="table">EV_UINT8_MAX</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">ev_int8_t</p></td>
+<td align="left" valign="top"><p class="table">8</p></td>
+<td align="left" valign="top"><p class="table">Yes</p></td>
+<td align="left" valign="top"><p class="table">EV_INT8_MAX</p></td>
+<td align="left" valign="top"><p class="table">EV_INT8_MIN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>As in the C99 standard, each type has exactly the specified width, in
+bits.</p></div>
+<div class="paragraph"><p>These types were introduced in Libevent 1.4.0-beta.  The MAX/MIN constants
+first appeared in Libevent 2.0.4-alpha.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_miscellaneous_compatibility_types">Miscellaneous compatibility types</h4>
+<div class="paragraph"><p>The ev_ssize_t type is defined to ssize_t (signed size_t) on platforms that
+have one, and to a reasonable default on platforms that don&#8217;t.  The largest
+possible value of ev_ssize_t is EV_SSIZE_MAX; the smallest is EV_SSIZE_MIN.
+(The largest possible value for size_t is EV_SIZE_MAX, in case your platform
+doesn&#8217;t define a SIZE_MAX for you.)</p></div>
+<div class="paragraph"><p>The ev_off_t type is used to represent offset into a file or a chunk of
+memory.  It is defined to off_t on platforms with a reasonable off_t
+definition, and to ev_int64_t on Windows.</p></div>
+<div class="paragraph"><p>Some implementations of the sockets API provide a length type, socklen_t, and
+some do not.  The ev_socklen_t is defined to this type where it exists, and a
+reasonable default otherwise.</p></div>
+<div class="paragraph"><p>The ev_intptr_t type is a signed integer that is large enough to hold a
+pointer without loss of bits.  The ev_uintptr_t type is an unsigned integer
+large enough to hold a pointer without loss of bits.</p></div>
+<div class="paragraph"><p>The ev_ssize_t type was added in Libevent 2.0.2-alpha.  The ev_socklen_t type
+was new in Libevent 2.0.3-alpha.  The ev_intptr_t and ev_uintptr_t types, and
+the EV_SSIZE_MAX/MIN macros, were added in Libevent 2.0.4-alpha.  The
+ev_off_t type first appeared in Libevent 2.0.9-rc.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timer_portability_functions">Timer portability functions</h3>
+<div class="paragraph"><p>Not every platform defines the standard timeval manipulation functions,
+so we provide our own implementations.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evutil_timeradd(tvp, uvp, vvp) /* ... */
+#define evutil_timersub(tvp, uvp, vvp) /* ... */</code></pre>
+</div></div>
+<div class="paragraph"><p>These macros add or subtract (respectively) their first two arguments,
+and stores the result in the third.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evutil_timerclear(tvp) /* ... */
+#define evutil_timerisset(tvp) /* ... */</code></pre>
+</div></div>
+<div class="paragraph"><p>Clearing a timeval sets its value to zero.  Checking whether it is set
+returns true if it is nonzero and false otherwise.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evutil_timercmp(tvp, uvp, cmp)</code></pre>
+</div></div>
+<div class="paragraph"><p>The evutil_timercmp macro compares two timevals, and yields true if
+they are in the relationship specified by the relational operator
+<em>cmp</em>.  For example, <em>evutil_timercmp(t1, t2, &#8656;)</em> means, "Is t1 &#8656;
+t2?"  Note that unlike some operating systems' versions, Libevent&#8217;s timercmp
+supports all the C relational operations (that is, &lt;, &gt;, ==, !=, &#8656;, and &gt;=).</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_gettimeofday(<strong>struct</strong> timeval *tv, <strong>struct</strong> timezone *tz);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evutil_gettimeofday function sets <em>tv</em> to the current time.  The
+tz argument is unused.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code><strong>struct</strong> timeval tv1, tv2, tv3;
+
+<i>/* Set tv1 = 5.5 seconds */</i>
+tv1.tv_sec = 5; tv1.tv_usec = 500*1000;
+
+<i>/* Set tv2 = now */</i>
+evutil_gettimeofday(&amp;tv2, NULL);
+
+<i>/* Set tv3 = 5.5 seconds in the future */</i>
+evutil_timeradd(&amp;tv1, &amp;tv2, &amp;tv3);
+
+<i>/* all 3 should print true */</i>
+<strong>if</strong> (evutil_timercmp(&amp;tv1, &amp;tv1, ==))  /* == "If tv1 == tv1" */
+   puts("5.5 sec == 5.5 sec");
+<strong>if</strong> (evutil_timercmp(&amp;tv3, &amp;tv2, &gt;=))  /* == "If tv3 &gt;= tv2" */
+   puts("The future is after the present.");
+<strong>if</strong> (evutil_timercmp(&amp;tv1, &amp;tv2, &lt;))   /* == "If tv1 &lt; tv2" */
+   puts("It is no longer the past.");</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions were introduced in Libevent 1.4.0-beta, except for
+evutil_gettimeofday(), which was introduced in Libevent 2.0.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">It wasn&#8217;t safe to use &#8656; or &gt;= with timercmp before Libevent
+1.4.4.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_socket_api_compatibility">Socket API compatibility</h3>
+<div class="paragraph"><p>This section exists because, for historical reasons, Windows has never
+really implemented the Berkeley sockets API in a nice compatible (and
+nicely compatible) way.  Here are some functions you can use in order
+to pretend that it has.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_closesocket(evutil_socket_t s);
+
+#define EVUTIL_CLOSESOCKET(s) evutil_closesocket(s)</code></pre>
+</div></div>
+<div class="paragraph"><p>This function  closes a socket.  On Unix, it&#8217;s an alias for close(); on
+Windows, it calls closesocket().   (You can&#8217;t use close() on sockets
+on Windows, and nobody else defines a closesocket().)</p></div>
+<div class="paragraph"><p>The evutil_closesocket function was introduced in Libevent 2.0.5-alpha.
+Before then, you needed to call the EVUTIL_CLOSESOCKET macro.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EVUTIL_SOCKET_ERROR()
+#define EVUTIL_SET_SOCKET_ERROR(errcode)
+#define evutil_socket_geterror(sock)
+#define evutil_socket_error_to_string(errcode)</code></pre>
+</div></div>
+<div class="paragraph"><p>These macros access and manipulate socket error codes.
+EVUTIL_SOCKET_ERROR() returns the global error code for the last
+socket operation from this thread, and evutil_socket_geterror() does
+so for a particular socket.  (Both are errno on Unix-like systems.)
+EVUTIL_SET_SOCKET_ERROR() changes the current socket error code (like
+setting errno on Unix), and evutil_socket_error_to_string() returns a
+string representation of a given socket error code (like strerror() on
+Unix).</p></div>
+<div class="paragraph"><p>(We need these functions because Windows doesn&#8217;t use errno
+for errors from socket functions, but instead uses WSAGetLastError().)</p></div>
+<div class="paragraph"><p>Note that the Windows socket errors are not the same as the standard-C
+errors you would see in errno; watch out.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_make_socket_nonblocking(evutil_socket_t sock);</code></pre>
+</div></div>
+<div class="paragraph"><p>Even the call you need to do nonblocking IO on a socket is not portable to
+Windows.  The evutil_make_socket_nonblocking() function takes a new socket
+(from socket() or accept()) and turns it into a nonblocking socket.  (It sets
+O_NONBLOCK on Unix and FIONBIO on Windows.)</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_make_listen_socket_reuseable(evutil_socket_t sock);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function makes sure that the address used by a listener socket
+will be available to another socket immediately after the socket is
+closed.  (It sets SO_REUSEADDR on Unix and does nothing on Windows.
+You don&#8217;t want to use SO_REUSEADDR on Windows; it means something
+different there.)</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_make_socket_closeonexec(evutil_socket_t sock);</code></pre>
+</div></div>
+<div class="paragraph"><p>This call tells the operating system that this socket should be closed
+if we ever call exec().  It sets the FD_CLOEXEC flag on Unix, and does
+nothing on Windows.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_socketpair(<strong>int</strong> family, <strong>int</strong> type, <strong>int</strong> protocol,
+        evutil_socket_t sv[2]);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function behaves as the Unix socketpair() call: it makes two
+sockets that are connected with each other and can be used with
+ordinary socket IO calls.  It stores the two sockets in sv[0] and
+sv[1], and returns 0 for success and -1 for failure.</p></div>
+<div class="paragraph"><p>On Windows, this only supports family AF_INET, type SOCK_STREAM, and
+protocol 0.  Note that this can fail on some Windows hosts where
+firewall software has cleverly firewalled 127.0.0.1 to keep the host
+from talking to itself.</p></div>
+<div class="paragraph"><p>These functions were introduced in Libevent 1.4.0-beta, except for
+evutil_make_socket_closeonexec(), which was new in Libevent 2.0.4-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_portable_string_manipulation_functions">Portable string manipulation functions</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>ev_int64_t evutil_strtoll(<strong>const</strong> <strong>char</strong> *s, <strong>char</strong> **endptr, <strong>int</strong> base);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function behaves as strtol, but handles 64-bit integers.  On some
+platforms, it only supports Base 10.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_snprintf(<strong>char</strong> *buf, size_t buflen, <strong>const</strong> <strong>char</strong> *format, ...);
+<strong>int</strong> evutil_vsnprintf(<strong>char</strong> *buf, size_t buflen, <strong>const</strong> <strong>char</strong> *format, va_list ap);</code></pre>
+</div></div>
+<div class="paragraph"><p>These snprintf-replacement functions behave as the standard snprintf
+and vsnprintf interfaces.  They return the number of bytes that would
+have been written into the buffer had it been long enough, not
+counting the terminating NUL byte.  (This behavior conforms to the C99
+snprintf() standard, and is in contrast to the Windows _snprintf(),
+which returns a negative number if the string would not fit in the buffer.)</p></div>
+<div class="paragraph"><p>The evutil_strtoll() function has been in Libevent since 1.4.2-rc.
+These other functions first appeared in version 1.4.5.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_locale_independent_string_manipulation_functions">Locale-independent string manipulation functions</h3>
+<div class="paragraph"><p>Sometimes, when implementing ASCII-based protocols, you want to manipulate
+strings according to ASCII&#8217;s notion of character type, regardless of your
+current locale.  Libevent provides a few functions to help with this:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_ascii_strcasecmp(<strong>const</strong> <strong>char</strong> *str1, <strong>const</strong> <strong>char</strong> *str2);
+<strong>int</strong> evutil_ascii_strncasecmp(<strong>const</strong> <strong>char</strong> *str1, <strong>const</strong> <strong>char</strong> *str2, size_t n);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions behave as strcasecmp() and strncasecmp(), except that they
+always compare using the ASCII character set, regardless of the current
+locale.  The evutil_ascii_str[n]casecmp() functions were first exposed in
+Libevent 2.0.3-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_ipv6_helper_and_portability_functions">IPv6 helper and portability functions</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>const</strong> <strong>char</strong> *evutil_inet_ntop(<strong>int</strong> af, <strong>const</strong> <strong>void</strong> *src, <strong>char</strong> *dst, size_t len);
+<strong>int</strong> evutil_inet_pton(<strong>int</strong> af, <strong>const</strong> <strong>char</strong> *src, <strong>void</strong> *dst);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions behave as the standard inet_ntop() and inet_pton()
+functions for parsing and formatting IPv4 and IPv6 addresses, as
+specified in RFC3493.  That is, to format an IPv4 address, you call
+evutil_inet_ntop() with <em>af</em> set to AF_INET, <em>src</em> pointing to a struct
+in_addr, and <em>dst</em> pointing to a character buffer of size <em>len</em>.  For an
+IPv6 address, <em>af</em> is AF_INET6 and <em>src</em> is a struct in6_addr.  To parse
+an IPv4 address, call evutil_inet_pton() with <em>af</em> set to AF_INET or
+AF_INET6, the string to parse in <em>src</em>, and <em>dst</em> pointing to an in_addr
+or an in_addr6 as appropriate.</p></div>
+<div class="paragraph"><p>The return value from evutil_inet_ntop() is NULL on failure and
+otherwise points to dst.  The return value from evutil_inet_pton() is 0
+on success and -1 on failure.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_parse_sockaddr_port(<strong>const</strong> <strong>char</strong> *str, <strong>struct</strong> sockaddr *out,
+    <strong>int</strong> *outlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function parses an address from <em>str</em> and writes the result to
+<em>out</em>.  The <em>outlen</em> argument must point to an integer holding the
+number of bytes available in <em>out</em>; it is altered to hold the number
+of bytes actually used.  This function returns 0 on success and -1 on
+failure.  It recognizes the following address formats:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+[ipv6]:port (as in "[ffff::]:80")
+</p>
+</li>
+<li>
+<p>
+ipv6 (as in "ffff::")
+</p>
+</li>
+<li>
+<p>
+[ipv6] (as in "[ffff::]")
+</p>
+</li>
+<li>
+<p>
+ipv4:port (as in "1.2.3.4:80")
+</p>
+</li>
+<li>
+<p>
+ipv4 (as in "1.2.3.4")
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If no port is given, the port in the resulting sockaddr is set to 0.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_sockaddr_cmp(<strong>const</strong> <strong>struct</strong> sockaddr *sa1,
+    <strong>const</strong> <strong>struct</strong> sockaddr *sa2, <strong>int</strong> include_port);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evutil_sockaddr_cmp() function compares two addresses, and returns
+negative if sa1 precedes sa2, 0 if they are equal, and positive if sa2
+precedes sa1.  It works for AF_INET and AF_INET6 addresses, and returns
+undefined output for other addresses.  It&#8217;s guaranteed to give a total order
+for these addresses, but the ordering may change between Libevent
+versions.</p></div>
+<div class="paragraph"><p>If the <em>include_port</em> argument is false, then two sockaddrs are treated
+as equal if they differ only in their port.  Otherwise, sockaddrs with
+different ports are treated as unequal.</p></div>
+<div class="paragraph"><p>These functions were introduced in Libevent 2.0.1-alpha, except for
+evutil_sockaddr_cmp(), which introduced in 2.0.3-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_structure_macro_portability_functions">Structure macro portability functions</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evutil_offsetof(type, field) /* ... */</code></pre>
+</div></div>
+<div class="paragraph"><p>As the standard offsetof macro, this macro yields the number of bytes from
+the start of <em>type</em> at which <em>field</em> occurs.</p></div>
+<div class="paragraph"><p>This macro was introduced in Libevent 2.0.1-alpha.  It was buggy in every
+version before Libevent 2.0.3-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_secure_random_number_generator">Secure random number generator</h3>
+<div class="paragraph"><p>Many applications (including evdns) need a source of hard-to-predict random
+numbers for their security.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> evutil_secure_rng_get_bytes(<strong>void</strong> *buf, size_t n);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function fills n-byte buffer at <em>buf</em> with <em>n</em> bytes of random data.</p></div>
+<div class="paragraph"><p>If your platform provides the arc4random() function, Libevent uses that.
+Otherwise, it uses its own implementation of arc4random(), seeded by your
+operating system&#8217;s entropy pool (CryptGenRandom on Windows, /dev/urandom
+everywhere else).</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evutil_secure_rng_init(<strong>void</strong>);
+<strong>void</strong> evutil_secure_rng_add_bytes(<strong>const</strong> <strong>char</strong> *dat, size_t datlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>You do not need to manually initialize the secure random number
+generator, but if you want to make sure it is successfully
+initialized, you can do so by calling evutil_secure_rng_init().  It
+seeds the RNG (if it was not already seeded) and returns 0 on success.
+If it returns -1, Libevent wasn&#8217;t able to find a good source of
+entropy on your OS, and you can&#8217;t use the RNG safely without
+initializing it yourself.</p></div>
+<div class="paragraph"><p>If you are running in an environment where your program is likely to drop
+privileges (for example, by running chroot()), you should call
+evutil_secure_rng_init() before you do so.</p></div>
+<div class="paragraph"><p>You can add more random bytes to the entropy pool yourself by calling
+evutil_secure_rng_add_bytes(); this shouldn&#8217;t be necessary in typical
+use.</p></div>
+<div class="paragraph"><p>These functions are new in Libevent 2.0.4-alpha.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>

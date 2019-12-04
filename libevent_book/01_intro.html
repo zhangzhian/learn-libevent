@@ -1,0 +1,1801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_a_tiny_introduction_to_asynchronous_io">A tiny introduction to asynchronous IO</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Most beginning programmers start with blocking IO calls.
+An IO call is <em>synchronous</em> if, when you call it, it does not return
+until the operation is completed, or until enough time
+has passed that your network stack gives up.  When you call "connect()" on a TCP
+connection, for example, your operating system queues a SYN packet to
+the host on the other side of the TCP connection.  It does not return
+control back to your application until either it has received a SYN ACK
+packet from the opposite host, or until enough time has passed that it
+decides to give up.</p></div>
+<div class="paragraph"><p>Here&#8217;s an example of a really simple client using blocking network
+calls.  It opens a connection to www.google.com, sends it a simple
+HTTP request, and prints the response to stdout.</p></div>
+<div class="listingblock">
+<div class="title">Example: A simple blocking HTTP client</div>
+<div class="content">
+<pre><code><i>/* For sockaddr_in */</i>
+#include &lt;netinet/in.h&gt;
+<i>/* For socket functions */</i>
+#include &lt;sys/socket.h&gt;
+<i>/* For gethostbyname */</i>
+#include &lt;netdb.h&gt;
+
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+
+<strong>int</strong> main(<strong>int</strong> c, <strong>char</strong> **v)
+{
+    <strong>const</strong> <strong>char</strong> query[] =
+        "GET / HTTP/1.0\r\n"
+        "Host: www.google.com\r\n"
+        "\r\n";
+    <strong>const</strong> <strong>char</strong> hostname[] = "www.google.com";
+    <strong>struct</strong> sockaddr_in sin;
+    <strong>struct</strong> hostent *h;
+    <strong>const</strong> <strong>char</strong> *cp;
+    <strong>int</strong> fd;
+    ssize_t n_written, remaining;
+    <strong>char</strong> buf[1024];
+
+<i>    /* Look up the IP address for the hostname.   Watch out; this isn't</i>
+<i>       threadsafe on most platforms. */</i>
+    h = gethostbyname(hostname);
+    <strong>if</strong> (!h) {
+        fprintf(stderr, "Couldn't lookup %s: %s", hostname, hstrerror(h_errno));
+        <strong>return</strong> 1;
+    }
+    <strong>if</strong> (h-&gt;h_addrtype != AF_INET) {
+        fprintf(stderr, "No ipv6 support, sorry.");
+        <strong>return</strong> 1;
+    }
+
+<i>    /* Allocate a new socket */</i>
+    fd = socket(AF_INET, SOCK_STREAM, 0);
+    <strong>if</strong> (fd &lt; 0) {
+        perror("socket");
+        <strong>return</strong> 1;
+    }
+
+<i>    /* Connect to the remote host. */</i>
+    sin.sin_family = AF_INET;
+    sin.sin_port = htons(80);
+    sin.sin_addr = *(<strong>struct</strong> in_addr*)h-&gt;h_addr;
+    <strong>if</strong> (connect(fd, (<strong>struct</strong> sockaddr*) &amp;sin, <strong>sizeof</strong>(sin))) {
+        perror("connect");
+        close(fd);
+        <strong>return</strong> 1;
+    }
+
+<i>    /* Write the query. */</i>
+<i>    /* XXX Can send succeed partially? */</i>
+    cp = query;
+    remaining = strlen(query);
+    <strong>while</strong> (remaining) {
+      n_written = send(fd, cp, remaining, 0);
+      <strong>if</strong> (n_written &lt;= 0) {
+        perror("send");
+        <strong>return</strong> 1;
+      }
+      remaining -= n_written;
+      cp += n_written;
+    }
+
+<i>    /* Get an answer back. */</i>
+    <strong>while</strong> (1) {
+        ssize_t result = recv(fd, buf, <strong>sizeof</strong>(buf), 0);
+        <strong>if</strong> (result == 0) {
+            <strong>break</strong>;
+        } <strong>else</strong> <strong>if</strong> (result &lt; 0) {
+            perror("recv");
+            close(fd);
+            <strong>return</strong> 1;
+        }
+        fwrite(buf, 1, result, stdout);
+    }
+
+    close(fd);
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>All of the network calls in the code above are <em>blocking</em>: the
+gethostbyname does not return until it has succeeded or failed in
+resolving www.google.com; the connect does not return until it has
+connected; the recv calls do not return until they have received data
+or a close; and the send call does not return until it has at least
+flushed its output to the kernel&#8217;s write buffers.</p></div>
+<div class="paragraph"><p>Now, blocking IO is not necessarily evil.  If there&#8217;s nothing else you
+wanted your program to do in the meantime, blocking IO will work fine
+for you.  But suppose that you need to write a program to handle
+multiple connections at once.  To make our example concrete: suppose
+that you want to read input from two connections, and you don&#8217;t know
+which connection will get input first.  You can&#8217;t say</p></div>
+<div class="listingblock">
+<div class="title">Bad Example</div>
+<div class="content">
+<pre><code><i>/* This won't work. */</i>
+<strong>char</strong> buf[1024];
+<strong>int</strong> i, n;
+<strong>while</strong> (i_still_want_to_read()) {
+    <strong>for</strong> (i=0; i&lt;n_sockets; ++i) {
+        n = recv(fd[i], buf, <strong>sizeof</strong>(buf), 0);
+        <strong>if</strong> (n==0)
+            handle_close(fd[i]);
+        <strong>else</strong> <strong>if</strong> (n&lt;0)
+            handle_error(fd[i], errno);
+        <strong>else</strong>
+            handle_input(fd[i], buf, n);
+    }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>because if data arrives on fd[2] first, your program won&#8217;t even try
+reading from fd[2] until the reads from fd[0] and fd[1] have gotten some
+data and finished.</p></div>
+<div class="paragraph"><p>Sometimes people solve this problem with multithreading, or with
+multi-process servers.  One of the simplest ways to do multithreading
+is with a separate process (or thread) to deal with each connection.
+Since each connection has its own process, a blocking IO call that
+waits for one connection won&#8217;t make any of the other connections'
+processes block.</p></div>
+<div class="paragraph"><p>Here&#8217;s another example program.  It is a trivial server that listens
+for TCP connections on port 40713, reads data from its input one line
+at a time, and writes out the ROT13 obfuscation of line each as it
+arrives.  It uses the Unix fork() call to create a new process for
+each incoming connection.</p></div>
+<div class="listingblock">
+<div class="title">Example: Forking ROT13 server</div>
+<div class="content">
+<pre><code><i>/* For sockaddr_in */</i>
+#include &lt;netinet/in.h&gt;
+<i>/* For socket functions */</i>
+#include &lt;sys/socket.h&gt;
+
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_LINE 16384
+
+<strong>char</strong>
+rot13_char(<strong>char</strong> c)
+{
+<i>    /* We don't want to use isalpha here; setting the locale would change</i>
+<i>     * which characters are considered alphabetical. */</i>
+    <strong>if</strong> ((c &gt;= 'a' &amp;&amp; c &lt;= 'm') || (c &gt;= 'A' &amp;&amp; c &lt;= 'M'))
+        <strong>return</strong> c + 13;
+    <strong>else</strong> <strong>if</strong> ((c &gt;= 'n' &amp;&amp; c &lt;= 'z') || (c &gt;= 'N' &amp;&amp; c &lt;= 'Z'))
+        <strong>return</strong> c - 13;
+    <strong>else</strong>
+        <strong>return</strong> c;
+}
+
+<strong>void</strong>
+child(<strong>int</strong> fd)
+{
+    <strong>char</strong> outbuf[MAX_LINE+1];
+    size_t outbuf_used = 0;
+    ssize_t result;
+
+    <strong>while</strong> (1) {
+        <strong>char</strong> ch;
+        result = recv(fd, &amp;ch, 1, 0);
+        <strong>if</strong> (result == 0) {
+            <strong>break</strong>;
+        } <strong>else</strong> <strong>if</strong> (result == -1) {
+            perror("read");
+            <strong>break</strong>;
+        }
+
+<i>        /* We do this test to keep the user from overflowing the buffer. */</i>
+        <strong>if</strong> (outbuf_used &lt; <strong>sizeof</strong>(outbuf)) {
+            outbuf[outbuf_used++] = rot13_char(ch);
+        }
+
+        <strong>if</strong> (ch == '\n') {
+            send(fd, outbuf, outbuf_used, 0);
+            outbuf_used = 0;
+            <strong>continue</strong>;
+        }
+    }
+}
+
+<strong>void</strong>
+run(<strong>void</strong>)
+{
+    <strong>int</strong> listener;
+    <strong>struct</strong> sockaddr_in sin;
+
+    sin.sin_family = AF_INET;
+    sin.sin_addr.s_addr = 0;
+    sin.sin_port = htons(40713);
+
+    listener = socket(AF_INET, SOCK_STREAM, 0);
+
+#ifndef WIN32
+    {
+        <strong>int</strong> one = 1;
+        setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &amp;one, <strong>sizeof</strong>(one));
+    }
+#endif
+
+    <strong>if</strong> (bind(listener, (<strong>struct</strong> sockaddr*)&amp;sin, <strong>sizeof</strong>(sin)) &lt; 0) {
+        perror("bind");
+        <strong>return</strong>;
+    }
+
+    <strong>if</strong> (listen(listener, 16)&lt;0) {
+        perror("listen");
+        <strong>return</strong>;
+    }
+
+
+
+    <strong>while</strong> (1) {
+        <strong>struct</strong> sockaddr_storage ss;
+        socklen_t slen = <strong>sizeof</strong>(ss);
+        <strong>int</strong> fd = accept(listener, (<strong>struct</strong> sockaddr*)&amp;ss, &amp;slen);
+        <strong>if</strong> (fd &lt; 0) {
+            perror("accept");
+        } <strong>else</strong> {
+            <strong>if</strong> (fork() == 0) {
+                child(fd);
+                exit(0);
+            }
+        }
+    }
+}
+
+<strong>int</strong>
+main(<strong>int</strong> c, <strong>char</strong> **v)
+{
+    run();
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>So, do we have the perfect solution for handling multiple connections
+at once?  Can I stop writing this book and go work on something else
+now?  Not quite.  First off, process creation (and even thread
+creation) can be pretty expensive on some platforms.  In real life,
+you&#8217;d want to use a thread pool instead of creating new processes.
+But more fundamentally, threads won&#8217;t scale as much as you&#8217;d like.  If
+your program needs to handle thousands or tens of thousands of
+connections at a time, dealing with tens of thousands of threads will
+not be as efficient as trying to have only a few threads per CPU.</p></div>
+<div class="paragraph"><p>But if threading isn&#8217;t the answer to having multiple connections, what is?
+In the Unix paradigm, you make your sockets <em>nonblocking</em>.  The Unix
+call to do this is:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>fcntl(fd, F_SETFL, O_NONBLOCK);</code></pre>
+</div></div>
+<div class="paragraph"><p>where fd is the file descriptor for the socket.  <span class="footnote"><br />[A file descriptor is
+the number the kernel assigns to the socket when you open it. You use
+this number to make Unix calls referring to the socket.]<br /></span>  Once you&#8217;ve
+made fd (the socket) nonblocking, from then on, whenever you make a
+network call to fd the call will either complete the operation
+immediately or return with a special error code to indicate "I
+couldn&#8217;t make any progress now, try again."  So our two-socket example
+might be naively written as:</p></div>
+<div class="listingblock">
+<div class="title">Bad Example: busy-polling all sockets</div>
+<div class="content">
+<pre><code><i>/* This will work, but the performance will be unforgivably bad. */</i>
+<strong>int</strong> i, n;
+<strong>char</strong> buf[1024];
+<strong>for</strong> (i=0; i &lt; n_sockets; ++i)
+    fcntl(fd[i], F_SETFL, O_NONBLOCK);
+
+<strong>while</strong> (i_still_want_to_read()) {
+    <strong>for</strong> (i=0; i &lt; n_sockets; ++i) {
+        n = recv(fd[i], buf, <strong>sizeof</strong>(buf), 0);
+        <strong>if</strong> (n == 0) {
+            handle_close(fd[i]);
+        } <strong>else</strong> <strong>if</strong> (n &lt; 0) {
+            <strong>if</strong> (errno == EAGAIN)
+                 ; /* The kernel didn't have any data <strong>for</strong> us to read. */
+            <strong>else</strong>
+                 handle_error(fd[i], errno);
+         } <strong>else</strong> {
+            handle_input(fd[i], buf, n);
+         }
+    }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Now that we&#8217;re using nonblocking sockets, the code above would
+<em>work</em>&#8230; but only barely.  The performance will be awful, for two
+reasons.  First, when there is no data to read on either connection
+the loop will spin indefinitely, using up all your CPU cycles.
+Second, if you try to handle more than one or two connections with
+this approach you&#8217;ll do a kernel call for each one, whether it has
+any data for you or not.  So what we need is a way to tell the kernel
+"wait until one of these sockets is ready to give me some data, and
+tell me which ones are ready."</p></div>
+<div class="paragraph"><p>The oldest solution that people still use for this problem is
+select().  The select() call takes three sets of fds (implemented as
+bit arrays): one for reading, one for writing, and one for
+"exceptions".  It waits until a socket from one of the sets is ready
+and alters the sets to contain only the sockets ready for use.</p></div>
+<div class="paragraph"><p>Here is our example again, using select:</p></div>
+<div class="listingblock">
+<div class="title">Example: Using select</div>
+<div class="content">
+<pre><code><i>/* If you only have a couple dozen fds, this version won't be awful */</i>
+fd_set readset;
+<strong>int</strong> i, n;
+<strong>char</strong> buf[1024];
+
+<strong>while</strong> (i_still_want_to_read()) {
+    <strong>int</strong> maxfd = -1;
+    FD_ZERO(&amp;readset);
+
+<i>    /* Add all of the interesting fds to readset */</i>
+    <strong>for</strong> (i=0; i &lt; n_sockets; ++i) {
+         <strong>if</strong> (fd[i]&gt;maxfd) maxfd = fd[i];
+         FD_SET(fd[i], &amp;readset);
+    }
+
+<i>    /* Wait until one or more fds are ready to read */</i>
+    select(maxfd+1, &amp;readset, NULL, NULL, NULL);
+
+<i>    /* Process all of the fds that are still set in readset */</i>
+    <strong>for</strong> (i=0; i &lt; n_sockets; ++i) {
+        <strong>if</strong> (FD_ISSET(fd[i], &amp;readset)) {
+            n = recv(fd[i], buf, <strong>sizeof</strong>(buf), 0);
+            <strong>if</strong> (n == 0) {
+                handle_close(fd[i]);
+            } <strong>else</strong> <strong>if</strong> (n &lt; 0) {
+                <strong>if</strong> (errno == EAGAIN)
+                     ; /* The kernel didn't have any data <strong>for</strong> us to read. */
+                <strong>else</strong>
+                     handle_error(fd[i], errno);
+             } <strong>else</strong> {
+                handle_input(fd[i], buf, n);
+             }
+        }
+    }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>And here&#8217;s a reimplementation of our ROT13 server, using select() this
+time.</p></div>
+<div class="listingblock">
+<div class="title">Example: select()-based ROT13 server</div>
+<div class="content">
+<pre><code><i>/* For sockaddr_in */</i>
+#include &lt;netinet/in.h&gt;
+<i>/* For socket functions */</i>
+#include &lt;sys/socket.h&gt;
+<i>/* For fcntl */</i>
+#include &lt;fcntl.h&gt;
+<i>/* for select */</i>
+#include &lt;sys/select.h&gt;
+
+#include &lt;assert.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+
+#define MAX_LINE 16384
+
+<strong>char</strong>
+rot13_char(<strong>char</strong> c)
+{
+<i>    /* We don't want to use isalpha here; setting the locale would change</i>
+<i>     * which characters are considered alphabetical. */</i>
+    <strong>if</strong> ((c &gt;= 'a' &amp;&amp; c &lt;= 'm') || (c &gt;= 'A' &amp;&amp; c &lt;= 'M'))
+        <strong>return</strong> c + 13;
+    <strong>else</strong> <strong>if</strong> ((c &gt;= 'n' &amp;&amp; c &lt;= 'z') || (c &gt;= 'N' &amp;&amp; c &lt;= 'Z'))
+        <strong>return</strong> c - 13;
+    <strong>else</strong>
+        <strong>return</strong> c;
+}
+
+<strong>struct</strong> fd_state {
+    <strong>char</strong> buffer[MAX_LINE];
+    size_t buffer_used;
+
+    <strong>int</strong> writing;
+    size_t n_written;
+    size_t write_upto;
+};
+
+<strong>struct</strong> fd_state *
+alloc_fd_state(<strong>void</strong>)
+{
+    <strong>struct</strong> fd_state *state = malloc(<strong>sizeof</strong>(<strong>struct</strong> fd_state));
+    <strong>if</strong> (!state)
+        <strong>return</strong> NULL;
+    state-&gt;buffer_used = state-&gt;n_written = state-&gt;writing =
+        state-&gt;write_upto = 0;
+    <strong>return</strong> state;
+}
+
+<strong>void</strong>
+free_fd_state(<strong>struct</strong> fd_state *state)
+{
+    free(state);
+}
+
+<strong>void</strong>
+make_nonblocking(<strong>int</strong> fd)
+{
+    fcntl(fd, F_SETFL, O_NONBLOCK);
+}
+
+<strong>int</strong>
+do_read(<strong>int</strong> fd, <strong>struct</strong> fd_state *state)
+{
+    <strong>char</strong> buf[1024];
+    <strong>int</strong> i;
+    ssize_t result;
+    <strong>while</strong> (1) {
+        result = recv(fd, buf, <strong>sizeof</strong>(buf), 0);
+        <strong>if</strong> (result &lt;= 0)
+            <strong>break</strong>;
+
+        <strong>for</strong> (i=0; i &lt; result; ++i)  {
+            <strong>if</strong> (state-&gt;buffer_used &lt; <strong>sizeof</strong>(state-&gt;buffer))
+                state-&gt;buffer[state-&gt;buffer_used++] = rot13_char(buf[i]);
+            <strong>if</strong> (buf[i] == '\n') {
+                state-&gt;writing = 1;
+                state-&gt;write_upto = state-&gt;buffer_used;
+            }
+        }
+    }
+
+    <strong>if</strong> (result == 0) {
+        <strong>return</strong> 1;
+    } <strong>else</strong> <strong>if</strong> (result &lt; 0) {
+        <strong>if</strong> (errno == EAGAIN)
+            <strong>return</strong> 0;
+        <strong>return</strong> -1;
+    }
+
+    <strong>return</strong> 0;
+}
+
+<strong>int</strong>
+do_write(<strong>int</strong> fd, <strong>struct</strong> fd_state *state)
+{
+    <strong>while</strong> (state-&gt;n_written &lt; state-&gt;write_upto) {
+        ssize_t result = send(fd, state-&gt;buffer + state-&gt;n_written,
+                              state-&gt;write_upto - state-&gt;n_written, 0);
+        <strong>if</strong> (result &lt; 0) {
+            <strong>if</strong> (errno == EAGAIN)
+                <strong>return</strong> 0;
+            <strong>return</strong> -1;
+        }
+        assert(result != 0);
+
+        state-&gt;n_written += result;
+    }
+
+    <strong>if</strong> (state-&gt;n_written == state-&gt;buffer_used)
+        state-&gt;n_written = state-&gt;write_upto = state-&gt;buffer_used = 0;
+
+    state-&gt;writing = 0;
+
+    <strong>return</strong> 0;
+}
+
+<strong>void</strong>
+run(<strong>void</strong>)
+{
+    <strong>int</strong> listener;
+    <strong>struct</strong> fd_state *state[FD_SETSIZE];
+    <strong>struct</strong> sockaddr_in sin;
+    <strong>int</strong> i, maxfd;
+    fd_set readset, writeset, exset;
+
+    sin.sin_family = AF_INET;
+    sin.sin_addr.s_addr = 0;
+    sin.sin_port = htons(40713);
+
+    <strong>for</strong> (i = 0; i &lt; FD_SETSIZE; ++i)
+        state[i] = NULL;
+
+    listener = socket(AF_INET, SOCK_STREAM, 0);
+    make_nonblocking(listener);
+
+#ifndef WIN32
+    {
+        <strong>int</strong> one = 1;
+        setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &amp;one, <strong>sizeof</strong>(one));
+    }
+#endif
+
+    <strong>if</strong> (bind(listener, (<strong>struct</strong> sockaddr*)&amp;sin, <strong>sizeof</strong>(sin)) &lt; 0) {
+        perror("bind");
+        <strong>return</strong>;
+    }
+
+    <strong>if</strong> (listen(listener, 16)&lt;0) {
+        perror("listen");
+        <strong>return</strong>;
+    }
+
+    FD_ZERO(&amp;readset);
+    FD_ZERO(&amp;writeset);
+    FD_ZERO(&amp;exset);
+
+    <strong>while</strong> (1) {
+        maxfd = listener;
+
+        FD_ZERO(&amp;readset);
+        FD_ZERO(&amp;writeset);
+        FD_ZERO(&amp;exset);
+
+        FD_SET(listener, &amp;readset);
+
+        <strong>for</strong> (i=0; i &lt; FD_SETSIZE; ++i) {
+            <strong>if</strong> (state[i]) {
+                <strong>if</strong> (i &gt; maxfd)
+                    maxfd = i;
+                FD_SET(i, &amp;readset);
+                <strong>if</strong> (state[i]-&gt;writing) {
+                    FD_SET(i, &amp;writeset);
+                }
+            }
+        }
+
+        <strong>if</strong> (select(maxfd+1, &amp;readset, &amp;writeset, &amp;exset, NULL) &lt; 0) {
+            perror("select");
+            <strong>return</strong>;
+        }
+
+        <strong>if</strong> (FD_ISSET(listener, &amp;readset)) {
+            <strong>struct</strong> sockaddr_storage ss;
+            socklen_t slen = <strong>sizeof</strong>(ss);
+            <strong>int</strong> fd = accept(listener, (<strong>struct</strong> sockaddr*)&amp;ss, &amp;slen);
+            <strong>if</strong> (fd &lt; 0) {
+                perror("accept");
+            } <strong>else</strong> <strong>if</strong> (fd &gt; FD_SETSIZE) {
+                close(fd);
+            } <strong>else</strong> {
+                make_nonblocking(fd);
+                state[fd] = alloc_fd_state();
+                assert(state[fd]);/*XXX*/
+            }
+        }
+
+        <strong>for</strong> (i=0; i &lt; maxfd+1; ++i) {
+            <strong>int</strong> r = 0;
+            <strong>if</strong> (i == listener)
+                <strong>continue</strong>;
+
+            <strong>if</strong> (FD_ISSET(i, &amp;readset)) {
+                r = do_read(i, state[i]);
+            }
+            <strong>if</strong> (r == 0 &amp;&amp; FD_ISSET(i, &amp;writeset)) {
+                r = do_write(i, state[i]);
+            }
+            <strong>if</strong> (r) {
+                free_fd_state(state[i]);
+                state[i] = NULL;
+                close(i);
+            }
+        }
+    }
+}
+
+<strong>int</strong>
+main(<strong>int</strong> c, <strong>char</strong> **v)
+{
+    setvbuf(stdout, NULL, _IONBF, 0);
+
+    run();
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>But we&#8217;re still not done.  Because generating and reading the select()
+bit arrays takes time proportional to the largest fd that you provided
+for select(), the select() call scales terribly when the number of
+sockets is high.  <span class="footnote"><br />[On the userspace side, generating and
+reading the bit arrays can be made to take time proportional to the
+number of fds that you provided for select().  But on the kernel side,
+reading the bit arrays takes time proportional to the largest fd in the
+bit array, which tends to be around <em>the total number of fds in use in
+the whole program</em>, regardless of how many fds are added to the sets in
+select().]<br /></span></p></div>
+<div class="paragraph"><p>Different operating systems have provided different replacement
+functions for select.  These include poll(), epoll(), kqueue(),
+evports, and /dev/poll.  All of these give better performance than
+select(), and all but poll() give O(1) performance for adding a socket,
+removing a socket, and for noticing
+that a socket is ready for IO.</p></div>
+<div class="paragraph"><p>Unfortunately, none of the efficient interfaces is a ubiquitous
+standard.  Linux has epoll(), the BSDs (including Darwin) have
+kqueue(), Solaris has evports and /dev/poll&#8230; <em>and none of these
+operating systems has any of the others</em>.  So if you want to write a
+portable high-performance asynchronous application, you&#8217;ll need an
+abstraction that wraps all of these interfaces, and provides whichever
+one of them is the most efficient.</p></div>
+<div class="paragraph"><p>And that&#8217;s what the lowest level of the Libevent API does for you.  It
+provides a consistent interface to various select() replacements,
+using the most efficient version available on the computer where it&#8217;s
+running.</p></div>
+<div class="paragraph"><p>Here&#8217;s yet another version of our asynchronous ROT13 server.  This
+time, it uses Libevent 2 instead of select().  Note that the fd_sets
+are gone now: instead, we associate and disassociate events with a
+struct event_base, which might be implemented in terms of select(),
+poll(), epoll(), kqueue(), etc.</p></div>
+<div class="listingblock">
+<div class="title">Example: A low-level ROT13 server with Libevent</div>
+<div class="content">
+<pre><code><i>/* For sockaddr_in */</i>
+#include &lt;netinet/in.h&gt;
+<i>/* For socket functions */</i>
+#include &lt;sys/socket.h&gt;
+<i>/* For fcntl */</i>
+#include &lt;fcntl.h&gt;
+
+#include &lt;event2/event.h&gt;
+
+#include &lt;assert.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+
+#define MAX_LINE 16384
+
+<strong>void</strong> do_read(evutil_socket_t fd, <strong>short</strong> events, <strong>void</strong> *arg);
+<strong>void</strong> do_write(evutil_socket_t fd, <strong>short</strong> events, <strong>void</strong> *arg);
+
+<strong>char</strong>
+rot13_char(<strong>char</strong> c)
+{
+<i>    /* We don't want to use isalpha here; setting the locale would change</i>
+<i>     * which characters are considered alphabetical. */</i>
+    <strong>if</strong> ((c &gt;= 'a' &amp;&amp; c &lt;= 'm') || (c &gt;= 'A' &amp;&amp; c &lt;= 'M'))
+        <strong>return</strong> c + 13;
+    <strong>else</strong> <strong>if</strong> ((c &gt;= 'n' &amp;&amp; c &lt;= 'z') || (c &gt;= 'N' &amp;&amp; c &lt;= 'Z'))
+        <strong>return</strong> c - 13;
+    <strong>else</strong>
+        <strong>return</strong> c;
+}
+
+<strong>struct</strong> fd_state {
+    <strong>char</strong> buffer[MAX_LINE];
+    size_t buffer_used;
+
+    size_t n_written;
+    size_t write_upto;
+
+    <strong>struct</strong> event *read_event;
+    <strong>struct</strong> event *write_event;
+};
+
+<strong>struct</strong> fd_state *
+alloc_fd_state(<strong>struct</strong> event_base *base, evutil_socket_t fd)
+{
+    <strong>struct</strong> fd_state *state = malloc(<strong>sizeof</strong>(<strong>struct</strong> fd_state));
+    <strong>if</strong> (!state)
+        <strong>return</strong> NULL;
+    state-&gt;read_event = event_new(base, fd, EV_READ|EV_PERSIST, do_read, state);
+    <strong>if</strong> (!state-&gt;read_event) {
+        free(state);
+        <strong>return</strong> NULL;
+    }
+    state-&gt;write_event =
+        event_new(base, fd, EV_WRITE|EV_PERSIST, do_write, state);
+
+    <strong>if</strong> (!state-&gt;write_event) {
+        event_free(state-&gt;read_event);
+        free(state);
+        <strong>return</strong> NULL;
+    }
+
+    state-&gt;buffer_used = state-&gt;n_written = state-&gt;write_upto = 0;
+
+    assert(state-&gt;write_event);
+    <strong>return</strong> state;
+}
+
+<strong>void</strong>
+free_fd_state(<strong>struct</strong> fd_state *state)
+{
+    event_free(state-&gt;read_event);
+    event_free(state-&gt;write_event);
+    free(state);
+}
+
+<strong>void</strong>
+do_read(evutil_socket_t fd, <strong>short</strong> events, <strong>void</strong> *arg)
+{
+    <strong>struct</strong> fd_state *state = arg;
+    <strong>char</strong> buf[1024];
+    <strong>int</strong> i;
+    ssize_t result;
+    <strong>while</strong> (1) {
+        assert(state-&gt;write_event);
+        result = recv(fd, buf, <strong>sizeof</strong>(buf), 0);
+        <strong>if</strong> (result &lt;= 0)
+            <strong>break</strong>;
+
+        <strong>for</strong> (i=0; i &lt; result; ++i)  {
+            <strong>if</strong> (state-&gt;buffer_used &lt; <strong>sizeof</strong>(state-&gt;buffer))
+                state-&gt;buffer[state-&gt;buffer_used++] = rot13_char(buf[i]);
+            <strong>if</strong> (buf[i] == '\n') {
+                assert(state-&gt;write_event);
+                event_add(state-&gt;write_event, NULL);
+                state-&gt;write_upto = state-&gt;buffer_used;
+            }
+        }
+    }
+
+    <strong>if</strong> (result == 0) {
+        free_fd_state(state);
+    } <strong>else</strong> <strong>if</strong> (result &lt; 0) {
+        <strong>if</strong> (errno == EAGAIN) <i>// XXXX use evutil macro</i>
+            <strong>return</strong>;
+        perror("recv");
+        free_fd_state(state);
+    }
+}
+
+<strong>void</strong>
+do_write(evutil_socket_t fd, <strong>short</strong> events, <strong>void</strong> *arg)
+{
+    <strong>struct</strong> fd_state *state = arg;
+
+    <strong>while</strong> (state-&gt;n_written &lt; state-&gt;write_upto) {
+        ssize_t result = send(fd, state-&gt;buffer + state-&gt;n_written,
+                              state-&gt;write_upto - state-&gt;n_written, 0);
+        <strong>if</strong> (result &lt; 0) {
+            <strong>if</strong> (errno == EAGAIN) <i>// XXX use evutil macro</i>
+                <strong>return</strong>;
+            free_fd_state(state);
+            <strong>return</strong>;
+        }
+        assert(result != 0);
+
+        state-&gt;n_written += result;
+    }
+
+    <strong>if</strong> (state-&gt;n_written == state-&gt;buffer_used)
+        state-&gt;n_written = state-&gt;write_upto = state-&gt;buffer_used = 1;
+
+    event_del(state-&gt;write_event);
+}
+
+<strong>void</strong>
+do_accept(evutil_socket_t listener, <strong>short</strong> event, <strong>void</strong> *arg)
+{
+    <strong>struct</strong> event_base *base = arg;
+    <strong>struct</strong> sockaddr_storage ss;
+    socklen_t slen = <strong>sizeof</strong>(ss);
+    <strong>int</strong> fd = accept(listener, (<strong>struct</strong> sockaddr*)&amp;ss, &amp;slen);
+    <strong>if</strong> (fd &lt; 0) { <i>// XXXX eagain??</i>
+        perror("accept");
+    } <strong>else</strong> <strong>if</strong> (fd &gt; FD_SETSIZE) {
+        close(fd); <i>// XXX replace all closes with EVUTIL_CLOSESOCKET */</i>
+    } <strong>else</strong> {
+        <strong>struct</strong> fd_state *state;
+        evutil_make_socket_nonblocking(fd);
+        state = alloc_fd_state(base, fd);
+        assert(state); /*XXX err*/
+        assert(state-&gt;write_event);
+        event_add(state-&gt;read_event, NULL);
+    }
+}
+
+<strong>void</strong>
+run(<strong>void</strong>)
+{
+    evutil_socket_t listener;
+    <strong>struct</strong> sockaddr_in sin;
+    <strong>struct</strong> event_base *base;
+    <strong>struct</strong> event *listener_event;
+
+    base = event_base_new();
+    <strong>if</strong> (!base)
+        <strong>return</strong>; /*XXXerr*/
+
+    sin.sin_family = AF_INET;
+    sin.sin_addr.s_addr = 0;
+    sin.sin_port = htons(40713);
+
+    listener = socket(AF_INET, SOCK_STREAM, 0);
+    evutil_make_socket_nonblocking(listener);
+
+#ifndef WIN32
+    {
+        <strong>int</strong> one = 1;
+        setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &amp;one, <strong>sizeof</strong>(one));
+    }
+#endif
+
+    <strong>if</strong> (bind(listener, (<strong>struct</strong> sockaddr*)&amp;sin, <strong>sizeof</strong>(sin)) &lt; 0) {
+        perror("bind");
+        <strong>return</strong>;
+    }
+
+    <strong>if</strong> (listen(listener, 16)&lt;0) {
+        perror("listen");
+        <strong>return</strong>;
+    }
+
+    listener_event = event_new(base, listener, EV_READ|EV_PERSIST, do_accept, (<strong>void</strong>*)base);
+<i>    /*XXX check it */</i>
+    event_add(listener_event, NULL);
+
+    event_base_dispatch(base);
+}
+
+<strong>int</strong>
+main(<strong>int</strong> c, <strong>char</strong> **v)
+{
+    setvbuf(stdout, NULL, _IONBF, 0);
+
+    run();
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>(Other things to note in the code: instead of typing the sockets as
+"int", we&#8217;re using the type evutil_socket_t.  Instead of calling
+fcntl(O_NONBLOCK) to make the sockets nonblocking, we&#8217;re calling
+evutil_make_socket_nonblocking.  These changes make our code compatible
+with the divergent parts of the Win32 networking API.)</p></div>
+<div class="sect2">
+<h3 id="_what_about_convenience_and_what_about_windows">What about convenience?  (and what about Windows?)</h3>
+<div class="paragraph"><p>You&#8217;ve probably noticed that as our code has gotten more efficient,
+it has also gotten more complex.  Back when we were forking, we didn&#8217;t
+have to manage a buffer for each connection: we just had a separate
+stack-allocated buffer for each process.  We didn&#8217;t need to explicitly
+track whether each socket was reading or writing: that was implicit in
+our location in the code.  And we didn&#8217;t need a structure to track how
+much of each operation had completed: we just used loops and stack
+variables.</p></div>
+<div class="paragraph"><p>Moreover, if you&#8217;re deeply experienced with networking on Windows,
+you&#8217;ll realize that Libevent probably isn&#8217;t getting optimal
+performance when it&#8217;s used as in the example above.  On Windows, the
+way you do fast asynchronous IO is not with a select()-like interface:
+it&#8217;s by using the IOCP (IO Completion Ports) API.  Unlike all the
+fast networking APIs, IOCP does not alert your program when a socket
+is <em>ready</em> for an operation that your program then has to perform.
+Instead, the program tells the Windows networking stack to <em>start</em> a
+network operation, and IOCP tells the program when the operation has
+finished.</p></div>
+<div class="paragraph"><p>Fortunately, the Libevent 2 "bufferevents" interface solves both of
+these issues: it makes programs much simpler to write, and provides
+an interface that Libevent can implement efficiently on Windows <em>and</em>
+on Unix.</p></div>
+<div class="paragraph"><p>Here&#8217;s our ROT13 server one last time, using the bufferevents API.</p></div>
+<div class="listingblock">
+<div class="title">Example: A simpler ROT13 server with Libevent</div>
+<div class="content">
+<pre><code><i>/* For sockaddr_in */</i>
+#include &lt;netinet/in.h&gt;
+<i>/* For socket functions */</i>
+#include &lt;sys/socket.h&gt;
+<i>/* For fcntl */</i>
+#include &lt;fcntl.h&gt;
+
+#include &lt;event2/event.h&gt;
+#include &lt;event2/buffer.h&gt;
+#include &lt;event2/bufferevent.h&gt;
+
+#include &lt;assert.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+
+#define MAX_LINE 16384
+
+<strong>void</strong> do_read(evutil_socket_t fd, <strong>short</strong> events, <strong>void</strong> *arg);
+<strong>void</strong> do_write(evutil_socket_t fd, <strong>short</strong> events, <strong>void</strong> *arg);
+
+<strong>char</strong>
+rot13_char(<strong>char</strong> c)
+{
+<i>    /* We don't want to use isalpha here; setting the locale would change</i>
+<i>     * which characters are considered alphabetical. */</i>
+    <strong>if</strong> ((c &gt;= 'a' &amp;&amp; c &lt;= 'm') || (c &gt;= 'A' &amp;&amp; c &lt;= 'M'))
+        <strong>return</strong> c + 13;
+    <strong>else</strong> <strong>if</strong> ((c &gt;= 'n' &amp;&amp; c &lt;= 'z') || (c &gt;= 'N' &amp;&amp; c &lt;= 'Z'))
+        <strong>return</strong> c - 13;
+    <strong>else</strong>
+        <strong>return</strong> c;
+}
+
+<strong>void</strong>
+readcb(<strong>struct</strong> bufferevent *bev, <strong>void</strong> *ctx)
+{
+    <strong>struct</strong> evbuffer *input, *output;
+    <strong>char</strong> *line;
+    size_t n;
+    <strong>int</strong> i;
+    input = bufferevent_get_input(bev);
+    output = bufferevent_get_output(bev);
+
+    <strong>while</strong> ((line = evbuffer_readln(input, &amp;n, EVBUFFER_EOL_LF))) {
+        <strong>for</strong> (i = 0; i &lt; n; ++i)
+            line[i] = rot13_char(line[i]);
+        evbuffer_add(output, line, n);
+        evbuffer_add(output, "\n", 1);
+        free(line);
+    }
+
+    <strong>if</strong> (evbuffer_get_length(input) &gt;= MAX_LINE) {
+<i>        /* Too long; just process what there is and go on so that the buffer</i>
+<i>         * doesn't grow infinitely long. */</i>
+        <strong>char</strong> buf[1024];
+        <strong>while</strong> (evbuffer_get_length(input)) {
+            <strong>int</strong> n = evbuffer_remove(input, buf, <strong>sizeof</strong>(buf));
+            <strong>for</strong> (i = 0; i &lt; n; ++i)
+                buf[i] = rot13_char(buf[i]);
+            evbuffer_add(output, buf, n);
+        }
+        evbuffer_add(output, "\n", 1);
+    }
+}
+
+<strong>void</strong>
+errorcb(<strong>struct</strong> bufferevent *bev, <strong>short</strong> error, <strong>void</strong> *ctx)
+{
+    <strong>if</strong> (error &amp; BEV_EVENT_EOF) {
+<i>        /* connection has been closed, do any clean up here */</i>
+<i>        /* ... */</i>
+    } <strong>else</strong> <strong>if</strong> (error &amp; BEV_EVENT_ERROR) {
+<i>        /* check errno to see what error occurred */</i>
+<i>        /* ... */</i>
+    } <strong>else</strong> <strong>if</strong> (error &amp; BEV_EVENT_TIMEOUT) {
+<i>        /* must be a timeout event handle, handle it */</i>
+<i>        /* ... */</i>
+    }
+    bufferevent_free(bev);
+}
+
+<strong>void</strong>
+do_accept(evutil_socket_t listener, <strong>short</strong> event, <strong>void</strong> *arg)
+{
+    <strong>struct</strong> event_base *base = arg;
+    <strong>struct</strong> sockaddr_storage ss;
+    socklen_t slen = <strong>sizeof</strong>(ss);
+    <strong>int</strong> fd = accept(listener, (<strong>struct</strong> sockaddr*)&amp;ss, &amp;slen);
+    <strong>if</strong> (fd &lt; 0) {
+        perror("accept");
+    } <strong>else</strong> <strong>if</strong> (fd &gt; FD_SETSIZE) {
+        close(fd);
+    } <strong>else</strong> {
+        <strong>struct</strong> bufferevent *bev;
+        evutil_make_socket_nonblocking(fd);
+        bev = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
+        bufferevent_setcb(bev, readcb, NULL, errorcb, NULL);
+        bufferevent_setwatermark(bev, EV_READ, 0, MAX_LINE);
+        bufferevent_enable(bev, EV_READ|EV_WRITE);
+    }
+}
+
+<strong>void</strong>
+run(<strong>void</strong>)
+{
+    evutil_socket_t listener;
+    <strong>struct</strong> sockaddr_in sin;
+    <strong>struct</strong> event_base *base;
+    <strong>struct</strong> event *listener_event;
+
+    base = event_base_new();
+    <strong>if</strong> (!base)
+        <strong>return</strong>; /*XXXerr*/
+
+    sin.sin_family = AF_INET;
+    sin.sin_addr.s_addr = 0;
+    sin.sin_port = htons(40713);
+
+    listener = socket(AF_INET, SOCK_STREAM, 0);
+    evutil_make_socket_nonblocking(listener);
+
+#ifndef WIN32
+    {
+        <strong>int</strong> one = 1;
+        setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &amp;one, <strong>sizeof</strong>(one));
+    }
+#endif
+
+    <strong>if</strong> (bind(listener, (<strong>struct</strong> sockaddr*)&amp;sin, <strong>sizeof</strong>(sin)) &lt; 0) {
+        perror("bind");
+        <strong>return</strong>;
+    }
+
+    <strong>if</strong> (listen(listener, 16)&lt;0) {
+        perror("listen");
+        <strong>return</strong>;
+    }
+
+    listener_event = event_new(base, listener, EV_READ|EV_PERSIST, do_accept, (<strong>void</strong>*)base);
+<i>    /*XXX check it */</i>
+    event_add(listener_event, NULL);
+
+    event_base_dispatch(base);
+}
+
+<strong>int</strong>
+main(<strong>int</strong> c, <strong>char</strong> **v)
+{
+    setvbuf(stdout, NULL, _IONBF, 0);
+
+    run();
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_how_efficient_is_all_of_this_really">How efficient is all of this, really?</h3>
+<div class="paragraph"><p>XXXX write an efficiency section here.  The benchmarks on the libevent
+page are really out of date.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_working_with_events">Working with events</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Libevent&#8217;s basic unit of operation is the <em>event</em>.  Every event
+represents a set of conditions, including:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A file descriptor being ready to read from or write to.
+</p>
+</li>
+<li>
+<p>
+A file descriptor <em>becoming</em> ready to read from or write to
+     (Edge-triggered IO only).
+</p>
+</li>
+<li>
+<p>
+A timeout expiring.
+</p>
+</li>
+<li>
+<p>
+A signal occurring.
+</p>
+</li>
+<li>
+<p>
+A user-triggered event.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Events have similar lifecycles.  Once you call a Libevent function to
+set up an event and associate it with an event base, it becomes
+<strong>initialized</strong>.  At this point, you can <em>add</em>, which makes it
+<strong>pending</strong> in the base.  When the event is pending, if the conditions
+that would trigger an event occur (e.g., its file descriptor changes
+state or its timeout expires), the event becomes <strong>active</strong>, and its
+(user-provided) callback function is run.  If the event is configured
+<strong>persistent</strong>, it remains pending.  If it is not persistent, it stops
+being pending when its callback runs.  You can make a pending event
+non-pending by <em>deleting</em> it, and you can <em>add</em> a non-pending event to
+make it pending again.</p></div>
+<div class="sect2">
+<h3 id="_constructing_event_objects">Constructing event objects</h3>
+<div class="paragraph"><p>To create a new event, use the event_new() interface.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EV_TIMEOUT      0x01
+#define EV_READ         0x02
+#define EV_WRITE        0x04
+#define EV_SIGNAL       0x08
+#define EV_PERSIST      0x10
+#define EV_ET           0x20
+
+<strong>typedef</strong> <strong>void</strong> (*event_callback_fn)(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+
+<strong>struct</strong> event *event_new(<strong>struct</strong> event_base *base, evutil_socket_t fd,
+    <strong>short</strong> what, event_callback_fn cb,
+    <strong>void</strong> *arg);
+
+<strong>void</strong> event_free(<strong>struct</strong> event *event);</code></pre>
+</div></div>
+<div class="paragraph"><p>The event_new() function tries to allocate and construct a new event
+for use with <em>base</em>.  The <em>what</em> argument is a set of the flags listed
+above.  (Their semantics are described below.)  If <em>fd</em> is
+nonnegative, it is the file that we&#8217;ll observe for read or write
+events.  When the event is active, Libevent will invoke the provided
+<em>cb</em> function, passing it as arguments: the file descriptor <em>fd</em>, a
+bitfield of <em>all</em> the events that triggered, and the value that was passed
+in for <em>arg</em> when the function was constructed.</p></div>
+<div class="paragraph"><p>On an internal error, or invalid arguments, event_new() will return NULL.</p></div>
+<div class="paragraph"><p>All new events are initialized and non-pending.  To make an event
+pending, call event_add() (documented below).</p></div>
+<div class="paragraph"><p>To deallocate an event, call event_free().  It is safe to call
+event_free() on an event that is pending or active: doing so makes the
+event non-pending and inactive before deallocating it.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+
+<strong>void</strong> cb_func(evutil_socket_t fd, <strong>short</strong> what, <strong>void</strong> *arg)
+{
+        <strong>const</strong> <strong>char</strong> *data = arg;
+        printf("Got an event on socket %d:%s%s%s%s [%s]",
+            (<strong>int</strong>) fd,
+            (what&amp;EV_TIMEOUT) ? " timeout" : "",
+            (what&amp;EV_READ)    ? " read" : "",
+            (what&amp;EV_WRITE)   ? " write" : "",
+            (what&amp;EV_SIGNAL)  ? " signal" : "",
+            data);
+}
+
+<strong>void</strong> main_loop(evutil_socket_t fd1, evutil_socket_t fd2)
+{
+        <strong>struct</strong> event *ev1, *ev2;
+        <strong>struct</strong> timeval five_seconds = {5,0};
+        <strong>struct</strong> event_base *base = event_base_new();
+
+<i>        /* The caller has already set up fd1, fd2 somehow, and make them</i>
+<i>           nonblocking. */</i>
+
+        ev1 = event_new(base, fd1, EV_TIMEOUT|EV_READ|EV_PERSIST, cb_func,
+           (<strong>char</strong>*)"Reading event");
+        ev2 = event_new(base, fd2, EV_WRITE|EV_PERSIST, cb_func,
+           (<strong>char</strong>*)"Writing event");
+
+        event_add(ev1, &amp;five_seconds);
+        event_add(ev2, NULL);
+        event_base_dispatch(base);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The above functions are defined in &lt;event2/event.h&gt;, and first
+appeared in Libevent 2.0.1-alpha.  The event_callback_fn type
+first appeared as a typedef in Libevent 2.0.4-alpha.</p></div>
+<div class="sect3">
+<h4 id="_the_event_flags">The event flags</h4>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+EV_TIMEOUT
+</dt>
+<dd>
+<p>
+    This flag indicates an event that becomes active after a timeout
+    elapses.
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>The EV_TIMEOUT flag is ignored when constructing an event: you
+can either set a timeout when you add the event, or not.  It is
+set in the 'what' argument to the callback function when a timeout
+has occurred.</code></pre>
+</div></div>
+</dd>
+<dt class="hdlist1">
+EV_READ
+</dt>
+<dd>
+<p>
+    This flag indicates an event that becomes active when the provided
+    file descriptor is ready for reading.
+</p>
+</dd>
+<dt class="hdlist1">
+EV_WRITE
+</dt>
+<dd>
+<p>
+    This flag indicates an event that becomes active when the provided
+    file descriptor is ready for writing.
+</p>
+</dd>
+<dt class="hdlist1">
+EV_SIGNAL
+</dt>
+<dd>
+<p>
+    Used to implement signal detection.  See "Constructing signal events"
+    below.
+</p>
+</dd>
+<dt class="hdlist1">
+EV_PERSIST
+</dt>
+<dd>
+<p>
+    Indicates that the event is <em>persistent</em>.  See "About Event
+    Persistence" below.
+</p>
+</dd>
+<dt class="hdlist1">
+EV_ET
+</dt>
+<dd>
+<p>
+    Indicates that the event should be edge-triggered, if the
+    underlying event_base backend supports edge-triggered events.
+    This affects the semantics of EV_READ and EV_WRITE.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Since Libevent 2.0.1-alpha, any number of events may be pending for
+the same conditions at the same time.  For example, you may have two
+events that will become active if a given fd becomes ready to read.
+The order in which their callbacks are run is undefined.</p></div>
+<div class="paragraph"><p>These flags are defined in &lt;event2/event.h&gt;.  All have existed since
+before Libevent 1.0, except for EV_ET, which was introduced in
+Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_about_event_persistence">About Event Persistence</h4>
+<div class="paragraph"><p>By default, whenever a pending event becomes active (because its fd is
+ready to read or write, or because its timeout expires), it becomes
+non-pending right before its
+callback is executed.  Thus, if you want to make the event pending
+again, you can call event_add() on it again from inside
+the callback function.</p></div>
+<div class="paragraph"><p>If the EV_PERSIST flag is set on an event, however, the event is
+<em>persistent.</em>  This means that event remains pending even when its
+callback is activated.  If you want to make it non-pending from within its
+callback, you can call event_del() on it.</p></div>
+<div class="paragraph"><p>The timeout on a persistent event resets whenever the event&#8217;s callback
+runs.  Thus, if you have an event with flags EV_READ|EV_PERSIST and a
+timeout of five seconds, the event will become active:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Whenever the socket is ready for reading.
+</p>
+</li>
+<li>
+<p>
+Whenever five seconds have passed since the event last became
+    active.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_creating_an_event_as_its_own_callback_argument">Creating an event as its own callback argument</h4>
+<div class="paragraph"><p>Frequently, you might want to create an event that receives itself as a
+callback argument.  You can&#8217;t just pass a pointer to the event as an argument
+to event_new(), though, because it does not exist yet.  To solve this problem,
+you can use event_self_cbarg().</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> *event_self_cbarg();</code></pre>
+</div></div>
+<div class="paragraph"><p>The event_self_cbarg() function returns a "magic" pointer which, when passed
+as an event callback argument, tells event_new() to create an event receiving
+itself as its callback argument.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+
+<strong>static</strong> <strong>int</strong> n_calls = 0;
+
+<strong>void</strong> cb_func(evutil_socket_t fd, <strong>short</strong> what, <strong>void</strong> *arg)
+{
+    <strong>struct</strong> event *me = arg;
+
+    printf("cb_func called %d times so far.\n", ++n_calls);
+
+    <strong>if</strong> (n_calls &gt; 100)
+       event_del(me);
+}
+
+<strong>void</strong> run(<strong>struct</strong> event_base *base)
+{
+    <strong>struct</strong> timeval one_sec = { 1, 0 };
+    <strong>struct</strong> event *ev;
+<i>    /* We're going to set up a repeating timer to get called called 100</i>
+<i>       times. */</i>
+    ev = event_new(base, -1, EV_PERSIST, cb_func, event_self_cbarg());
+    event_add(ev, &amp;one_sec);
+    event_base_dispatch(base);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This function can also be used with event_new(), evtimer_new(),
+evsignal_new(), event_assign(), evtimer_assign(), and evsignal_assign().  It
+won&#8217;t work as a callback argument for non-events, however.</p></div>
+<div class="paragraph"><p>The event_self_cbarg() function was introduced in Libevent 2.1.1-alpha.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_timeout_only_events">Timeout-only events</h4>
+<div class="paragraph"><p>As a convenience, there are a set of macros beginning with evtimer_ that
+you can use in place of the event_* calls to allocate and manipulate
+pure-timeout events.  Using these macros provides no benefit beyond
+improving the clarity of your code.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evtimer_new(base, callback, arg) \
+    event_new((base), -1, 0, (callback), (arg))
+#define evtimer_add(ev, tv) \
+    event_add((ev),(tv))
+#define evtimer_del(ev) \
+    event_del(ev)
+#define evtimer_pending(ev, tv_out) \
+    event_pending((ev), EV_TIMEOUT, (tv_out))</code></pre>
+</div></div>
+<div class="paragraph"><p>These macros have been present since Libevent 0.6, except for evtimer_new(),
+which first appeared in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_constructing_signal_events">Constructing signal events</h4>
+<div class="paragraph"><p>Libevent can also watch for POSIX-style signals.  To construct a
+handler for a signal, use:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evsignal_new(base, signum, cb, arg) \
+    event_new(base, signum, EV_SIGNAL|EV_PERSIST, cb, arg)</code></pre>
+</div></div>
+<div class="paragraph"><p>The arguments are as for event_new, except that we provide a signal
+number instead of a file descriptor.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code><strong>struct</strong> event *hup_event;
+<strong>struct</strong> event_base *base = event_base_new();
+
+<i>/* call sighup_function on a HUP signal */</i>
+hup_event = evsignal_new(base, SIGHUP, sighup_function, NULL);</code></pre>
+</div></div>
+<div class="paragraph"><p>Note that signal callbacks are run in the event loop after the signal
+occurs, so it is safe for them to call functions that you are not
+supposed to call from a regular POSIX signal handler.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">Don&#8217;t set a timeout on a signal event.  It might not be
+supported.  [FIXME: is this true?]</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>There are also a set of convenience macros you can use when working
+with signal events.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evsignal_add(ev, tv) \
+    event_add((ev),(tv))
+#define evsignal_del(ev) \
+    event_del(ev)
+#define evsignal_pending(ev, what, tv_out) \
+    event_pending((ev), (what), (tv_out))</code></pre>
+</div></div>
+<div class="paragraph"><p>The evsignal_* macros have been present since Libevent 2.0.1-alpha.
+Prior versions called them signal_add(), signal_del(), and so on.</p></div>
+<div class="sect4">
+<h5 id="_caveats_when_working_with_signals">Caveats when working with signals</h5>
+<div class="paragraph"><p>With current versions of Libevent, with most backends, only one event_base
+per process at a time can be listening for signals.  If you add signal events
+to two event_bases at once ---even if the signals are different!--- only one
+event_base will receive signals.</p></div>
+<div class="paragraph"><p>The kqueue backend does not have this limitation.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setting_up_events_without_heap_allocation">Setting up events without heap-allocation</h4>
+<div class="paragraph"><p>For performance and other reasons, some people like to allocate events
+as a part of a larger structure.  For each use of the event, this
+saves them:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The memory allocator overhead for allocating a small object on
+     the heap.
+</p>
+</li>
+<li>
+<p>
+The time overhead for dereferencing the pointer to the
+     struct event.
+</p>
+</li>
+<li>
+<p>
+The time overhead from a possible additional cache miss if the
+     event is not already in the cache.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Using this method risks breaking binary compatibility with other
+versions of of Libevent, which may have different sizes for the event
+structure.</p></div>
+<div class="paragraph"><p>These are <em>very</em> small costs, and do not matter for most applications.
+You should just stick to using event_new() unless you <strong>know</strong> that
+you&#8217;re incurring a significant performance penalty for heap-allocating
+your events.  Using event_assign() can cause hard-to-diagnose errors
+with future versions of Libevent if they use a larger event structure
+than the one you&#8217;re building with.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_assign(<strong>struct</strong> event *event, <strong>struct</strong> event_base *base,
+    evutil_socket_t fd, <strong>short</strong> what,
+    <strong>void</strong> (*callback)(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *), <strong>void</strong> *arg);</code></pre>
+</div></div>
+<div class="paragraph"><p>All the arguments of event_assign() are as for event_new(), except for
+the <em>event</em> argument, which must point to an uninitialized event.  It returns
+0 on success, and -1 on an internal error or bad arguments.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+<i>/* Watch out!  Including event_struct.h means that your code will not</i>
+<i> * be binary-compatible with future versions of Libevent. */</i>
+#include &lt;event2/event_struct.h&gt;
+#include &lt;stdlib.h&gt;
+
+<strong>struct</strong> event_pair {
+         evutil_socket_t fd;
+         <strong>struct</strong> event read_event;
+         <strong>struct</strong> event write_event;
+};
+<strong>void</strong> readcb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+<strong>void</strong> writecb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+<strong>struct</strong> event_pair *event_pair_new(<strong>struct</strong> event_base *base, evutil_socket_t fd)
+{
+        <strong>struct</strong> event_pair *p = malloc(<strong>sizeof</strong>(<strong>struct</strong> event_pair));
+        <strong>if</strong> (!p) <strong>return</strong> NULL;
+        p-&gt;fd = fd;
+        event_assign(&amp;p-&gt;read_event, base, fd, EV_READ|EV_PERSIST, readcb, p);
+        event_assign(&amp;p-&gt;write_event, base, fd, EV_WRITE|EV_PERSIST, writecb, p);
+        <strong>return</strong> p;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>You can also use event_assign() to initialize stack-allocated or
+statically allocated events.</p></div>
+<div class="paragraph"><div class="title">WARNING</div><p>Never call event_assign() on an event that is already pending in an
+event base.  Doing so can lead to extremely hard-to-diagnose
+errors.  If the event is already initialized and pending, call
+event_del() on it <strong>before</strong> you call event_assign() on it again.</p></div>
+<div class="paragraph"><p>There are convenience macros you can use to event_assign() a timeout-only or
+a signal event:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define evtimer_assign(event, base, callback, arg) \
+    event_assign(event, base, -1, 0, callback, arg)
+#define evsignal_assign(event, base, signum, callback, arg) \
+    event_assign(event, base, signum, EV_SIGNAL|EV_PERSIST, callback, arg)</code></pre>
+</div></div>
+<div class="paragraph"><p>If you need to use event_assign() <strong>and</strong> retain binary compatibility with
+future versions of Libevent, you can ask the Libevent library to tell
+you at runtime how large a <em>struct event</em> should be:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>size_t event_get_struct_event_size(<strong>void</strong>);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function returns the number of bytes you need to set aside for
+a struct event.  As before, you should only be using this function if
+you know that heap-allocation is actually a significant problem in your
+program, since it can make your code much harder to read and write.</p></div>
+<div class="paragraph"><p>Note that event_get_struct_event_size() may in the future give you a value
+<em>smaller</em> than <em>sizeof(struct event)</em>.  If this happens, it means that
+any extra bytes at the end of <em>struct event</em> are only padding bytes reserved
+for use by a future version of Libevent.</p></div>
+<div class="paragraph"><p>Here&#8217;s the same example as above, but instead of relying on the size
+of <em>struct event</em> from event_struct.h, we use event_get_struct_size()
+to use the correct size at runtime.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;stdlib.h&gt;
+
+<i>/* When we allocate an event_pair in memory, we'll actually allocate</i>
+<i> * more space at the end of the structure.  We define some macros</i>
+<i> * to make accessing those events less error-prone. */</i>
+<strong>struct</strong> event_pair {
+         evutil_socket_t fd;
+};
+
+<i>/* Macro: yield the struct event 'offset' bytes from the start of 'p' */</i>
+#define EVENT_AT_OFFSET(p, offset) \
+            ((<strong>struct</strong> event*) ( ((<strong>char</strong>*)(p)) + (offset) ))
+<i>/* Macro: yield the read event of an event_pair */</i>
+#define READEV_PTR(pair) \
+            EVENT_AT_OFFSET((pair), <strong>sizeof</strong>(<strong>struct</strong> event_pair))
+<i>/* Macro: yield the write event of an event_pair */</i>
+#define WRITEEV_PTR(pair) \
+            EVENT_AT_OFFSET((pair), \
+                <strong>sizeof</strong>(<strong>struct</strong> event_pair)+event_get_struct_event_size())
+
+<i>/* Macro: yield the actual size to allocate for an event_pair */</i>
+#define EVENT_PAIR_SIZE() \
+            (<strong>sizeof</strong>(<strong>struct</strong> event_pair)+2*event_get_struct_event_size())
+
+<strong>void</strong> readcb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+<strong>void</strong> writecb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+<strong>struct</strong> event_pair *event_pair_new(<strong>struct</strong> event_base *base, evutil_socket_t fd)
+{
+        <strong>struct</strong> event_pair *p = malloc(EVENT_PAIR_SIZE());
+        <strong>if</strong> (!p) <strong>return</strong> NULL;
+        p-&gt;fd = fd;
+        event_assign(READEV_PTR(p), base, fd, EV_READ|EV_PERSIST, readcb, p);
+        event_assign(WRITEEV_PTR(p), base, fd, EV_WRITE|EV_PERSIST, writecb, p);
+        <strong>return</strong> p;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The event_assign() function defined in &lt;event2/event.h&gt;.  It has existed
+since Libevent 2.0.1-alpha.  It has returned an int since 2.0.3-alpha;
+previously, it returned void.  The event_get_struct_event_size()
+function was introduced in Libevent 2.0.4-alpha.  The event structure
+itself is defined in &lt;event2/event_struct.h&gt;.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_making_events_pending_and_non_pending">Making events pending and non-pending</h3>
+<div class="paragraph"><p>Once you have constructed an event, it won&#8217;t actually do anything
+until you have made it <em>pending</em> by adding it.  You do this with
+event_add:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_add(<strong>struct</strong> event *ev, <strong>const</strong> <strong>struct</strong> timeval *tv);</code></pre>
+</div></div>
+<div class="paragraph"><p>Calling event_add on a non-pending event makes it pending in its
+configured base.  The function returns 0 on success, and -1 on
+failure.  If <em>tv</em> is NULL, the event is added with no timeout.
+Otherwise, <em>tv</em> is the size of the timeout in seconds and
+microseconds.</p></div>
+<div class="paragraph"><p>If you call event_add() on an event that is <em>already</em> pending, it will
+leave it pending, and reschedule it with the provided timeout.  If the
+event is already pending, and you re-add it with the timeout NULL,
+event_add() will have no effect.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">Do not set <em>tv</em> to the time at which you want the timeout to
+run.  If you say "tv&#8594;tv_sec = time(NULL)+10;" on 1 January 2010, your
+timeout will wait 40 years, not 10 seconds.</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_del(<strong>struct</strong> event *ev);</code></pre>
+</div></div>
+<div class="paragraph"><p>Calling event_del on an initialized event makes it non-pending and
+non-active.  If the event was not pending or active, there is no
+effect.  The return value is 0 on success, -1 on failure.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If you delete an event after it becomes active but before
+its callback has a chance to execute, the callback will not be
+executed.</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_remove_timer(<strong>struct</strong> event *ev);</code></pre>
+</div></div>
+<div class="paragraph"><p>Finally, you can remove a pending event&#8217;s timeout completely without
+deleting its IO or signal components.  If the event had no timeout
+pending, event_remove_timer() has no effect.  If the event had only a
+timeout but no IO or signal component, event_remove_timer() has the
+same effect as event_del(). The return value is 0 on success, -1 on
+failure.</p></div>
+<div class="paragraph"><p>These are defined in &lt;event2/event.h&gt;; event_add() and event_del()
+have existed since Libevent 0.1; event_remove_timer() was added in
+2.1.2-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_events_with_priorities">Events with priorities</h3>
+<div class="paragraph"><p>When multiple events trigger at the same time, Libevent does not
+define any order with respect to when their callbacks will be
+executed.  You can define some events as more important than others by
+using priorities.</p></div>
+<div class="paragraph"><p>As discussed in an earlier section, each event_base has one or more
+priority values associated with it.  Before adding an event to the
+event_base, but after initializing it, you can set its priority.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_priority_set(<strong>struct</strong> event *event, <strong>int</strong> priority);</code></pre>
+</div></div>
+<div class="paragraph"><p>The priority of the event is a number between 0 and the number of
+priorities in an event_base, minus 1.  The function returns 0 on
+success, and -1 on failure.</p></div>
+<div class="paragraph"><p>When multiple events of multiple priorities become active, the
+low-priority events are not run.  Instead, Libevent runs the high
+priority events, then checks for events again.  Only when no
+high-priority events are active are the low-priority events run.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+
+<strong>void</strong> read_cb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+<strong>void</strong> write_cb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+
+<strong>void</strong> main_loop(evutil_socket_t fd)
+{
+  <strong>struct</strong> event *important, *unimportant;
+  <strong>struct</strong> event_base *base;
+
+  base = event_base_new();
+  event_base_priority_init(base, 2);
+<i>  /* Now base has priority 0, and priority 1 */</i>
+  important = event_new(base, fd, EV_WRITE|EV_PERSIST, write_cb, NULL);
+  unimportant = event_new(base, fd, EV_READ|EV_PERSIST, read_cb, NULL);
+  event_priority_set(important, 0);
+  event_priority_set(unimportant, 1);
+
+<i>  /* Now, whenever the fd is ready for writing, the write callback will</i>
+<i>     happen before the read callback.  The read callback won't happen at</i>
+<i>     all until the write callback is no longer active. */</i>
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>When you do not set the priority for an event, the default is the
+number of queues in the event base, divided by 2.</p></div>
+<div class="paragraph"><p>This function is declared in &lt;event2/event.h&gt;.  It has existed since
+Libevent 1.0.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_inspecting_event_status">Inspecting event status</h3>
+<div class="paragraph"><p>Sometimes you want to tell whether an event has been added, and check
+what it refers to.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_pending(<strong>const</strong> <strong>struct</strong> event *ev, <strong>short</strong> what, <strong>struct</strong> timeval *tv_out);
+
+#define event_get_signal(ev) /* ... */
+evutil_socket_t event_get_fd(<strong>const</strong> <strong>struct</strong> event *ev);
+<strong>struct</strong> event_base *event_get_base(<strong>const</strong> <strong>struct</strong> event *ev);
+<strong>short</strong> event_get_events(<strong>const</strong> <strong>struct</strong> event *ev);
+event_callback_fn event_get_callback(<strong>const</strong> <strong>struct</strong> event *ev);
+<strong>void</strong> *event_get_callback_arg(<strong>const</strong> <strong>struct</strong> event *ev);
+<strong>int</strong> event_get_priority(<strong>const</strong> <strong>struct</strong> event *ev);
+
+<strong>void</strong> event_get_assignment(<strong>const</strong> <strong>struct</strong> event *event,
+        <strong>struct</strong> event_base **base_out,
+        evutil_socket_t *fd_out,
+        <strong>short</strong> *events_out,
+        event_callback_fn *callback_out,
+        <strong>void</strong> **arg_out);</code></pre>
+</div></div>
+<div class="paragraph"><p>The event_pending function determines whether the given event is
+pending or active.  If it is, and any of the flags EV_READ, EV_WRITE,
+EV_SIGNAL, and EV_TIMEOUT are set in the <em>what</em> argument, the function
+returns all of the flags that the event is currently pending or active
+on.  If <em>tv_out</em> is provided, and EV_TIMEOUT is set in <em>what</em>, and the
+event is currently pending or active on a timeout, then <em>tv_out</em> is
+set to hold the time when the event&#8217;s timeout will expire.</p></div>
+<div class="paragraph"><p>The event_get_fd() and event_get_signal() functions return the
+configured file descriptor or signal number for an event.  The
+event_get_base() function returns its configured event_base.  The
+event_get_events() function returns the event flags (EV_READ, EV_WRITE,
+etc) of the event.  The event_get_callback() and
+event_get_callback_arg() functions return the callback function and
+argument pointer.  The event_get_priority() function returns the event&#8217;s
+currently assigned priority.</p></div>
+<div class="paragraph"><p>The event_get_assignment() function copies all of the assigned fields of
+the event into the provided pointers.  If any of the pointers is NULL,
+it is ignored.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;stdio.h&gt;
+
+<i>/* Change the callback and callback_arg of 'ev', which must not be</i>
+<i> * pending. */</i>
+<strong>int</strong> replace_callback(<strong>struct</strong> event *ev, event_callback_fn new_callback,
+    <strong>void</strong> *new_callback_arg)
+{
+    <strong>struct</strong> event_base *base;
+    evutil_socket_t fd;
+    <strong>short</strong> events;
+
+    <strong>int</strong> pending;
+
+    pending = event_pending(ev, EV_READ|EV_WRITE|EV_SIGNAL|EV_TIMEOUT,
+                            NULL);
+    <strong>if</strong> (pending) {
+<i>        /* We want to catch this here so that we do not re-assign a</i>
+<i>         * pending event.  That would be very very bad. */</i>
+        fprintf(stderr,
+                "Error! replace_callback called on a pending event!\n");
+        <strong>return</strong> -1;
+    }
+
+    event_get_assignment(ev, &amp;base, &amp;fd, &amp;events,
+                         NULL /* ignore old callback */ ,
+                         NULL /* ignore old callback argument */);
+
+    event_assign(ev, base, fd, events, new_callback, new_callback_arg);
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions are declared in &lt;event2/event.h&gt;.  The event_pending()
+function has existed since Libevent 0.1.  Libevent 2.0.1-alpha introduced
+event_get_fd() and event_get_signal().  Libevent 2.0.2-alpha introduced
+event_get_base(). Libevent 2.1.2-alpha added event_get_priority().  The
+others were new in Libevent 2.0.4-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_finding_the_currently_running_event">Finding the currently running event</h3>
+<div class="paragraph"><p>For debugging or other purposes, you can get a pointer to the currently
+running event.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> event *event_base_get_running_event(<strong>struct</strong> event_base *base);</code></pre>
+</div></div>
+<div class="paragraph"><p>Note that this function&#8217;s behavior is only defined when it&#8217;s called from
+within the provided event_base&#8217;s loop.  Calling it from another thread is not
+supported, and can cause undefined behavior.</p></div>
+<div class="paragraph"><p>This function is declared in &lt;event2/event.h&gt;.  It was introduced in Libevent
+2.1.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_one_off_events">Configuring one-off events</h3>
+<div class="paragraph"><p>If you don&#8217;t need to add an event more than once, or delete it once it
+has been added, and it doesn&#8217;t have to be persistent, you can use
+event_base_once().</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_base_once(<strong>struct</strong> event_base *, evutil_socket_t, <strong>short</strong>,
+  <strong>void</strong> (*)(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *), <strong>void</strong> *, <strong>const</strong> <strong>struct</strong> timeval *);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function&#8217;s interface is the same as event_new(), except that it
+does not support EV_SIGNAL or EV_PERSIST.  The scheduled event is
+inserted and run with the default priority.  When the callback is
+finally done, Libevent frees the internal event structure itself.
+The return value is 0 on success, -1 on failure.</p></div>
+<div class="paragraph"><p>Events inserted with event_base_once cannot be deleted or manually
+activated: if you want to be able to cancel an event, create it with the
+regular event_new() or event_assign() interfaces.</p></div>
+<div class="paragraph"><p>Note also that at up to Libevent 2.0, if the event is never triggered, the
+internal memory used to hold it will never be freed.  Starting in Libevent
+2.1.2-alpha, these events <em>are</em> freed when the event_base is freed, even if
+they haven&#8217;t activated, but still be aware: if there&#8217;s some storage
+associated with their callback arguments, that storage won&#8217;t be released
+unless your program has done something to track and release it.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_manually_activating_an_event">Manually activating an event</h3>
+<div class="paragraph"><p>Rarely, you may want to make an event active even though its
+conditions have not triggered.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> event_active(<strong>struct</strong> event *ev, <strong>int</strong> what, <strong>short</strong> ncalls);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function makes an event <em>ev</em> become active with the flags <em>what</em>
+(a combination of EV_READ, EV_WRITE, and EV_TIMEOUT).  The event does
+not need to have previously been pending, and activating it does not
+make it pending.</p></div>
+<div class="paragraph"><p>Warning: calling event_active() recursively on the same event may result in
+resource exhaustion. The following snippet of code is an example of how
+event_active can be used incorrectly.</p></div>
+<div class="listingblock">
+<div class="title">Bad Example: making an infinite loop with event_active()</div>
+<div class="content">
+<pre><code><strong>struct</strong> event *ev;
+
+<strong>static</strong> <strong>void</strong> cb(<strong>int</strong> sock, <strong>short</strong> which, <strong>void</strong> *arg) {
+<i>        /* Whoops: Calling event_active on the same event unconditionally</i>
+<i>           from within its callback means that no other events might not get</i>
+<i>           run! */</i>
+
+        event_active(ev, EV_WRITE, 0);
+}
+
+<strong>int</strong> main(<strong>int</strong> argc, <strong>char</strong> **argv) {
+        <strong>struct</strong> event_base *base = event_base_new();
+
+        ev = event_new(base, -1, EV_PERSIST | EV_READ, cb, NULL);
+
+        event_add(ev, NULL);
+
+        event_active(ev, EV_WRITE, 0);
+
+        event_base_loop(base, 0);
+
+        <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This creates a situation where the event loop is only executed once and calls
+the function "cb" forever.</p></div>
+<div class="listingblock">
+<div class="title">Example: Alternative solution to the above problem using timers</div>
+<div class="content">
+<pre><code><strong>struct</strong> event *ev;
+<strong>struct</strong> timeval tv;
+
+<strong>static</strong> <strong>void</strong> cb(<strong>int</strong> sock, <strong>short</strong> which, <strong>void</strong> *arg) {
+   <strong>if</strong> (!evtimer_pending(ev, NULL)) {
+       event_del(ev);
+       evtimer_add(ev, &amp;tv);
+   }
+}
+
+<strong>int</strong> main(<strong>int</strong> argc, <strong>char</strong> **argv) {
+   <strong>struct</strong> event_base *base = event_base_new();
+
+   tv.tv_sec = 0;
+   tv.tv_usec = 0;
+
+   ev = evtimer_new(base, cb, NULL);
+
+   evtimer_add(ev, &amp;tv);
+
+   event_base_loop(base, 0);
+
+   <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Example: Alternative solution to the above problem using event_config_set_max_dispatch_interval()</div>
+<div class="content">
+<pre><code><strong>struct</strong> event *ev;
+
+<strong>static</strong> <strong>void</strong> cb(<strong>int</strong> sock, <strong>short</strong> which, <strong>void</strong> *arg) {
+        event_active(ev, EV_WRITE, 0);
+}
+
+<strong>int</strong> main(<strong>int</strong> argc, <strong>char</strong> **argv) {
+        <strong>struct</strong> event_config *cfg = event_config_new();
+<i>        /* Run at most 16 callbacks before checking for other events. */</i>
+        event_config_set_max_dispatch_interval(cfg, NULL, 16, 0);
+        <strong>struct</strong> event_base *base = event_base_new_with_config(cfg);
+        ev = event_new(base, -1, EV_PERSIST | EV_READ, cb, NULL);
+
+        event_add(ev, NULL);
+
+        event_active(ev, EV_WRITE, 0);
+
+        event_base_loop(base, 0);
+
+        <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This function is defined in &lt;event2/event.h&gt;.  It has existed
+since Libevent 0.3.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_optimizing_common_timeouts">Optimizing common timeouts</h3>
+<div class="paragraph"><p>Current versions of Libevent use a binary heap algorithm to keep track
+of pending events' timeouts.  A binary heap gives performance of order
+O(lg n) for adding and deleting each event timeout.  This is optimal if
+you&#8217;re adding events with a randomly distributed set of timeout values,
+but not if you have a large number of events with the same timeout.</p></div>
+<div class="paragraph"><p>For example, suppose you have ten thousand events, each of which should
+trigger its timeout five seconds after it was added.  In a situation
+like this, you could get O(1) performance for each timeout by using a
+doubly-linked queue implementation.</p></div>
+<div class="paragraph"><p>Naturally, you wouldn&#8217;t want to use a queue for all of your timeout
+values, since a queue is only faster for constant timeout values.  If
+some of the timeouts are more-or-less randomly distributed, then adding
+one of those timeouts to a queue would take O(n) time, which would be
+significantly worse than a binary heap.</p></div>
+<div class="paragraph"><p>Libevent lets you solve this by placing some of your timeouts in queues,
+and others in the binary heap.  To do this, you ask Libevent for a
+special "common timeout" timeval, which you then use to add events
+having that timeval.  If you have a very large number of events with
+a single common timeout, using this optimization should improve
+timeout performance.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>const</strong> <strong>struct</strong> timeval *event_base_init_common_timeout(
+    <strong>struct</strong> event_base *base, <strong>const</strong> <strong>struct</strong> timeval *duration);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function takes as its arguments an event_base, and the duration
+of the common timeout to initialize.  It returns a pointer to a special
+struct timeval that you can use to indicate that an event should be
+added to an O(1) queue rather than the O(lg n) heap.  This special
+timeval can be copied or assigned freely in your code.  It will only
+work with the specific base you used to construct it.  Do not rely on
+its actual contents: Libevent uses them to tell itself which queue to
+use.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;string.h&gt;
+
+<i>/* We're going to create a very large number of events on a given base,</i>
+<i> * nearly all of which have a ten-second timeout.  If initialize_timeout</i>
+<i> * is called, we'll tell Libevent to add the ten-second ones to an O(1)</i>
+<i> * queue. */</i>
+<strong>struct</strong> timeval ten_seconds = { 10, 0 };
+
+<strong>void</strong> initialize_timeout(<strong>struct</strong> event_base *base)
+{
+    <strong>struct</strong> timeval tv_in = { 10, 0 };
+    <strong>const</strong> <strong>struct</strong> timeval *tv_out;
+    tv_out = event_base_init_common_timeout(base, &amp;tv_in);
+    memcpy(&amp;ten_seconds, tv_out, <strong>sizeof</strong>(<strong>struct</strong> timeval));
+}
+
+<strong>int</strong> my_event_add(<strong>struct</strong> event *ev, <strong>const</strong> <strong>struct</strong> timeval *tv)
+{
+<i>    /* Note that ev must have the same event_base that we passed to</i>
+<i>       initialize_timeout */</i>
+    <strong>if</strong> (tv &amp;&amp; tv-&gt;tv_sec == 10 &amp;&amp; tv-&gt;tv_usec == 0)
+        <strong>return</strong> event_add(ev, &amp;ten_seconds);
+    <strong>else</strong>
+        <strong>return</strong> event_add(ev, tv);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>As with all optimization functions, you should avoid using the
+common_timeout functionality unless you&#8217;re pretty sure that it matters
+for you.</p></div>
+<div class="paragraph"><p>This functionality was introduced in Libevent 2.0.4-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_telling_a_good_event_apart_from_cleared_memory">Telling a good event apart from cleared memory</h3>
+<div class="paragraph"><p>Libevent provides functions that you can use to distinguish an
+initialized event from memory that has been cleared by setting it to 0
+(for example, by allocating it with calloc() or clearing it with
+memset() or bzero()).</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> event_initialized(<strong>const</strong> <strong>struct</strong> event *ev);
+
+#define evsignal_initialized(ev) event_initialized(ev)
+#define evtimer_initialized(ev) event_initialized(ev)</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">Warning</div><p>These functions can&#8217;t reliably distinguish between an initialized event
+and a hunk of uninitialized memory.  You should not use them
+unless you know that the memory in question is either cleared or
+initialized as an event.</p></div>
+<div class="paragraph"><p>Generally, you shouldn&#8217;t need to use these functions unless you&#8217;ve got a
+pretty specific application in mind.  Events returned by event_new() are
+always initialized.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;stdlib.h&gt;
+
+<strong>struct</strong> reader {
+    evutil_socket_t fd;
+};
+
+#define READER_ACTUAL_SIZE() \
+    (<strong>sizeof</strong>(<strong>struct</strong> reader) + \
+     event_get_struct_event_size())
+
+#define READER_EVENT_PTR(r) \
+    ((<strong>struct</strong> event *) (((<strong>char</strong>*)(r))+<strong>sizeof</strong>(<strong>struct</strong> reader)))
+
+<strong>struct</strong> reader *allocate_reader(evutil_socket_t fd)
+{
+    <strong>struct</strong> reader *r = calloc(1, READER_ACTUAL_SIZE());
+    <strong>if</strong> (r)
+        r-&gt;fd = fd;
+    <strong>return</strong> r;
+}
+
+<strong>void</strong> readcb(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *);
+<strong>int</strong> add_reader(<strong>struct</strong> reader *r, <strong>struct</strong> event_base *b)
+{
+    <strong>struct</strong> event *ev = READER_EVENT_PTR(r);
+    <strong>if</strong> (!event_initialized(ev))
+        event_assign(ev, b, r-&gt;fd, EV_READ, readcb, r);
+    <strong>return</strong> event_add(ev, NULL);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The event_initialized() function has been present since Libevent 0.3.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_obsolete_event_manipulation_functions">Obsolete event manipulation functions</h3>
+<div class="paragraph"><p>Pre-2.0 versions of Libevent did not have event_assign() or
+event_new().  Instead, you had event_set(), which associated the event
+with the "current" base.  If you had more than one base, you needed to
+remember to call event_base_set() afterwards to make sure that the
+event was associated with the base you actually wanted to use.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> event_set(<strong>struct</strong> event *event, evutil_socket_t fd, <strong>short</strong> what,
+        <strong>void</strong>(*callback)(evutil_socket_t, <strong>short</strong>, <strong>void</strong> *), <strong>void</strong> *arg);
+<strong>int</strong> event_base_set(<strong>struct</strong> event_base *base, <strong>struct</strong> event *event);</code></pre>
+</div></div>
+<div class="paragraph"><p>The event_set() function was like event_assign(), except for its use
+of the current base.  The event_base_set() function changes the base
+associated with an event.</p></div>
+<div class="paragraph"><p>There were variants of event_set() for dealing more conveniently with
+timers and signals: evtimer_set() corresponded roughly to evtimer_assign(),
+and evsignal_set() corresponded roughly to evsignal_assign().</p></div>
+<div class="paragraph"><p>Versions of Libevent before 2.0 used "signal_" as the prefix for the
+signal-based variants of event_set() and so on, rather than "evsignal_".
+(That is, they had signal_set(), signal_add(), signal_del(),
+signal_pending(), and signal_initialized().)  Truly ancient versions of
+Libevent (before 0.6) used "timeout_" instead of "evtimer_".  Thus, if you&#8217;re
+doing code archeology, you might see timeout_add(), timeout_del(),
+timeout_initialized(), timeout_set(), timeout_pending(), and so on.</p></div>
+<div class="paragraph"><p>In place of the event_get_fd() and event_get_signal() functions, older
+versions of Libevent (before 2.0) used two macros called EVENT_FD() and
+EVENT_SIGNAL().  These macros inspected the event structure&#8217;s contents
+directly and so prevented binary compatibility between versions; in 2.0 and
+later they are just aliases for event_get_fd() and event_get_signal().</p></div>
+<div class="paragraph"><p>Since versions of Libevent before 2.0 did not have
+locking support, it wasn&#8217;t safe to call any of the functions that
+change an event&#8217;s state with respect to a base from outside the thread
+running the base.  These include event_add(), event_del(),
+event_active(), and event_base_once().</p></div>
+<div class="paragraph"><p>There was also an event_once() function that played the role of
+event_base_once(), but used the current base.</p></div>
+<div class="paragraph"><p>The EV_PERSIST flag did not interoperate sensibly with timeouts before
+Libevent 2.0. Instead resetting the timeout whenever the event was
+activated, the EV_PERSIST flag did nothing with the timeout.</p></div>
+<div class="paragraph"><p>Libevent versions before 2.0 did not support having multiple events
+inserted at the same time with the same fd and the same READ/WRITE.
+In other words, only one event at a time could be waiting for read on
+each fd, and only one event at a time could be waiting for write on
+each fd.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_using_dns_with_libevent_high_and_low_level_functionality">Using DNS with Libevent: high and low-level functionality</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Libevent provides a few APIs to use for resolving DNS names, and a
+facility for implementing simple DNS servers.</p></div>
+<div class="paragraph"><p>We&#8217;ll start by describing the higher-level facilities for name lookup,
+and then describe the low-level and server facilities.</p></div>
+<div class="paragraph"><div class="title">Note</div><p>There are known limitations in Libevent&#8217;s current DNS client implementation.
+It doesn&#8217;t support TCP lookups, DNSSec, or arbitrary record types.  We&#8217;d like
+to fix all of these in some future version of Libevent, but for now, they&#8217;re
+not there.</p></div>
+<div class="sect2">
+<h3 id="_preliminaries_portable_blocking_name_resolution">Preliminaries: Portable blocking name resolution</h3>
+<div class="paragraph"><p>To aid in porting programs that already use blocking name resolution,
+Libevent provides a portable implementation of the standard
+getaddrinfo() interface.  This can be helpful when your program needs to
+run on platforms where either there is no getaddrinfo() function, or
+where getaddrinfo() doesn&#8217;t conform to the standard as well as our
+replacement.  (There are shockingly many of each.)</p></div>
+<div class="paragraph"><p>The getaddrinfo() interface is specified in RFC 3493, section 6.1.  See
+the "Compatibility Notes" section below for a summary of how we fall
+short of a conformant implemenation.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evutil_addrinfo {
+    <strong>int</strong> ai_flags;
+    <strong>int</strong> ai_family;
+    <strong>int</strong> ai_socktype;
+    <strong>int</strong> ai_protocol;
+    size_t ai_addrlen;
+    <strong>char</strong> *ai_canonname;
+    <strong>struct</strong> sockaddr *ai_addr;
+    <strong>struct</strong> evutil_addrinfo *ai_next;
+};
+
+#define EVUTIL_AI_PASSIVE     /* ... */
+#define EVUTIL_AI_CANONNAME   /* ... */
+#define EVUTIL_AI_NUMERICHOST /* ... */
+#define EVUTIL_AI_NUMERICSERV /* ... */
+#define EVUTIL_AI_V4MAPPED    /* ... */
+#define EVUTIL_AI_ALL         /* ... */
+#define EVUTIL_AI_ADDRCONFIG  /* ... */
+
+<strong>int</strong> evutil_getaddrinfo(<strong>const</strong> <strong>char</strong> *nodename, <strong>const</strong> <strong>char</strong> *servname,
+    <strong>const</strong> <strong>struct</strong> evutil_addrinfo *hints, <strong>struct</strong> evutil_addrinfo **res);
+<strong>void</strong> evutil_freeaddrinfo(<strong>struct</strong> evutil_addrinfo *ai);
+<strong>const</strong> <strong>char</strong> *evutil_gai_strerror(<strong>int</strong> err);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evutil_getaddrinfo() function tries to resolve the provided nodename
+and servname fields, according to the rules you give it in <em>hints</em>, and
+build you a linked list of evutil_addrinfo structures and store them in
+*res.  It returns 0 on success, and a nonzero error code on failure.</p></div>
+<div class="paragraph"><p>You must provide at least one of <em>nodename</em> and <em>servname</em>.  If
+<em>nodename</em> is provided, it is either a literal IPv4 address (like
+"127.0.0.1"), a literal IPv6 address (like "::1"), or a DNS name (like
+"www.example.com").  If <em>servname</em> is provided, it is either the
+symbolic name of a network service (like "https") or a string containing
+a port number given in decimal (like "443").</p></div>
+<div class="paragraph"><p>If you do not specify <em>servname</em>, then the port values in *res will be
+set to zero.  If you do not specify <em>nodename</em>, then the addresses in
+*res will either be for localhost (by default), or for "any" (if
+EVUTIL_AI_PASSIVE is set.)</p></div>
+<div class="paragraph"><p>The ai_flags field of <em>hints</em> tells evutil_getaddrinfo how to perform
+the lookup.  It can contain zero or more of the flags below, ORed together.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+EVUTIL_AI_PASSIVE
+</dt>
+<dd>
+<p>
+        This flag indicates that we&#8217;re going to be using the address
+        for listening, not for connection.  Ordinarily this makes
+        no difference, except when <em>nodename</em> is NULL: for connecting,
+        a NULL nodename is localhost (127.0.0.1 or ::1), whereas when
+        listening, a NULL node name is ANY (0.0.0.0 or ::0).
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_AI_CANONNAME
+</dt>
+<dd>
+<p>
+        If this flag is set, we try to report the canonical name for the
+        host in the ai_canonname field.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_AI_NUMERICHOST
+</dt>
+<dd>
+<p>
+        When this flag is set, we only resolve numeric IPv4 and IPv6
+        addresses; if the <em>nodename</em> would require a name lookup,
+        we instead give an EVUTIL_EAI_NONAME error.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_AI_NUMERICSERV
+</dt>
+<dd>
+<p>
+        When this flag is set, we only resolve numeric service names.
+        If the <em>servname</em> is neither NULL nor a decimal integer,
+        give an EVUTIL_EAI_NONAME error.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_AI_V4MAPPED
+</dt>
+<dd>
+<p>
+        This flag indicates that if ai_family is AF_INET6, and no IPv6
+        addresses are found, any IPv4 addresses in the result should be
+        returned as v4-mapped IPv6 addresses.  It is not currently
+        supported by evutil_getaddrinfo() unless the OS supports it.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_AI_ALL
+</dt>
+<dd>
+<p>
+        If this flag and EVUTIL_AI_V4MAPPED are both set, then IPv4
+        addresses in the result included in the result as 4-mapped IPv6
+        addresses, whether there are any IPv6 addresses or not.  It is
+        not currently supported by evutil_getaddrinfo() unless the OS
+        supports it.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_AI_ADDRCONFIG
+</dt>
+<dd>
+<p>
+        If this flag is set, then IPv4 addresses are only included in
+        the result if the system has a nonlocal IPv4 address, and IPv6
+        addresses are only included in the result if the system has a
+        nonlocal IPv6 address.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>The ai_family field of <em>hints</em> is used to tell evutil_getaddrinfo() which
+addresses it should return.  It can be AF_INET to request IPv4 addresses
+only, AF_INET6 to request IPv6 addresses only, or AF_UNSPEC to request
+all available addresses.</p></div>
+<div class="paragraph"><p>The ai_socktype and ai_protocol fields of <em>hints</em> are used to tell
+evutil_getaddrinfo() how you&#8217;re going to use the address.  They&#8217;re the
+same as the socktype and protocol fields you would pass to socket().</p></div>
+<div class="paragraph"><p>If evutil_getaddrinfo() is successful, it allocates a new linked list of
+evutil_addrinfo structures, where each points to the next with its
+"ai_next" pointer, and stores them in *res.  Because this value is
+heap-allocated, you will need to use evutil_freeaddrinfo to free it.</p></div>
+<div class="paragraph"><p>If it fails, it returns one of these numeric error codes:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+EVUTIL_EAI_ADDRFAMILY
+</dt>
+<dd>
+<p>
+      You requested an address family that made no sense for the
+      nodename.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_AGAIN
+</dt>
+<dd>
+<p>
+      There was a recoverable error in name resolution; try again later.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_FAIL
+</dt>
+<dd>
+<p>
+      There was a non-recoverable error in name resolution; your
+      resolver or your DNS server may be busted.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_BADFLAGS
+</dt>
+<dd>
+<p>
+      The ai_flags field in hints was somehow invalid.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_FAMILY
+</dt>
+<dd>
+<p>
+      The ai_family field in hints was not one we support.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_MEMORY
+</dt>
+<dd>
+<p>
+      We ran out of memory while trying to answer your request.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_NODATA
+</dt>
+<dd>
+<p>
+      The host you asked for exists, but has no address information
+      associated with it.  (Or, it has no address information of the
+      type you requested.)
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_NONAME
+</dt>
+<dd>
+<p>
+      The host you asked for doesn&#8217;t seem to exist.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_SERVICE
+</dt>
+<dd>
+<p>
+      The service you asked for doesn&#8217;t seem to exist.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_SOCKTYPE
+</dt>
+<dd>
+<p>
+      We don&#8217;t support the socket type you asked for, or it isn&#8217;t
+      compatible with ai_protocol.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_SYSTEM
+</dt>
+<dd>
+<p>
+      There was some other system error during name resolution.  Check
+      errno for more information.
+</p>
+</dd>
+<dt class="hdlist1">
+EVUTIL_EAI_CANCEL
+</dt>
+<dd>
+<p>
+      The application requested that this DNS lookup should be canceled
+      before it was finished.  The evutil_getaddrinfo() function never
+      produces this error, but it can come from evdns_getaddrinfo()
+      as described in the section below.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>You can use evutil_gai_strerror() to convert one of these results into a
+human-readable string.</p></div>
+<div class="paragraph"><p>Note: If your OS defines struct addrinfo, then evutil_addrinfo is just
+an alias for your OS&#8217;s built-in structure.  Similarly, if your operating
+system defines any of the AI_* flags, then the corresponding EVUTIL_AI_*
+flag is just an alias for the native flag; and if your operating system
+defines any of the EAI_* errors, then the corresponding EVUTIL_EAI_*
+code is the same as your platform&#8217;s native error code.</p></div>
+<div class="listingblock">
+<div class="title">Example: Resolving a hostname and making a blocking connection</div>
+<div class="content">
+<pre><code>#include &lt;event2/util.h&gt;
+
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;unistd.h&gt;
+
+evutil_socket_t
+get_tcp_socket_for_host(<strong>const</strong> <strong>char</strong> *hostname, ev_uint16_t port)
+{
+    <strong>char</strong> port_buf[6];
+    <strong>struct</strong> evutil_addrinfo hints;
+    <strong>struct</strong> evutil_addrinfo *answer = NULL;
+    <strong>int</strong> err;
+    evutil_socket_t sock;
+
+<i>    /* Convert the port to decimal. */</i>
+    evutil_snprintf(port_buf, <strong>sizeof</strong>(port_buf), "%d", (<strong>int</strong>)port);
+
+<i>    /* Build the hints to tell getaddrinfo how to act. */</i>
+    memset(&amp;hints, 0, <strong>sizeof</strong>(hints));
+    hints.ai_family = AF_UNSPEC; /* v4 or v6 is fine. */
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_protocol = IPPROTO_TCP; /* We want a TCP socket */
+<i>    /* Only return addresses we can use. */</i>
+    hints.ai_flags = EVUTIL_AI_ADDRCONFIG;
+
+<i>    /* Look up the hostname. */</i>
+    err = evutil_getaddrinfo(hostname, port_buf, &amp;hints, &amp;answer);
+    <strong>if</strong> (err != 0) {
+          fprintf(stderr, "Error <strong>while</strong> resolving '%s': %s",
+                  hostname, evutil_gai_strerror(err));
+          <strong>return</strong> -1;
+    }
+
+<i>    /* If there was no error, we should have at least one answer. */</i>
+    assert(answer);
+<i>    /* Just use the first answer. */</i>
+    sock = socket(answer-&gt;ai_family,
+                  answer-&gt;ai_socktype,
+                  answer-&gt;ai_protocol);
+    <strong>if</strong> (sock &lt; 0)
+        <strong>return</strong> -1;
+    <strong>if</strong> (connect(sock, answer-&gt;ai_addr, answer-&gt;ai_addrlen)) {
+<i>        /* Note that we're doing a blocking connect in this function.</i>
+<i>         * If this were nonblocking, we'd need to treat some errors</i>
+<i>         * (like EINTR and EAGAIN) specially. */</i>
+        EVUTIL_CLOSESOCKET(sock);
+        <strong>return</strong> -1;
+    }
+
+    <strong>return</strong> sock;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions and constants were new in Libevent 2.0.3-alpha.  They
+are declared in event2/util.h.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_non_blocking_hostname_resolution_with_evdns_getaddrinfo">Non-blocking hostname resolution with evdns_getaddrinfo()</h3>
+<div class="paragraph"><p>The main problem with the regular getaddrinfo() interface, and with
+evutil_getaddrinfo() above, is that they&#8217;re blocking: when you call
+them, the thread you&#8217;re in has to wait while they query your DNS
+server(s) and wait for a response.  Since you&#8217;re using Libevent, that
+probably isn&#8217;t the behavior you want.</p></div>
+<div class="paragraph"><p>So for nonblocking use, Libevent provides a set of functions to launch
+DNS requests, and use Libevent to wait for the server to answer.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evdns_getaddrinfo_cb)(
+    <strong>int</strong> result, <strong>struct</strong> evutil_addrinfo *res, <strong>void</strong> *arg);
+<strong>struct</strong> evdns_getaddrinfo_request;
+
+<strong>struct</strong> evdns_getaddrinfo_request *evdns_getaddrinfo(
+    <strong>struct</strong> evdns_base *dns_base,
+    <strong>const</strong> <strong>char</strong> *nodename, <strong>const</strong> <strong>char</strong> *servname,
+    <strong>const</strong> <strong>struct</strong> evutil_addrinfo *hints_in,
+    evdns_getaddrinfo_cb cb, <strong>void</strong> *arg);
+
+<strong>void</strong> evdns_getaddrinfo_cancel(<strong>struct</strong> evdns_getaddrinfo_request *req);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evdns_getaddrinfo() function behaves just like evutil_getaddrinfo(),
+except that instead of blocking on DNS servers, it uses Libevent&#8217;s
+low-level DNS facilities to look hostnames up for you.  Because it can&#8217;t
+always return you the result immediately, you need to provide it a
+callback function of type evdns_getaddrinfo_cb, and an optional
+user-supplied argument for that callback function.</p></div>
+<div class="paragraph"><p>Additionally, you need to provide evdns_getaddrinfo() with a pointer to
+an evdns_base.  This structure holds the state  and configuration for
+Libevent&#8217;s DNS resolver.  See the next section for more information on
+how to get one.</p></div>
+<div class="paragraph"><p>The evdns_getaddrinfo() function returns NULL if it fails or succeeds
+immediately.  Otherwise, it returns a pointer to an
+evdns_getaddrinfo_request.  You can use this to cancel the request with
+evdns_getaddrinfo_cancel() at any time before the request is finished.</p></div>
+<div class="paragraph"><p>Note that the callback function <em>will</em> eventually be invoked whether
+evdns_getaddrinfo() returns NULL or not, and whether
+evdns_getaddrinfo_cancel() is called or not.</p></div>
+<div class="paragraph"><p>When you call evdns_getaddrinfo(), it makes its own internal copies of its
+nodename, servname, and hints arguments: you do not need to ensure that they
+continue to exist while the name lookup is in progress.</p></div>
+<div class="listingblock">
+<div class="title">Example: Nonblocking lookups with evdns_getaddrinfo()</div>
+<div class="content">
+<pre><code>#include &lt;event2/dns.h&gt;
+#include &lt;event2/util.h&gt;
+#include &lt;event2/event.h&gt;
+
+#include &lt;sys/socket.h&gt;
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;assert.h&gt;
+
+<strong>int</strong> n_pending_requests = 0;
+<strong>struct</strong> event_base *base = NULL;
+
+<strong>struct</strong> user_data {
+    <strong>char</strong> *name; /* the name we're resolving */
+    <strong>int</strong> idx; /* its position on the command line */
+};
+
+<strong>void</strong> callback(<strong>int</strong> errcode, <strong>struct</strong> evutil_addrinfo *addr, <strong>void</strong> *ptr)
+{
+    <strong>struct</strong> user_data *data = ptr;
+    <strong>const</strong> <strong>char</strong> *name = data-&gt;name;
+    <strong>if</strong> (errcode) {
+        printf("%d. %s -&gt; %s\n", data-&gt;idx, name, evutil_gai_strerror(errcode));
+    } <strong>else</strong> {
+        <strong>struct</strong> evutil_addrinfo *ai;
+        printf("%d. %s", data-&gt;idx, name);
+        <strong>if</strong> (addr-&gt;ai_canonname)
+            printf(" [%s]", addr-&gt;ai_canonname);
+        puts("");
+        <strong>for</strong> (ai = addr; ai; ai = ai-&gt;ai_next) {
+            <strong>char</strong> buf[128];
+            <strong>const</strong> <strong>char</strong> *s = NULL;
+            <strong>if</strong> (ai-&gt;ai_family == AF_INET) {
+                <strong>struct</strong> sockaddr_in *sin = (<strong>struct</strong> sockaddr_in *)ai-&gt;ai_addr;
+                s = evutil_inet_ntop(AF_INET, &amp;sin-&gt;sin_addr, buf, 128);
+            } <strong>else</strong> <strong>if</strong> (ai-&gt;ai_family == AF_INET6) {
+                <strong>struct</strong> sockaddr_in6 *sin6 = (<strong>struct</strong> sockaddr_in6 *)ai-&gt;ai_addr;
+                s = evutil_inet_ntop(AF_INET6, &amp;sin6-&gt;sin6_addr, buf, 128);
+            }
+            <strong>if</strong> (s)
+                printf("    -&gt; %s\n", s);
+        }
+        evutil_freeaddrinfo(addr);
+    }
+    free(data-&gt;name);
+    free(data);
+    <strong>if</strong> (--n_pending_requests == 0)
+        event_base_loopexit(base, NULL);
+}
+
+<i>/* Take a list of domain names from the command line and resolve them in</i>
+<i> * parallel. */</i>
+<strong>int</strong> main(<strong>int</strong> argc, <strong>char</strong> **argv)
+{
+    <strong>int</strong> i;
+    <strong>struct</strong> evdns_base *dnsbase;
+
+    <strong>if</strong> (argc == 1) {
+        puts("No addresses given.");
+        <strong>return</strong> 0;
+    }
+    base = event_base_new();
+    <strong>if</strong> (!base)
+        <strong>return</strong> 1;
+    dnsbase = evdns_base_new(base, 1);
+    <strong>if</strong> (!dnsbase)
+        <strong>return</strong> 2;
+
+    <strong>for</strong> (i = 1; i &lt; argc; ++i) {
+        <strong>struct</strong> evutil_addrinfo hints;
+        <strong>struct</strong> evdns_getaddrinfo_request *req;
+        <strong>struct</strong> user_data *user_data;
+        memset(&amp;hints, 0, <strong>sizeof</strong>(hints));
+        hints.ai_family = AF_UNSPEC;
+        hints.ai_flags = EVUTIL_AI_CANONNAME;
+<i>        /* Unless we specify a socktype, we'll get at least two entries for</i>
+<i>         * each address: one for TCP and one for UDP. That's not what we</i>
+<i>         * want. */</i>
+        hints.ai_socktype = SOCK_STREAM;
+        hints.ai_protocol = IPPROTO_TCP;
+
+        <strong>if</strong> (!(user_data = malloc(<strong>sizeof</strong>(<strong>struct</strong> user_data)))) {
+            perror("malloc");
+            exit(1);
+        }
+        <strong>if</strong> (!(user_data-&gt;name = strdup(argv[i]))) {
+            perror("strdup");
+            exit(1);
+        }
+        user_data-&gt;idx = i;
+
+        ++n_pending_requests;
+        req = evdns_getaddrinfo(
+                          dnsbase, argv[i], NULL /* no service name given */,
+                          &amp;hints, callback, user_data);
+        <strong>if</strong> (req == NULL) {
+          printf("    [request <strong>for</strong> %s returned immediately]\n", argv[i]);
+<i>          /* No need to free user_data or decrement n_pending_requests; that</i>
+<i>           * happened in the callback. */</i>
+        }
+    }
+
+    <strong>if</strong> (n_pending_requests)
+      event_base_dispatch(base);
+
+    evdns_base_free(dnsbase, 0);
+    event_base_free(base);
+
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions were new in Libevent 2.0.3-alpha.  They are declared in
+event2/dns.h.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_creating_and_configuring_an_evdns_base">Creating and configuring an evdns_base</h3>
+<div class="paragraph"><p>Before you can do nonblocking DNS lookups with evdns, you&#8217;ll need to
+configure an evdns_base.  Each evdns_base stores a list of nameservers,
+and DNS configuration options, and tracks active and in-flight DNS
+requests.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evdns_base *evdns_base_new(<strong>struct</strong> event_base *event_base,
+       <strong>int</strong> initialize);
+<strong>void</strong> evdns_base_free(<strong>struct</strong> evdns_base *base, <strong>int</strong> fail_requests);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evdns_base_new() function returns a new evdns_base on success, and
+NULL on failure.  If the <em>initialize</em> argument is 1, it tries to
+configure the DNS base sensibly given your operating system&#8217;s default.
+If it is 0, it leaves the evdns_base empty, with no nameservers or
+options configured.</p></div>
+<div class="paragraph"><p>When you no longer need an evdns_base, you can free it with
+evdns_base_free.  If its <em>fail_requests</em> argument is true, it will
+make all in-flight requests get their callbacks invoked with a
+<em>canceled</em> error code before it frees the base.</p></div>
+<div class="sect3">
+<h4 id="_initializing_evdns_from_the_system_configuration">Initializing evdns from the system configuration</h4>
+<div class="paragraph"><p>If you want a little more control over how the evdns_base is
+initialized, you can pass 0 as the <em>initialize</em> argument to
+evdns_base_new, and invoke one of these functions.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define DNS_OPTION_SEARCH 1
+#define DNS_OPTION_NAMESERVERS 2
+#define DNS_OPTION_MISC 4
+#define DNS_OPTION_HOSTSFILE 8
+#define DNS_OPTIONS_ALL 15
+<strong>int</strong> evdns_base_resolv_conf_parse(<strong>struct</strong> evdns_base *base, <strong>int</strong> flags,
+                                 <strong>const</strong> <strong>char</strong> *filename);
+
+#ifdef WIN32
+<strong>int</strong> evdns_base_config_windows_nameservers(<strong>struct</strong> evdns_base *);
+#define EVDNS_BASE_CONFIG_WINDOWS_NAMESERVERS_IMPLEMENTED
+#endif</code></pre>
+</div></div>
+<div class="paragraph"><p>The evdns_base_resolv_conf_parse() function will scan the resolv.conf
+formatted file stored in <em>filename</em>, and read in all the options from it
+that are listed in <em>flags</em>.  (For more information on the resolv.conf
+file, see your local Unix manual pages.)</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+DNS_OPTION_SEARCH
+</dt>
+<dd>
+<p>
+     Tells evdns to read the <em>domain</em> and <em>search</em> fields from the
+     resolv.conf file and the <em>ndots</em> option, and use them to decide
+     which domains (if any) to search for hostnames that aren&#8217;t
+     fully-qualified.
+</p>
+</dd>
+<dt class="hdlist1">
+DNS_OPTION_NAMESERVERS
+</dt>
+<dd>
+<p>
+     This flag tells evdns to learn the nameservers from the resolv.conf
+     file.
+</p>
+</dd>
+<dt class="hdlist1">
+DNS_OPTION_MISC
+</dt>
+<dd>
+<p>
+     Tells evdns to set other configuration options from the resolv.conf
+     file.
+</p>
+</dd>
+<dt class="hdlist1">
+DNS_OPTION_HOSTSFILE
+</dt>
+<dd>
+<p>
+     Tells evdns to read a list of hosts from /etc/hosts as part of
+     loading the resolv.conf file.
+</p>
+</dd>
+<dt class="hdlist1">
+DNS_OPTIONS_ALL
+</dt>
+<dd>
+<p>
+     Tells evdns to learn as much as it can from the resolv.conf file.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>On Windows, you don&#8217;t have a resolv.conf file to tell you where your
+nameservers are, so you can use the
+evdns_base_config_windows_nameservers() function to read all your
+nameservers from your registry (or your NetworkParams, or wherever
+they&#8217;re hidden).</p></div>
+<div class="sect4">
+<h5 id="_the_resolv_conf_file_format">The resolv.conf file format</h5>
+<div class="paragraph"><p>The resolv.conf format we recognize is a text file, each line of which
+should either be empty, contain a comment starting with the # character,
+or consist of a token followed zero or more arguments.  The tokens
+we recognize are:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+nameserver
+</dt>
+<dd>
+<p>
+     Must be followed by the IP address of exactly one nameserver.  As
+     an extension, Libevent allows you to specify a nonstandard port for
+     the nameserver, using the IP:Port or the [IPv6]:port syntax.
+</p>
+</dd>
+<dt class="hdlist1">
+domain
+</dt>
+<dd>
+<p>
+     The local domain name.
+</p>
+</dd>
+<dt class="hdlist1">
+search
+</dt>
+<dd>
+<p>
+     A list of names to search when resolving local hostnames.
+     Any name that has fewer than "ndots" dots in it is considered
+     local, and if we can&#8217;t resolve it as-is, we look in these domain
+     names.  For example, if "search" is example.com and "ndots" is 1,
+     then when the user asks us to resolve "www", we will consider
+     "www.example.com".
+</p>
+</dd>
+<dt class="hdlist1">
+options
+</dt>
+<dd>
+<p>
+     A space-separated list of options.  Each option is given either as
+     a bare string, or (if it takes an argument) in the option:value
+     format.  Recognized options are:
+</p>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+ndots:INTEGER
+</dt>
+<dd>
+<p>
+        Used to configure searching.  See "search" above.  Defaults to 1.
+</p>
+</dd>
+<dt class="hdlist1">
+timeout:FLOAT
+</dt>
+<dd>
+<p>
+        How long, in seconds, do we wait for a response from a DNS
+        server before we assume we aren&#8217;t getting one?  Defaults to 5
+        seconds.
+</p>
+</dd>
+<dt class="hdlist1">
+max-timeouts:INT
+</dt>
+<dd>
+<p>
+        How many times do we allow a nameserver to time-out in a row
+        before we assume that it&#8217;s down?  Defaults to 3.
+</p>
+</dd>
+<dt class="hdlist1">
+max-inflight:INT
+</dt>
+<dd>
+<p>
+        How many DNS requests do we allow to be pending at once?  (If
+        we try to do more requests than this, the extras will stall
+        until the earlier ones are answered or time out.)  Defaults to
+        64.
+</p>
+</dd>
+<dt class="hdlist1">
+attempts:INT
+</dt>
+<dd>
+<p>
+        How many times to we re-transmit a DNS request before giving up
+        on it?  Defaults to 3.
+</p>
+</dd>
+<dt class="hdlist1">
+randomize-case:INT
+</dt>
+<dd>
+<p>
+        If nonzero, we randomize the case on outgoing DNS requests and
+        make sure that replies have the same case as our requests.  This
+        so-called "0x20 hack" can help prevent some otherwise simple
+        active events against DNS.  Defaults to 1.
+</p>
+</dd>
+<dt class="hdlist1">
+bind-to:ADDRESS
+</dt>
+<dd>
+<p>
+        If provided, we bind to the given address whenever we send
+        packets to a nameserver.  As of Libevent 2.0.4-alpha, it only
+        applied to subsequent nameserver entries.
+</p>
+</dd>
+<dt class="hdlist1">
+initial-probe-timeout:FLOAT
+</dt>
+<dd>
+<p>
+        When we decide that a nameserver is down, we probe it with
+        exponentially decreasing frequency to see if it has come back
+        up.  This option configures the first timeout in the series, in
+        seconds.  Defaults to 10.
+</p>
+</dd>
+<dt class="hdlist1">
+getaddrinfo-allow-skew:FLOAT
+</dt>
+<dd>
+<p>
+        When evdns_getaddrinfo() requests both an IPv4 address and an
+        IPv6 address, it does so in separate DNS request packets, since
+        some servers can&#8217;t handle both requests in one packet.  Once
+        it has an answer for one address type, it waits a little while
+        to see if an answer for the other one comes in.  This option
+        configures how long to wait, in seconds.  Defaults to 3 seconds.
+</p>
+</dd>
+</dl></div>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Unrecognized tokens and options are ignored.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuring_evdns_manually">Configuring evdns manually</h4>
+<div class="paragraph"><p>If you want even more fine-grained control over evdns&#8217;s behavior,
+you can use these functions:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evdns_base_nameserver_sockaddr_add(<strong>struct</strong> evdns_base *base,
+                                 <strong>const</strong> <strong>struct</strong> sockaddr *sa, ev_socklen_t len,
+                                 <strong>unsigned</strong> flags);
+<strong>int</strong> evdns_base_nameserver_ip_add(<strong>struct</strong> evdns_base *base,
+                                 <strong>const</strong> <strong>char</strong> *ip_as_string);
+<strong>int</strong> evdns_base_load_hosts(<strong>struct</strong> evdns_base *base, <strong>const</strong> <strong>char</strong> *hosts_fname);
+
+<strong>void</strong> evdns_base_search_clear(<strong>struct</strong> evdns_base *base);
+<strong>void</strong> evdns_base_search_add(<strong>struct</strong> evdns_base *base, <strong>const</strong> <strong>char</strong> *domain);
+<strong>void</strong> evdns_base_search_ndots_set(<strong>struct</strong> evdns_base *base, <strong>int</strong> ndots);
+
+<strong>int</strong> evdns_base_set_option(<strong>struct</strong> evdns_base *base, <strong>const</strong> <strong>char</strong> *option,
+    <strong>const</strong> <strong>char</strong> *val);
+
+<strong>int</strong> evdns_base_count_nameservers(<strong>struct</strong> evdns_base *base);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evdns_base_nameserver_sockaddr_add() function adds a nameserver to an
+existing evdns_base by its address.  The <em>flags</em> argument is currently
+ignored, and should be 0 for forward-compatibility.  The function returns 0 on
+success and negative on failure.  (It was added in Libevent 2.0.7-rc.)</p></div>
+<div class="paragraph"><p>The evdns_base_nameserver_ip_add function adds a nameserver to an existing
+evdns_base.  It takes the nameserver in a text string, either as an IPv4
+address, an IPv6 address, an IPv4 address with a port (IPv4:Port), or an
+IPv6 address with a port ([IPv6]:Port).  It returns 0 on success and
+negative on failure.</p></div>
+<div class="paragraph"><p>The evdns_base_load_hosts() function loads a hosts file (in the same
+format as /etc/hosts) from hosts_fname.  It also returns 0 on success
+and negative on failure.</p></div>
+<div class="paragraph"><p>The evdns_base_search_clear() function removes all current search suffixes
+(as configured by the <em>search</em> option) from the evdns_base; the
+evdns_base_search_add() function adds a suffix.</p></div>
+<div class="paragraph"><p>The evdns_base_set_option() function sets a given option to a given value in
+the evdns_base.  Each one is given as a string.  (Before Libevent
+2.0.3, the option name needed to have a colon after it.)</p></div>
+<div class="paragraph"><p>If you&#8217;ve just parsed a set of configuration files and want to see if
+any nameservers were added, you can use evdns_base_count_nameservers()
+to see how many there are.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_library_side_configuration">Library-side configuration</h4>
+<div class="paragraph"><p>There are a couple of functions you can use to specify library-wide
+settings for the evdns module:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evdns_debug_log_fn_type)(<strong>int</strong> is_warning, <strong>const</strong> <strong>char</strong> *msg);
+<strong>void</strong> evdns_set_log_fn(evdns_debug_log_fn_type fn);
+<strong>void</strong> evdns_set_transaction_id_fn(ev_uint16_t (*fn)(<strong>void</strong>));</code></pre>
+</div></div>
+<div class="paragraph"><p>For historical reasons, the evdns subsystem does its own logging; you
+can use evdns_set_log_fn() to give it a callback that does something
+with its messages besides discard them.</p></div>
+<div class="paragraph"><p>For security, evdns needs a good source of random numbers: it uses
+this to pick hard-to-guess transaction IDs and to randomize queries
+when using the 0x20 hack.  (See the "randomize-case" option for more
+info here.)  Older versions of Libevent, did not provide a secure RNG
+of its own, however.  You can give evdns a better random number
+generator by calling evdns_set_transaction_id_fn and giving it a
+function that returns a hard-to-predict two-byte unsigned integer.</p></div>
+<div class="paragraph"><p>In Libevent 2.0.4-alpha and later, Libevent uses its own built-in
+secure RNG; evdns_set_transaction_id_fn() has no effect.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_low_level_dns_interfaces">Low-level DNS interfaces</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Occasionally, you&#8217;ll want the ability to launch specific DNS requests
+with more fine-grained control than you get from evdns_getaddrinfo().
+Libevent gives you some interfaces to do that.</p></div>
+<div class="paragraph"><div class="title">Missing features</div><p>Right now, Libevent&#8217;s DNS support lacks a few features that you&#8217;d
+expect from a low-level DNS system, like support for arbitrary request
+types and TCP requests.  If you need features that evdns doesn&#8217;t have,
+please consider contributing a patch.  You might also look into
+a more full-featured DNS library like c-ares.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define DNS_QUERY_NO_SEARCH /* ... */
+
+#define DNS_IPv4_A         /* ... */
+#define DNS_PTR            /* ... */
+#define DNS_IPv6_AAAA      /* ... */
+
+<strong>typedef</strong> <strong>void</strong> (*evdns_callback_type)(<strong>int</strong> result, <strong>char</strong> type, <strong>int</strong> count,
+    <strong>int</strong> ttl, <strong>void</strong> *addresses, <strong>void</strong> *arg);
+
+<strong>struct</strong> evdns_request *evdns_base_resolve_ipv4(<strong>struct</strong> evdns_base *base,
+    <strong>const</strong> <strong>char</strong> *name, <strong>int</strong> flags, evdns_callback_type callback, <strong>void</strong> *ptr);
+<strong>struct</strong> evdns_request *evdns_base_resolve_ipv6(<strong>struct</strong> evdns_base *base,
+    <strong>const</strong> <strong>char</strong> *name, <strong>int</strong> flags, evdns_callback_type callback, <strong>void</strong> *ptr);
+<strong>struct</strong> evdns_request *evdns_base_resolve_reverse(<strong>struct</strong> evdns_base *base,
+    <strong>const</strong> <strong>struct</strong> in_addr *in, <strong>int</strong> flags, evdns_callback_type callback,
+    <strong>void</strong> *ptr);
+<strong>struct</strong> evdns_request *evdns_base_resolve_reverse_ipv6(
+    <strong>struct</strong> evdns_base *base, <strong>const</strong> <strong>struct</strong> in6_addr *in, <strong>int</strong> flags,
+    evdns_callback_type callback, <strong>void</strong> *ptr);</code></pre>
+</div></div>
+<div class="paragraph"><p>These resolve functions initiate a DNS request for a particular record.  Each
+takes an evdns_base to use for the request, a resource to look up (either a
+hostname for forward lookups, or an address for reverse lookups), a set of
+flags to determine how to do the lookup, a callback to invoke when the lookup
+is done, and a pointer to pass to the user-supplied callback.</p></div>
+<div class="paragraph"><p>The <em>flags</em> argument is either 0 or DNS_QUERY_NO_SEARCH to explicitly
+suppress searching in the list of search if the original search fails.
+DNS_QUERY_NO_SEARCH has no effect for reverse lookups, since those never do
+searching.</p></div>
+<div class="paragraph"><p>When the request is done---either successfully or not---the callback function
+will be invoked.  The callback takes a <em>result</em> that indicates success or an
+error code (see DNS Errors table below), a record type (one of DNS_IPv4_A,
+DNS_IPv6_AAAA, or DNS_PTR), the number of records in <em>addresses</em>, a
+time-to-live in seconds, the addresses themselves, and the user-supplied
+argument pointer.</p></div>
+<div class="paragraph"><p>The <em>addresses</em> argument to the callback is NULL in the event of an error.
+For a PTR record, it&#8217;s a NUL-terminated string.  For IPv4 records, it is an
+array of four-byte values in network order.  For IPv6 records, it is an array
+of 16-byte records in network order.  (Note that the number of addresses can
+be 0 even if there was no error.  This can happen when the name exists, but
+it has no records of the requested type.)</p></div>
+<div class="paragraph"><p>The errors codes that can be passed to the callback are as follows:</p></div>
+<div class="paragraph"><div class="title">DNS Errors</div><p>[options="header",width="70%"</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Code</p></td>
+<td align="left" valign="top"><p class="table">Meaning</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_NONE</p></td>
+<td align="left" valign="top"><p class="table">No error occurred</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_FORMAT</p></td>
+<td align="left" valign="top"><p class="table">The server didn&#8217;t understand the query</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_SERVERFAILED</p></td>
+<td align="left" valign="top"><p class="table">The server reported an internal error</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_NOTEXIST</p></td>
+<td align="left" valign="top"><p class="table">There was no record with the given name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_NOTIMPL</p></td>
+<td align="left" valign="top"><p class="table">The server doesn&#8217;t understand this kind of query</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_REFUSED</p></td>
+<td align="left" valign="top"><p class="table">The server rejected the query for policy reasons</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_TRUNCATED</p></td>
+<td align="left" valign="top"><p class="table">The DNS record wouldn&#8217;t fit in a UDP packet</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_UNKNOWN</p></td>
+<td align="left" valign="top"><p class="table">Unknown internal error</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_TIMEOUT</p></td>
+<td align="left" valign="top"><p class="table">We waited too long for an answer</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_SHUTDOWN</p></td>
+<td align="left" valign="top"><p class="table">The user asked us to shut down the evdns system</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_CANCEL</p></td>
+<td align="left" valign="top"><p class="table">The user asked us to cancel this request</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">DNS_ERR_NODATA</p></td>
+<td align="left" valign="top"><p class="table">The response arrived, but contained no answers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>(DNS_ERR_NODATA was new in 2.0.15-stable.)</p></div>
+<div class="paragraph"><p>You can decode these error codes to a human-readable string with:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>const</strong> <strong>char</strong> *evdns_err_to_string(<strong>int</strong> err);</code></pre>
+</div></div>
+<div class="paragraph"><p>Each resolve function returns a pointer to an opaque <em>evdns_request</em>
+structure.  You can use this to cancel the request at any point before the
+callback is invoked:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> evdns_cancel_request(<strong>struct</strong> evdns_base *base,
+    <strong>struct</strong> evdns_request *req);</code></pre>
+</div></div>
+<div class="paragraph"><p>Canceling a request with this function makes its callback get invoked with
+the DNS_ERR_CANCEL result code.</p></div>
+<div class="sect2">
+<h3 id="_suspending_dns_client_operations_and_changing_nameservers">Suspending DNS client operations and changing nameservers</h3>
+<div class="paragraph"><p>Sometimes you want to reconfigure or shut down the DNS subsystem without
+affecting in-flight DNS request too much.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evdns_base_clear_nameservers_and_suspend(<strong>struct</strong> evdns_base *base);
+<strong>int</strong> evdns_base_resume(<strong>struct</strong> evdns_base *base);</code></pre>
+</div></div>
+<div class="paragraph"><p>If you call evdns_base_clear_nameservers_and_suspend() on an evdns_base,
+all nameservers are removed, and pending requests are left in limbo until
+later you re-add nameservers and call evdns_base_resume().</p></div>
+<div class="paragraph"><p>These functions return 0 on success and -1 on failure.  They were introduced
+in Libevent 2.0.1-alpha.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dns_server_interfaces">DNS server interfaces</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Libevent provides simple functionality for acting as a trivial DNS
+server and responding to UDP DNS requests.</p></div>
+<div class="paragraph"><p>This section assumes some familiarity with the DNS protocol.</p></div>
+<div class="sect2">
+<h3 id="_creating_and_closing_a_dns_server">Creating and closing a DNS server</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evdns_server_port *evdns_add_server_port_with_base(
+    <strong>struct</strong> event_base *base,
+    evutil_socket_t socket,
+    <strong>int</strong> flags,
+    evdns_request_callback_fn_type callback,
+    <strong>void</strong> *user_data);
+
+<strong>typedef</strong> <strong>void</strong> (*evdns_request_callback_fn_type)(
+    <strong>struct</strong> evdns_server_request *request,
+    <strong>void</strong> *user_data);
+
+<strong>void</strong> evdns_close_server_port(<strong>struct</strong> evdns_server_port *port);</code></pre>
+</div></div>
+<div class="paragraph"><p>To begin listening for DNS requests, call evdns_add_server_port_with_base().
+It takes an event_base to use for event handling; a UDP socket to listen on;
+a flags variable (always 0 for now); a callback function to call when a new
+DNS query is received; and a pointer to user data that will be passed to the
+callback.  It returns a new evdns_server_port object.</p></div>
+<div class="paragraph"><p>When you are done with the DNS server, you can pass it to
+evdns_close_server_port().</p></div>
+<div class="paragraph"><p>The evdns_add_server_port_with_base() function was new in 2.0.1-alpha;
+evdns_close_server_port() was introduced in 1.3.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_examining_a_dns_request">Examining a DNS request</h3>
+<div class="paragraph"><p>Unfortunately, Libevent doesn&#8217;t currently provide a great way to look at DNS
+requests via a programmatic interface.  Instead, you&#8217;re stuck including
+event2/dns_struct.h and looking at the evdns_server_request structure
+manually.</p></div>
+<div class="paragraph"><p>It would be great if a future version of Libevent provided a better way to do
+this.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evdns_server_request {
+        <strong>int</strong> flags;
+        <strong>int</strong> nquestions;
+        <strong>struct</strong> evdns_server_question **questions;
+};
+#define EVDNS_QTYPE_AXFR 252
+#define EVDNS_QTYPE_ALL  255
+<strong>struct</strong> evdns_server_question {
+        <strong>int</strong> type;
+        <strong>int</strong> dns_question_class;
+        <strong>char</strong> name[1];
+};</code></pre>
+</div></div>
+<div class="paragraph"><p>The <em>flags</em> field of the request contains the DNS flags set in the request;
+the <em>nquestions</em> field is the number of questions in the request; and
+<em>questions</em> is an array of pointers to struct evdns_server_question.  Each
+evdns_server_question includes the resource type of the request (see below
+for a list of EVDNS_*_TYPE macros), the class of the request (typically
+EVDNS_CLASS_INET), and the name of the requested hostname.</p></div>
+<div class="paragraph"><p>These structures were introduced in Libevent 1.3.  Before Libevent 1.4,
+dns_question_class was called "class", which made trouble for the C++ people.
+C programs that still use the old "class" name will stop working in a future
+release.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evdns_server_request_get_requesting_addr(<strong>struct</strong> evdns_server_request *req,
+        <strong>struct</strong> sockaddr *sa, <strong>int</strong> addr_len);</code></pre>
+</div></div>
+<div class="paragraph"><p>Sometimes you&#8217;ll want to know which address made a particular DNS request.
+You can check this by calling evdns_server_request_get_requesting_addr() on
+it.  You should pass in a sockaddr with enough storage to hold the address:
+struct sockaddr_storage is recommended.</p></div>
+<div class="paragraph"><p>This function was introduced in Libevent 1.3c.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_responding_to_dns_requests">Responding to DNS requests</h3>
+<div class="paragraph"><p>Every time your DNS server receives a request, the request is passed to
+the callback function you provided, along with your user_data pointer.  The
+callback function must either respond to the request, ignore the request, or
+make sure that the request is <em>eventually</em> answered or ignored.</p></div>
+<div class="paragraph"><p>Before you respond to a request, you can add one or more answers to your
+response:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evdns_server_request_add_a_reply(<strong>struct</strong> evdns_server_request *req,
+    <strong>const</strong> <strong>char</strong> *name, <strong>int</strong> n, <strong>const</strong> <strong>void</strong> *addrs, <strong>int</strong> ttl);
+<strong>int</strong> evdns_server_request_add_aaaa_reply(<strong>struct</strong> evdns_server_request *req,
+    <strong>const</strong> <strong>char</strong> *name, <strong>int</strong> n, <strong>const</strong> <strong>void</strong> *addrs, <strong>int</strong> ttl);
+<strong>int</strong> evdns_server_request_add_cname_reply(<strong>struct</strong> evdns_server_request *req,
+    <strong>const</strong> <strong>char</strong> *name, <strong>const</strong> <strong>char</strong> *cname, <strong>int</strong> ttl);</code></pre>
+</div></div>
+<div class="paragraph"><p>The functions above all add a single RR (of type A, AAAA, or CNAME
+respectively) to the answers section of a DNS reply for the request <em>req</em>.
+In each case the argument <em>name</em> is the hostname to add an answer for, and
+<em>ttl</em> is the time-to-live value of the answer in seconds.  For A and AAAA
+records, <em>n</em> is the number of addresses to add, and <em>addrs</em> is a pointer to
+the raw addresses, either given as a sequence of n*4 bytes for IPv4 addresses
+in an A record, or as a sequence of n*16 bytes for IPv6 addresses in an AAAA
+record.</p></div>
+<div class="paragraph"><p>These functions return 0 on success and -1 on failure.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evdns_server_request_add_ptr_reply(<strong>struct</strong> evdns_server_request *req,
+    <strong>struct</strong> in_addr *in, <strong>const</strong> <strong>char</strong> *inaddr_name, <strong>const</strong> <strong>char</strong> *hostname,
+    <strong>int</strong> ttl);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function adds a PTR record to the answer section of a request.  The
+arguments <em>req</em> and <em>ttl</em> are as above.  You must provide exactly one of <em>in</em>
+(an IPv4 address) or <em>inaddr_name</em> (an address in the .arpa domain) to
+indicate which address you&#8217;re providing a response for.  The <em>hostname</em>
+argument is the answer for the PTR lookup.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EVDNS_ANSWER_SECTION 0
+#define EVDNS_AUTHORITY_SECTION 1
+#define EVDNS_ADDITIONAL_SECTION 2
+
+#define EVDNS_TYPE_A       1
+#define EVDNS_TYPE_NS      2
+#define EVDNS_TYPE_CNAME   5
+#define EVDNS_TYPE_SOA     6
+#define EVDNS_TYPE_PTR    12
+#define EVDNS_TYPE_MX     15
+#define EVDNS_TYPE_TXT    16
+#define EVDNS_TYPE_AAAA   28
+
+#define EVDNS_CLASS_INET   1
+
+<strong>int</strong> evdns_server_request_add_reply(<strong>struct</strong> evdns_server_request *req,
+    <strong>int</strong> section, <strong>const</strong> <strong>char</strong> *name, <strong>int</strong> type, <strong>int</strong> dns_class, <strong>int</strong> ttl,
+    <strong>int</strong> datalen, <strong>int</strong> is_name, <strong>const</strong> <strong>char</strong> *data);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function adds an arbitrary RR to the DNS reply of a request <em>req</em>.
+The <em>section</em> argument describes which section to add it to, and should be
+one of the EVDNS_*_SECTION values.  The <em>name</em> argument is the name field of
+the RR.  The <em>type</em> argument is the <em>type</em> field of the RR, and should be one
+of the EVDNS_TYPE_* values if possible.  The <em>dns_class</em> argument is the
+class field of the RR, and should generally be EVDNS_CLASS_INET.  The <em>ttl</em>
+argument is the time-to-live in seconds of the RR.  The rdata and rdlength
+fields of the RR will be generated from the <em>datalen</em> bytes provided in
+<em>data</em>.  If is_name is true, the data will be encoded as a DNS name (i.e.,
+with DNS name compression).  Otherwise, it&#8217;s included verbatim.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evdns_server_request_respond(<strong>struct</strong> evdns_server_request *req, <strong>int</strong> err);
+<strong>int</strong> evdns_server_request_drop(<strong>struct</strong> evdns_server_request *req);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evdns_server_request_respond() function sends a DNS response to a
+request, including all of the RRs that you attached to it, with the error
+code <em>err</em>.  If you get a request that you don&#8217;t want to respond to, you can
+ignore it by calling evdns_server_request_drop() on it to release all the
+associated memory and bookkeeping structures.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EVDNS_FLAGS_AA  0x400
+#define EVDNS_FLAGS_RD  0x080
+
+<strong>void</strong> evdns_server_request_set_flags(<strong>struct</strong> evdns_server_request *req,
+                                    <strong>int</strong> flags);</code></pre>
+</div></div>
+<div class="paragraph"><p>If you want to set any flags on your response message, you can call this
+function at any time before you send the response.</p></div>
+<div class="paragraph"><p>All the functions in this section were introduced in Libevent 1.3, except for
+evdns_server_request_set_flags() which first appeared in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_dns_server_example">DNS Server example</h3>
+<div class="listingblock">
+<div class="title">Example: A trivial DNS responder</div>
+<div class="content">
+<pre><code>#include &lt;event2/dns.h&gt;
+#include &lt;event2/dns_struct.h&gt;
+#include &lt;event2/util.h&gt;
+#include &lt;event2/event.h&gt;
+
+#include &lt;sys/socket.h&gt;
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;assert.h&gt;
+
+<i>/* Let's try binding to 5353.  Port 53 is more traditional, but on most</i>
+<i>   operating systems it requires root privileges. */</i>
+#define LISTEN_PORT 5353
+
+#define LOCALHOST_IPV4_ARPA "1.0.0.127.in-addr.arpa"
+#define LOCALHOST_IPV6_ARPA ("1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0."         \
+                             "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa")
+
+<strong>const</strong> ev_uint8_t LOCALHOST_IPV4[] = { 127, 0, 0, 1 };
+<strong>const</strong> ev_uint8_t LOCALHOST_IPV6[] = { 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1 };
+
+#define TTL 4242
+
+<i>/* This toy DNS server callback answers requests for localhost (mapping it to</i>
+<i>   127.0.0.1 or ::1) and for 127.0.0.1 or ::1 (mapping them to localhost).</i>
+<i> */</i>
+<strong>void</strong> server_callback(<strong>struct</strong> evdns_server_request *request, <strong>void</strong> *data)
+{
+    <strong>int</strong> i;
+    <strong>int</strong> error=DNS_ERR_NONE;
+<i>    /* We should try to answer all the questions.  Some DNS servers don't do</i>
+<i>       this reliably, though, so you should think hard before putting two</i>
+<i>       questions in one request yourself. */</i>
+    <strong>for</strong> (i=0; i &lt; request-&gt;nquestions; ++i) {
+        <strong>const</strong> <strong>struct</strong> evdns_server_question *q = request-&gt;questions[i];
+        <strong>int</strong> ok=-1;
+<i>        /* We don't use regular strcasecmp here, since we want a locale-</i>
+<i>           independent comparison. */</i>
+        <strong>if</strong> (0 == evutil_ascii_strcasecmp(q-&gt;name, "localhost")) {
+            <strong>if</strong> (q-&gt;type == EVDNS_TYPE_A)
+                ok = evdns_server_request_add_a_reply(
+                       request, q-&gt;name, 1, LOCALHOST_IPV4, TTL);
+            <strong>else</strong> <strong>if</strong> (q-&gt;type == EVDNS_TYPE_AAAA)
+                ok = evdns_server_request_add_aaaa_reply(
+                       request, q-&gt;name, 1, LOCALHOST_IPV6, TTL);
+        } <strong>else</strong> <strong>if</strong> (0 == evutil_ascii_strcasecmp(q-&gt;name, LOCALHOST_IPV4_ARPA)) {
+            <strong>if</strong> (q-&gt;type == EVDNS_TYPE_PTR)
+                ok = evdns_server_request_add_ptr_reply(
+                       request, NULL, q-&gt;name, "LOCALHOST", TTL);
+        } <strong>else</strong> <strong>if</strong> (0 == evutil_ascii_strcasecmp(q-&gt;name, LOCALHOST_IPV6_ARPA)) {
+            <strong>if</strong> (q-&gt;type == EVDNS_TYPE_PTR)
+                ok = evdns_server_request_add_ptr_reply(
+                       request, NULL, q-&gt;name, "LOCALHOST", TTL);
+        } <strong>else</strong> {
+            error = DNS_ERR_NOTEXIST;
+        }
+        <strong>if</strong> (ok&lt;0 &amp;&amp; error==DNS_ERR_NONE)
+            error = DNS_ERR_SERVERFAILED;
+    }
+<i>    /* Now send the reply. */</i>
+    evdns_server_request_respond(request, error);
+}
+
+<strong>int</strong> main(<strong>int</strong> argc, <strong>char</strong> **argv)
+{
+    <strong>struct</strong> event_base *base;
+    <strong>struct</strong> evdns_server_port *server;
+    evutil_socket_t server_fd;
+    <strong>struct</strong> sockaddr_in listenaddr;
+
+    base = event_base_new();
+    <strong>if</strong> (!base)
+        <strong>return</strong> 1;
+
+    server_fd = socket(AF_INET, SOCK_DGRAM, 0);
+    <strong>if</strong> (server_fd &lt; 0)
+        <strong>return</strong> 2;
+    memset(&amp;listenaddr, 0, <strong>sizeof</strong>(listenaddr));
+    listenaddr.sin_family = AF_INET;
+    listenaddr.sin_port = htons(LISTEN_PORT);
+    listenaddr.sin_addr.s_addr = INADDR_ANY;
+    <strong>if</strong> (bind(server_fd, (<strong>struct</strong> sockaddr*)&amp;listenaddr, <strong>sizeof</strong>(listenaddr))&lt;0)
+        <strong>return</strong> 3;
+<i>    /*The server will hijack the event loop after receiving the first request if the socket is blocking*/</i>
+    <strong>if</strong>(evutil_make_socket_nonblocking(server_fd)&lt;0)
+        <strong>return</strong> 4;
+    server = evdns_add_server_port_with_base(base, server_fd, 0,
+                                             server_callback, NULL);
+
+    event_base_dispatch(base);
+
+    evdns_close_server_port(server);
+    event_base_free(base);
+
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_obsolete_dns_interfaces">Obsolete DNS interfaces</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Obsolete Interfaces</div>
+<div class="content">
+<pre><code>void evdns_base_search_ndots_set(struct evdns_base *base,
+                                 const int ndots);
+int evdns_base_nameserver_add(struct evdns_base *base,
+    unsigned long int address);
+void evdns_set_random_bytes_fn(void (*fn)(char *, size_t));
+
+struct evdns_server_port *evdns_add_server_port(evutil_socket_t socket,
+    int flags, evdns_request_callback_fn_type callback, void *user_data);</code></pre>
+</div></div>
+<div class="paragraph"><p>Calling evdns_base_search_ndots_set() is equivalent to using
+evdns_base_set_option() with the "ndots" option.</p></div>
+<div class="paragraph"><p>The evdns_base_nameserver_add() function behaves as
+evdns_base_nameserver_ip_add(), except it can only add nameservers
+with IPv4 addresses.  It takes them, idiosyncratically, as four bytes
+in network order.</p></div>
+<div class="paragraph"><p>Before Libevent 2.0.1-alpha, there was no way to specify a event base for a
+DNS server port.  You had to use evdns_add_server_port() instead, which took
+the default event_base.</p></div>
+<div class="paragraph"><p>From Libevent 2.0.1-alpha through 2.0.3-alpha, you could use
+evdns_set_random_bytes_fn to specify a function to use for generating
+random numbers instead of evdns_set_transaction_id_fn.  It no longer
+has any effect, now that Libevent provides its own secure RNG.</p></div>
+<div class="paragraph"><p>The DNS_QUERY_NO_SEARCH flag has also been called DNS_NO_SEARCH.</p></div>
+<div class="paragraph"><p>Before Libevent 2.0.1-alpha, there was no separate notion of an evdns_base:
+all information in the evdns subsystem was stored globally, and the functions
+that manipulated it took no evdns_base as an argument.  They are all now
+deprecated, and declared only in event2/dns_compat.h.  They are implemented
+via a single global evdns_base; you can access this base by calling
+the evdns_get_global_base() function introduced in Libevent 2.0.3-alpha.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="85%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top"> Current function                           </th>
+<th align="left" valign="top"> Obsolete global-evdns_base version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">event_base_new()</p></td>
+<td align="left" valign="top"><p class="table">evdns_init()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_free()</p></td>
+<td align="left" valign="top"><p class="table">evdns_shutdown()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_nameserver_add()</p></td>
+<td align="left" valign="top"><p class="table">evdns_nameserver_add()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_count_nameservers()</p></td>
+<td align="left" valign="top"><p class="table">evdns_count_nameservers()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_clear_nameservers_and_suspend()</p></td>
+<td align="left" valign="top"><p class="table">evdns_clear_nameservers_and_suspend()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_resume()</p></td>
+<td align="left" valign="top"><p class="table">evdns_resume()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_nameserver_ip_add()</p></td>
+<td align="left" valign="top"><p class="table">evdns_nameserver_ip_add()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_resolve_ipv4()</p></td>
+<td align="left" valign="top"><p class="table">evdns_resolve_ipv4()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_resolve_ipv6()</p></td>
+<td align="left" valign="top"><p class="table">evdns_resolve_ipv6()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_resolve_reverse()</p></td>
+<td align="left" valign="top"><p class="table">evdns_resolve_reverse()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_resolve_reverse_ipv6()</p></td>
+<td align="left" valign="top"><p class="table">evdns_resolve_reverse_ipv6()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_set_option()</p></td>
+<td align="left" valign="top"><p class="table">evdns_set_option()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_resolv_conf_parse()</p></td>
+<td align="left" valign="top"><p class="table">evdns_resolv_conf_parse()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_search_clear()</p></td>
+<td align="left" valign="top"><p class="table">evdns_search_clear()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_search_add()</p></td>
+<td align="left" valign="top"><p class="table">evdns_search_add()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_search_ndots_set()</p></td>
+<td align="left" valign="top"><p class="table">evdns_search_ndots_set()</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">evdns_base_config_windows_nameservers()</p></td>
+<td align="left" valign="top"><p class="table">evdns_config_windows_nameservers()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>The EVDNS_CONFIG_WINDOWS_NAMESERVERS_IMPLEMENTED macro is defined if and
+only if evdns_config_windows_nameservers() is available.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>

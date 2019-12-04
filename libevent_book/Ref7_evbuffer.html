@@ -1,0 +1,1954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_evbuffers_utility_functionality_for_buffered_io">Evbuffers: utility functionality for buffered IO</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Libevent&#8217;s evbuffer functionality implements a queue of bytes,
+optimized for adding data to the end and removing it from the front.</p></div>
+<div class="paragraph"><p>Evbuffers are meant to be generally useful for doing the "buffer"
+part of buffered network IO.  They do not provide functions to
+schedule the IO or trigger the IO when it&#8217;s ready: that is what
+bufferevents do.</p></div>
+<div class="paragraph"><p>The functions in this chapter are declared in event2/buffer.h unless
+otherwise noted.</p></div>
+<div class="sect2">
+<h3 id="_creating_or_freeing_an_evbuffer">Creating or freeing an evbuffer</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer *evbuffer_new(<strong>void</strong>);
+<strong>void</strong> evbuffer_free(<strong>struct</strong> evbuffer *buf);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions should be relatively clear: evbuffer_new() allocates
+and returns a new empty evbuffer, and evbuffer_free() deletes one and
+all of its contents.</p></div>
+<div class="paragraph"><p>These functions have existed since Libevent 0.8.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_evbuffers_and_thread_safety">Evbuffers and Thread-safety</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_enable_locking(<strong>struct</strong> evbuffer *buf, <strong>void</strong> *lock);
+<strong>void</strong> evbuffer_lock(<strong>struct</strong> evbuffer *buf);
+<strong>void</strong> evbuffer_unlock(<strong>struct</strong> evbuffer *buf);</code></pre>
+</div></div>
+<div class="paragraph"><p>By default, it is not safe to access an evbuffer from multiple threads
+at once.  If you need to do this, you can call
+evbuffer_enable_locking() on the evbuffer.  If its <em>lock</em> argument is
+NULL, Libevent allocates a new lock using the lock creation function
+that was provided to evthread_set_lock_creation_callback.  Otherwise,
+it uses the argument as the lock.</p></div>
+<div class="paragraph"><p>The evbuffer_lock() and evbuffer_unlock() functions acquire and
+release the lock on an evbuffer respectively.  You can use them to
+make a set of operations atomic.  If locking has not been enabled on
+the evbuffer, these functions do nothing.</p></div>
+<div class="paragraph"><p>(Note that you do not need to call evbuffer_lock() and
+evbuffer_unlock() around <em>individual</em> operations: if locking is
+enabled on the evbuffer, individual operations are already atomic.
+You only need to lock the evbuffer manually when you have more than
+one operation that need to execute without another thread butting in.)</p></div>
+<div class="paragraph"><p>These functions were all introduced in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_inspecting_an_evbuffer">Inspecting an evbuffer</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>size_t evbuffer_get_length(<strong>const</strong> <strong>struct</strong> evbuffer *buf);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function returns the number of bytes stored in an evbuffer.</p></div>
+<div class="paragraph"><p>It was introduced in Libevent 2.0.1-alpha.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>size_t evbuffer_get_contiguous_space(<strong>const</strong> <strong>struct</strong> evbuffer *buf);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function returns the number of bytes stored contiguously at the
+front of the evbuffer.  The bytes in an evbuffer may be stored in
+multiple separate chunks of memory; this function returns the number
+of bytes currently stored in the <em>first</em> chunk.</p></div>
+<div class="paragraph"><p>It was introduced in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_adding_data_to_an_evbuffer_basics">Adding data to an evbuffer: basics</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_add(<strong>struct</strong> evbuffer *buf, <strong>const</strong> <strong>void</strong> *data, size_t datlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function appends the <em>datlen</em> bytes in <em>data</em> to the end of
+<em>buf</em>.  It returns 0 on success, and -1 on failure.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_add_printf(<strong>struct</strong> evbuffer *buf, <strong>const</strong> <strong>char</strong> *fmt, ...)
+<strong>int</strong> evbuffer_add_vprintf(<strong>struct</strong> evbuffer *buf, <strong>const</strong> <strong>char</strong> *fmt, va_list ap);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions append formatted data to the end of <em>buf</em>.  The format
+argument and other remaining arguments are handled as if by the C
+library functions "printf" and "vprintf" respectively.  The functions
+return the number of bytes appended.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_expand(<strong>struct</strong> evbuffer *buf, size_t datlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function alters the last chunk of memory in the buffer, or adds a
+new chunk, such that the buffer is now large enough to contain datlen
+bytes without any further allocations.</p></div>
+<div class="listingblock">
+<div class="title">Examples</div>
+<div class="content">
+<pre><code><i>/* Here are two ways to add "Hello world 2.0.1" to a buffer. */</i>
+<i>/* Directly: */</i>
+evbuffer_add(buf, "Hello world 2.0.1", 17);
+
+<i>/* Via printf: */</i>
+evbuffer_add_printf(buf, "Hello %s %d.%d.%d", "world", 2, 0, 1);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_add() and evbuffer_add_printf() functions were introduced in
+Libevent 0.8; evbuffer_expand() was in Libevent 0.9, and
+evbuffer_add_vprintf() first appeared in Libevent 1.1.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_moving_data_from_one_evbuffer_to_another">Moving data from one evbuffer to another</h3>
+<div class="paragraph"><p>For efficiency, Libevent has optimized functions for moving data from
+one evbuffer to another.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_add_buffer(<strong>struct</strong> evbuffer *dst, <strong>struct</strong> evbuffer *src);
+<strong>int</strong> evbuffer_remove_buffer(<strong>struct</strong> evbuffer *src, <strong>struct</strong> evbuffer *dst,
+    size_t datlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_add_buffer() function moves all data from <em>src</em> to the
+end of <em>dst</em>.  It returns 0 on success, -1 on failure.</p></div>
+<div class="paragraph"><p>The evbuffer_remove_buffer() function moves exactly <em>datlen</em> bytes
+from <em>src</em> to the end of <em>dst</em>, copying as little as possible.  If
+there are fewer than <em>datlen</em> bytes to move, it moves all the bytes.
+It returns the number of bytes moved.</p></div>
+<div class="paragraph"><p>We introduced evbuffer_add_buffer() in Libevent 0.8;
+evbuffer_remove_buffer() was new in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_adding_data_to_the_front_of_an_evbuffer">Adding data to the front of an evbuffer</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_prepend(<strong>struct</strong> evbuffer *buf, <strong>const</strong> <strong>void</strong> *data, size_t size);
+<strong>int</strong> evbuffer_prepend_buffer(<strong>struct</strong> evbuffer *dst, <strong>struct</strong> evbuffer* src);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions behave as evbuffer_add() and evbuffer_add_buffer()
+respectively, except that they move data to the <em>front</em> of the
+destination buffer.</p></div>
+<div class="paragraph"><p>These functions should be used with caution, and never on an evbuffer
+shared with a bufferevent.  They were new in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_rearranging_the_internal_layout_of_an_evbuffer">Rearranging the internal layout of an evbuffer</h3>
+<div class="paragraph"><p>Sometimes you want to peek at the first N bytes of data in the
+front of an evbuffer, and see it as a contiguous array of bytes.  To
+do this, you must first ensure that the front of the buffer really <em>is</em>
+contiguous.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>unsigned</strong> <strong>char</strong> *evbuffer_pullup(<strong>struct</strong> evbuffer *buf, ev_ssize_t size);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_pullup() function "linearizes" the first <em>size</em> bytes of
+<em>buf</em>, copying or moving them as needed to ensure that they are all
+contiguous and occupying the same chunk of memory.  If <em>size</em> is
+negative, the function linearizes the entire buffer.  If <em>size</em> is
+greater than the number of bytes in the buffer, the function returns
+NULL.  Otherwise, evbuffer_pullup() returns a pointer to the first
+byte in buf.</p></div>
+<div class="paragraph"><p>Calling evbuffer_pullup() with a large size can be quite slow, since
+it potentially needs to copy the entire buffer&#8217;s contents.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/buffer.h&gt;
+#include &lt;event2/util.h&gt;
+
+#include &lt;string.h&gt;
+
+<strong>int</strong> parse_socks4(<strong>struct</strong> evbuffer *buf, ev_uint16_t *port, ev_uint32_t *addr)
+{
+<i>    /* Let's parse the start of a SOCKS4 request!  The format is easy:</i>
+<i>     * 1 byte of version, 1 byte of command, 2 bytes destport, 4 bytes of</i>
+<i>     * destip. */</i>
+    <strong>unsigned</strong> <strong>char</strong> *mem;
+
+    mem = evbuffer_pullup(buf, 8);
+
+    <strong>if</strong> (mem == NULL) {
+<i>        /* Not enough data in the buffer */</i>
+        <strong>return</strong> 0;
+    } <strong>else</strong> <strong>if</strong> (mem[0] != 4 || mem[1] != 1) {
+<i>        /* Unrecognized protocol or command */</i>
+        <strong>return</strong> -1;
+    } <strong>else</strong> {
+        memcpy(port, mem+2, 2);
+        memcpy(addr, mem+4, 4);
+        *port = ntohs(*port);
+        *addr = ntohl(*addr);
+<i>        /* Actually remove the data from the buffer now that we know we</i>
+<i>           like it. */</i>
+        evbuffer_drain(buf, 8);
+        <strong>return</strong> 1;
+    }
+}</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">Note</div><p>Calling evbuffer_pullup() with size equal to the value returned by
+evbuffer_get_contiguous_space() will not result in any data being
+copied or moved.</p></div>
+<div class="paragraph"><p>The evbuffer_pullup() function was new in Libevent 2.0.1-alpha:
+previous versions of Libevent always kept evbuffer data contiguous,
+regardless of the cost.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_removing_data_from_an_evbuffer">Removing data from an evbuffer</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_drain(<strong>struct</strong> evbuffer *buf, size_t len);
+<strong>int</strong> evbuffer_remove(<strong>struct</strong> evbuffer *buf, <strong>void</strong> *data, size_t datlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_remove() function copies and removes the first <em>datlen</em>
+bytes from the front of <em>buf</em> into the memory at <em>data</em>.  If there are
+fewer than <em>datlen</em> bytes available, the function copies all the bytes
+there are.  The return value is -1 on failure, and is otherwise the
+number of bytes copied.</p></div>
+<div class="paragraph"><p>The evbuffer_drain() function behaves as evbuffer_remove(), except
+that it does not copy the data: it just removes it from the front of
+the buffer.  It returns 0 on success and -1 on failure.</p></div>
+<div class="paragraph"><p>Libevent 0.8 introduced evbuffer_drain(); evbuffer_remove() appeared in
+Libevent 0.9.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_copying_data_out_from_an_evbuffer">Copying data out from an evbuffer</h3>
+<div class="paragraph"><p>Sometimes you want to get a copy of the data at the start of a buffer without
+draining it.  For example, you might want to see whether a complete record
+of some kind has arrived, without draining any of the data (as
+evbuffer_remove would do), or rearranging the buffer internally (as
+evbuffer_pullup() would do.)</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>ev_ssize_t evbuffer_copyout(<strong>struct</strong> evbuffer *buf, <strong>void</strong> *data, size_t datlen);
+ev_ssize_t evbuffer_copyout_from(<strong>struct</strong> evbuffer *buf,
+     <strong>const</strong> <strong>struct</strong> evbuffer_ptr *pos,
+     <strong>void</strong> *data_out, size_t datlen);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_copyout() behaves just like evbuffer_remove(), but does not
+drain any data from the buffer. That is, it copies the first <em>datlen</em>
+bytes from the front of <em>buf</em> into the memory at <em>data</em>.  If there are
+fewer than <em>datlen</em> bytes available, the function copies all the bytes
+there are.  The return value is -1 on failure, and is otherwise the
+number of bytes copied.</p></div>
+<div class="paragraph"><p>The evbuffer_copyout_from() function behaves like evbuffer_copyout(), but
+instead of copying bytes from the front of the buffer, it copies them
+beginning at the position provided in <em>pos</em>.  See "Searching within an
+evbuffer" below for information on the evbuffer_ptr structure.</p></div>
+<div class="paragraph"><p>If copying data from the buffer is too slow, use evbuffer_peek() instead.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/buffer.h&gt;
+#include &lt;event2/util.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdlib.h&gt;
+
+<strong>int</strong> get_record(<strong>struct</strong> evbuffer *buf, size_t *size_out, <strong>char</strong> **record_out)
+{
+<i>    /* Let's assume that we're speaking some protocol where records</i>
+<i>       contain a 4-byte size field in network order, followed by that</i>
+<i>       number of bytes.  We will return 1 and set the 'out' fields if we</i>
+<i>       have a whole record, return 0 if the record isn't here yet, and</i>
+<i>       -1 on error.  */</i>
+    size_t buffer_len = evbuffer_get_length(buf);
+    ev_uint32_t record_len;
+    <strong>char</strong> *record;
+
+    <strong>if</strong> (buffer_len &lt; 4)
+       <strong>return</strong> 0; /* The size field hasn't arrived. */
+
+<i>   /* We use evbuffer_copyout here so that the size field will stay on</i>
+<i>       the buffer for now. */</i>
+    evbuffer_copyout(buf, &amp;record_len, 4);
+<i>    /* Convert len_buf into host order. */</i>
+    record_len = ntohl(record_len);
+    <strong>if</strong> (buffer_len &lt; record_len + 4)
+        <strong>return</strong> 0; /* The record hasn't arrived */
+
+<i>    /* Okay, _now_ we can remove the record. */</i>
+    record = malloc(record_len);
+    <strong>if</strong> (record == NULL)
+        <strong>return</strong> -1;
+
+    evbuffer_drain(buf, 4);
+    evbuffer_remove(buf, record, record_len);
+
+    *record_out = record;
+    *size_out = record_len;
+    <strong>return</strong> 1;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_copyout() function first appeared in Libevent 2.0.5-alpha;
+evbuffer_copyout_from() was added in Libevent 2.1.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_line_oriented_input">Line-oriented input</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>enum</strong> evbuffer_eol_style {
+        EVBUFFER_EOL_ANY,
+        EVBUFFER_EOL_CRLF,
+        EVBUFFER_EOL_CRLF_STRICT,
+        EVBUFFER_EOL_LF,
+        EVBUFFER_EOL_NUL
+};
+<strong>char</strong> *evbuffer_readln(<strong>struct</strong> evbuffer *buffer, size_t *n_read_out,
+    <strong>enum</strong> evbuffer_eol_style eol_style);</code></pre>
+</div></div>
+<div class="paragraph"><p>Many Internet protocols use line-based formats.  The evbuffer_readln()
+function extracts a line from the front of an evbuffer and returns it
+in a newly allocated NUL-terminated string.  If <em>n_read_out</em> is not
+NULL, *<em>n_read_out</em> is set to the number of bytes in the string
+returned.  If there is not a whole line to read, the function returns
+NULL.  The line terminator is not included in the copied string.</p></div>
+<div class="paragraph"><p>The evbuffer_readln() function understands 4 line termination formats:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+EVBUFFER_EOL_LF
+</dt>
+<dd>
+<p>
+    The end of a line is a single linefeed character.  (This is also
+    known as "\n".  It is ASCII value is 0x0A.)
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUFFER_EOL_CRLF_STRICT
+</dt>
+<dd>
+<p>
+    The end of a line is a single carriage return, followed by a
+    single linefeed.  (This is also known as "\r\n".  The ASCII values
+    are 0x0D 0x0A).
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUFFER_EOL_CRLF
+</dt>
+<dd>
+<p>
+    The end of the line is an optional carriage return, followed by a
+    linefeed.  (In other words, it is either a "\r\n" or a "\n".)
+    This format is useful in parsing text-based Internet
+    protocols, since the standards generally prescribe a "\r\n"
+    line-terminator, but nonconformant clients sometimes say just
+    "\n".
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUFFER_EOL_ANY
+</dt>
+<dd>
+<p>
+    The end of line is any sequence of any number of carriage return
+    and linefeed characters.  This format is not very useful; it
+    exists mainly for backward compatibility.
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUFFER_EOL_NUL
+</dt>
+<dd>
+<p>
+    The end of line is a single byte with the value 0&#8201;&#8212;&#8201;that is,
+    an ASCII NUL.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>(Note that if you used event_set_mem_functions() to override the
+default malloc, the string returned by evbuffer_readln will be
+allocated by the malloc-replacement you specified.)</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code><strong>char</strong> *request_line;
+size_t len;
+
+request_line = evbuffer_readln(buf, &amp;len, EVBUFFER_EOL_CRLF);
+<strong>if</strong> (!request_line) {
+<i>    /* The first line has not arrived yet. */</i>
+} <strong>else</strong> {
+    <strong>if</strong> (!strncmp(request_line, "HTTP/1.0 ", 9)) {
+<i>        /* HTTP 1.0 detected ... */</i>
+    }
+    free(request_line);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_readln() interface is available in Libevent 1.4.14-stable and
+later.  EVBUFFER_EOL_NUL was added in Libevent 2.1.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_searching_within_an_evbuffer">Searching within an evbuffer</h3>
+<div class="paragraph"><p>The evbuffer_ptr structure points to a location within an evbuffer,
+and contains data that you can use to iterate through an evbuffer.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer_ptr {
+        ev_ssize_t pos;
+        <strong>struct</strong> {
+<i>                /* internal fields */</i>
+        } _internal;
+};</code></pre>
+</div></div>
+<div class="paragraph"><p>The <em>pos</em> field is the only public field; the others should not be
+used by user code.  It indicates a position in the evbuffer as an
+offset from the start.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer_ptr evbuffer_search(<strong>struct</strong> evbuffer *buffer,
+    <strong>const</strong> <strong>char</strong> *what, size_t len, <strong>const</strong> <strong>struct</strong> evbuffer_ptr *start);
+<strong>struct</strong> evbuffer_ptr evbuffer_search_range(<strong>struct</strong> evbuffer *buffer,
+    <strong>const</strong> <strong>char</strong> *what, size_t len, <strong>const</strong> <strong>struct</strong> evbuffer_ptr *start,
+    <strong>const</strong> <strong>struct</strong> evbuffer_ptr *end);
+<strong>struct</strong> evbuffer_ptr evbuffer_search_eol(<strong>struct</strong> evbuffer *buffer,
+    <strong>struct</strong> evbuffer_ptr *start, size_t *eol_len_out,
+    <strong>enum</strong> evbuffer_eol_style eol_style);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_search() function scans the buffer for an occurrence of the
+<em>len</em>-character string <em>what</em>.  It returns an evbuffer_ptr containing
+the position of the string, or -1 if the string was not found.  If the
+<em>start</em> argument is provided, it&#8217;s the position at which the search
+should begin; otherwise, the search is from the start of the string.</p></div>
+<div class="paragraph"><p>The evbuffer_search_range() function behaves as evbuffer_search, except that
+it only considers occurrences of <em>what</em> that occur before the evbuffer_ptr
+<em>end</em>.</p></div>
+<div class="paragraph"><p>The evbuffer_search_eol() function detects line-endings as evbuffer_readln(),
+but instead of copying out the line, returns an evbuffer_ptr to the
+start of the end-of-line characters(s).  If eol_len_out is non-NULL, it is
+set to the length of the EOL string.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>enum</strong> evbuffer_ptr_how {
+        EVBUFFER_PTR_SET,
+        EVBUFFER_PTR_ADD
+};
+<strong>int</strong> evbuffer_ptr_set(<strong>struct</strong> evbuffer *buffer, <strong>struct</strong> evbuffer_ptr *pos,
+    size_t position, <strong>enum</strong> evbuffer_ptr_how how);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_ptr_set function manipulates the position of an
+evbuffer_ptr <em>pos</em> within <em>buffer</em>.  If <em>how</em> is EVBUFFER_PTR_SET, the
+pointer is moved to an absolute position <em>position</em> within the buffer.
+If it is EVBUFFER_PTR_ADD, the pointer moves <em>position</em> bytes
+forward.  This function returns 0 on success and -1 on failure.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/buffer.h&gt;
+#include &lt;string.h&gt;
+
+<i>/* Count the total occurrences of 'str' in 'buf'. */</i>
+<strong>int</strong> count_instances(<strong>struct</strong> evbuffer *buf, <strong>const</strong> <strong>char</strong> *str)
+{
+    size_t len = strlen(str);
+    <strong>int</strong> total = 0;
+    <strong>struct</strong> evbuffer_ptr p;
+
+    <strong>if</strong> (!len)
+<i>        /* Don't try to count the occurrences of a 0-length string. */</i>
+        <strong>return</strong> -1;
+
+    evbuffer_ptr_set(buf, &amp;p, 0, EVBUFFER_PTR_SET);
+
+    <strong>while</strong> (1) {
+         p = evbuffer_search(buf, str, len, &amp;p);
+         <strong>if</strong> (p.pos &lt; 0)
+             <strong>break</strong>;
+         total++;
+         evbuffer_ptr_set(buf, &amp;p, 1, EVBUFFER_PTR_ADD);
+    }
+
+    <strong>return</strong> total;
+}</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">WARNING</div><p>Any call that modifies an evbuffer or its layout invalidates all
+outstanding evbuffer_ptr values, and makes them unsafe to use.</p></div>
+<div class="paragraph"><p>These interfaces were new in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_inspecting_data_without_copying_it">Inspecting data without copying it</h3>
+<div class="paragraph"><p>Sometimes, you want to read data in an evbuffer without copying it out (as
+evbuffer_copyout() does), and without rearranging the evbuffer&#8217;s internal
+memory (as evbuffer_pullup() does).  Sometimes you might want to see data in
+the middle of an evbuffer.</p></div>
+<div class="paragraph"><p>You can do this with:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer_iovec {
+        <strong>void</strong> *iov_base;
+        size_t iov_len;
+};
+
+<strong>int</strong> evbuffer_peek(<strong>struct</strong> evbuffer *buffer, ev_ssize_t len,
+    <strong>struct</strong> evbuffer_ptr *start_at,
+    <strong>struct</strong> evbuffer_iovec *vec_out, <strong>int</strong> n_vec);</code></pre>
+</div></div>
+<div class="paragraph"><p>When you call evbuffer_peek(), you give it an array of evbuffer_iovec
+structures in <em>vec_out</em>.  The array&#8217;s length is <em>n_vec</em>.  It sets these
+structures so that each one contains a pointer to a chunk of the evbuffer&#8217;s
+internal RAM (<em>iov_base</em>), and the length of memory that is set in that
+chunk.</p></div>
+<div class="paragraph"><p>If <em>len</em> is less than 0, evbuffer_peek() tries to fill all of the
+evbuffer_iovec structs you have given it.  Otherwise, it fills them until
+either they are all used, or at least <em>len</em> bytes are visible.  If the
+function could give you all the data you asked for, it returns the number of
+evbuffer_iovec structures that it actually used.  Otherwise, it returns the
+number that it would need in order to give what you asked for.</p></div>
+<div class="paragraph"><p>When <em>ptr</em> is NULL, evbuffer_peek() starts at the beginning of the buffer.
+Otherwise, it starts at the pointer given in <em>ptr</em>.</p></div>
+<div class="listingblock">
+<div class="title">Examples</div>
+<div class="content">
+<pre><code>{
+<i>    /* Let's look at the first two chunks of buf, and write them to stderr. */</i>
+    <strong>int</strong> n, i;
+    <strong>struct</strong> evbuffer_iovec v[2];
+    n = evbuffer_peek(buf, -1, NULL, v, 2);
+    <strong>for</strong> (i=0; i&lt;n; ++i) { /* There might be less than two chunks available. */
+        fwrite(v[i].iov_base, 1, v[i].iov_len, stderr);
+    }
+}
+
+{
+<i>    /* Let's send the first 4906 bytes to stdout via write. */</i>
+    <strong>int</strong> n, i, r;
+    <strong>struct</strong> evbuffer_iovec *v;
+    size_t written = 0;
+
+<i>    /* determine how many chunks we need. */</i>
+    n = evbuffer_peek(buf, 4096, NULL, NULL, 0);
+<i>    /* Allocate space for the chunks.  This would be a good time to use</i>
+<i>       alloca() if you have it. */</i>
+    v = malloc(<strong>sizeof</strong>(<strong>struct</strong> evbuffer_iovec)*n);
+<i>    /* Actually fill up v. */</i>
+    n = evbuffer_peek(buf, 4096, NULL, v, n);
+    <strong>for</strong> (i=0; i&lt;n; ++i) {
+        size_t len = v[i].iov_len;
+        <strong>if</strong> (written + len &gt; 4096)
+            len = 4096 - written;
+        r = write(1 /* stdout */, v[i].iov_base, len);
+        <strong>if</strong> (r&lt;=0)
+            <strong>break</strong>;
+<i>        /* We keep track of the bytes written separately; if we don't,</i>
+<i>           we may write more than 4096 bytes if the last chunk puts</i>
+<i>           us over the limit. */</i>
+        written += len;
+    }
+    free(v);
+}
+
+{
+<i>    /* Let's get the first 16K of data after the first occurrence of the</i>
+<i>       string "start\n", and pass it to a consume() function. */</i>
+    <strong>struct</strong> evbuffer_ptr ptr;
+    <strong>struct</strong> evbuffer_iovec v[1];
+    <strong>const</strong> <strong>char</strong> s[] = "start\n";
+    <strong>int</strong> n_written;
+
+    ptr = evbuffer_search(buf, s, strlen(s), NULL);
+    <strong>if</strong> (ptr.pos == -1)
+        <strong>return</strong>; /* no start string found. */
+
+<i>    /* Advance the pointer past the start string. */</i>
+    <strong>if</strong> (evbuffer_ptr_set(buf, &amp;ptr, strlen(s), EVBUFFER_PTR_ADD) &lt; 0)
+        <strong>return</strong>; /* off the end of the string. */
+
+    <strong>while</strong> (n_written &lt; 16*1024) {
+<i>        /* Peek at a single chunk. */</i>
+        <strong>if</strong> (evbuffer_peek(buf, -1, &amp;ptr, v, 1) &lt; 1)
+            <strong>break</strong>;
+<i>        /* Pass the data to some user-defined consume function */</i>
+        consume(v[0].iov_base, v[0].iov_len);
+        n_written += v[0].iov_len;
+
+<i>        /* Advance the pointer so we see the next chunk next time. */</i>
+        <strong>if</strong> (evbuffer_ptr_set(buf, &amp;ptr, v[0].iov_len, EVBUFFER_PTR_ADD)&lt;0)
+            <strong>break</strong>;
+    }
+}</code></pre>
+</div></div>
+<div class="ulist"><div class="title">Notes</div><ul>
+<li>
+<p>
+Modifying the data pointed to by the evbuffer_iovec can result in
+  undefined behavior.
+</p>
+</li>
+<li>
+<p>
+If any function is called that modifies the evbuffer, the pointers
+  that evbuffer_peek() yields may become invalid.
+</p>
+</li>
+<li>
+<p>
+If your evbuffer could be used in multiple threads, make sure to lock
+  it with evbuffer_lock() before you call evbuffer_peek(), and unlock it
+  once you are done using the extents that evbuffer_peek() gave you.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This function is new in Libevent 2.0.2-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_adding_data_to_an_evbuffer_directly">Adding data to an evbuffer directly</h3>
+<div class="paragraph"><p>Sometimes you want to insert data info an evbuffer directly, without
+first writing it into a character array and then copying it in with
+evbuffer_add().  There are an advanced pair of functions you can use to do
+this: evbuffer_reserve_space() and evbuffer_commit_space().
+As with evbuffer_peek(), these functions use the evbuffer_iovec
+structure to provide direct access to memory inside the evbuffer.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_reserve_space(<strong>struct</strong> evbuffer *buf, ev_ssize_t size,
+    <strong>struct</strong> evbuffer_iovec *vec, <strong>int</strong> n_vecs);
+<strong>int</strong> evbuffer_commit_space(<strong>struct</strong> evbuffer *buf,
+    <strong>struct</strong> evbuffer_iovec *vec, <strong>int</strong> n_vecs);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_reserve_space() function gives you pointers to space inside
+the evbuffer.  It expands the buffer as necessary to give you at least
+<em>size</em> bytes.  The pointers to these extents, and their lengths, will be
+stored in the array of vectors you pass in with <em>vec</em>; <em>n_vec</em> is the
+length of this array.</p></div>
+<div class="paragraph"><p>The value of <em>n_vec</em> must be at least 1.  If you provide only one
+vector, then Libevent will ensure that you have all the contiguous space
+you requested in a single extent, but it may have to rearrange the
+buffer or waste memory in order to do so.  For better performance,
+provide at least 2 vectors.  The function returns the number of provided
+vectors that it needed for the space you requested.</p></div>
+<div class="paragraph"><p>The data that you write into these vectors is not part of the buffer
+until you call evbuffer_commit_space(), which actually makes the data
+you wrote count as being in the buffer.  If you want to commit less space
+than you asked for, you can decrease the iov_len field in any of the
+evbuffer_iovec structures you were given.  You can also pass back fewer
+vectors than you were given.  The evbuffer_commit_space() function
+returns 0 on success and -1 on failure.</p></div>
+<div class="ulist"><div class="title">Notes and Caveats</div><ul>
+<li>
+<p>
+Calling any function that rearranges the evbuffer or adds data to it
+  evbuffer will invalidate the pointers you got from
+  evbuffer_reserve_space().
+</p>
+</li>
+<li>
+<p>
+In the current implementation, evbuffer_reserve_space() never uses
+  more than two vectors, no matter how many the user supplies.  This may
+  change in a future release.
+</p>
+</li>
+<li>
+<p>
+It is safe to call evbuffer_reserve_space() any number of times.
+</p>
+</li>
+<li>
+<p>
+If your evbuffer could be used in multiple threads, make sure to lock
+  it with evbuffer_lock() before you call evbuffer_reserve_space(), and
+  unlock it once you commit.
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code><i>/* Suppose we want to fill a buffer with 2048 bytes of output from a</i>
+<i>   generate_data() function, without copying. */</i>
+<strong>struct</strong> evbuffer_iovec v[2];
+<strong>int</strong> n, i;
+size_t n_to_add = 2048;
+
+<i>/* Reserve 2048 bytes.*/</i>
+n = evbuffer_reserve_space(buf, n_to_add, v, 2);
+<strong>if</strong> (n&lt;=0)
+   <strong>return</strong>; /* Unable to reserve the space <strong>for</strong> some reason. */
+
+<strong>for</strong> (i=0; i&lt;n &amp;&amp; n_to_add &gt; 0; ++i) {
+   size_t len = v[i].iov_len;
+   <strong>if</strong> (len &gt; n_to_add) /* Don't write more than n_to_add bytes. */
+      len = n_to_add;
+   <strong>if</strong> (generate_data(v[i].iov_base, len) &lt; 0) {
+<i>      /* If there was a problem during data generation, we can just stop</i>
+<i>         here; no data will be committed to the buffer. */</i>
+      <strong>return</strong>;
+   }
+<i>   /* Set iov_len to the number of bytes we actually wrote, so we</i>
+<i>      don't commit too much. */</i>
+   v[i].iov_len = len;
+}
+
+<i>/* We commit the space here.  Note that we give it 'i' (the number of</i>
+<i>   vectors we actually used) rather than 'n' (the number of vectors we</i>
+<i>   had available. */</i>
+<strong>if</strong> (evbuffer_commit_space(buf, v, i) &lt; 0)
+   <strong>return</strong>; /* Error committing */</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Bad Examples</div>
+<div class="content">
+<pre><code><i>/* Here are some mistakes you can make with evbuffer_reserve().</i>
+<i>   DO NOT IMITATE THIS CODE. */</i>
+<strong>struct</strong> evbuffer_iovec v[2];
+
+{
+<i>  /* Do not use the pointers from evbuffer_reserve_space() after</i>
+<i>     calling any functions that modify the buffer. */</i>
+  evbuffer_reserve_space(buf, 1024, v, 2);
+  evbuffer_add(buf, "X", 1);
+<i>  /* WRONG: This next line won't work if evbuffer_add needed to rearrange</i>
+<i>     the buffer's contents.  It might even crash your program. Instead,</i>
+<i>     you add the data before calling evbuffer_reserve_space. */</i>
+  memset(v[0].iov_base, 'Y', v[0].iov_len-1);
+  evbuffer_commit_space(buf, v, 1);
+}
+
+{
+<i>  /* Do not modify the iov_base pointers. */</i>
+  <strong>const</strong> <strong>char</strong> *data = "Here is some data";
+  evbuffer_reserve_space(buf, strlen(data), v, 1);
+<i>  /* WRONG: The next line will not do what you want.  Instead, you</i>
+<i>     should _copy_ the contents of data into v[0].iov_base. */</i>
+  v[0].iov_base = (<strong>char</strong>*) data;
+  v[0].iov_len = strlen(data);
+<i>  /* In this case, evbuffer_commit_space might give an error if you're</i>
+<i>     lucky */</i>
+  evbuffer_commit_space(buf, v, 1);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions have existed with their present interfaces since Libevent
+2.0.2-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_network_io_with_evbuffers">Network IO with evbuffers</h3>
+<div class="paragraph"><p>The most common use case for evbuffers in Libevent is network IO.
+The interface for performing network IO on an evbuffer is:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_write(<strong>struct</strong> evbuffer *buffer, evutil_socket_t fd);
+<strong>int</strong> evbuffer_write_atmost(<strong>struct</strong> evbuffer *buffer, evutil_socket_t fd,
+        ev_ssize_t howmuch);
+<strong>int</strong> evbuffer_read(<strong>struct</strong> evbuffer *buffer, evutil_socket_t fd, <strong>int</strong> howmuch);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_read() function reads up to <em>howmuch</em> bytes from the
+socket <em>fd</em> onto the end of <em>buffer</em>.  It returns a number of bytes read on
+success, 0 on EOF, and -1 on an error.  Note that the error may
+indicate that a nonblocking operation would not succeed; you need to
+check the error code for EAGAIN (or WSAEWOULDBLOCK on Windows).
+If <em>howmuch</em> is negative, evbuffer_read() tries to guess how much to
+read itself.</p></div>
+<div class="paragraph"><p>The evbuffer_write_atmost() function tries to write up to <em>howmuch</em>
+bytes from the front of <em>buffer</em> onto the socket <em>fd</em>.  It returns a
+number of bytes written on success, and -1 on failure.  As with
+evbuffer_read(), you need to check the error code to see whether the
+error is real, or just indicates that nonblocking IO could not be
+completed immediately.  If you give a negative value for <em>howmuch</em>,
+we try to write the entire contents of the buffer.</p></div>
+<div class="paragraph"><p>Calling evbuffer_write() is the same as calling
+evbuffer_write_atmost() with a negative <em>howmuch</em> argument: it
+attempts to flush as much of the buffer as it can.</p></div>
+<div class="paragraph"><p>On Unix, these functions should work on any file descriptor that
+supports read and write.  On Windows, only sockets are supported.</p></div>
+<div class="paragraph"><p>Note that when you are using bufferevents, you do not need to call
+these IO functions; the bufferevents code does it for you.</p></div>
+<div class="paragraph"><p>The evbuffer_write_atmost() function was introduced in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_evbuffers_and_callbacks">Evbuffers and callbacks</h3>
+<div class="paragraph"><p>Users of evbuffers frequently want to know when data is added to or
+removed from an evbuffer.  To support this, Libevent provides a
+generic evbuffer callback mechanism.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer_cb_info {
+        size_t orig_size;
+        size_t n_added;
+        size_t n_deleted;
+};
+
+<strong>typedef</strong> <strong>void</strong> (*evbuffer_cb_func)(<strong>struct</strong> evbuffer *buffer,
+    <strong>const</strong> <strong>struct</strong> evbuffer_cb_info *info, <strong>void</strong> *arg);</code></pre>
+</div></div>
+<div class="paragraph"><p>An evbuffer callback is invoked whenever data is added to or removed
+from the evbuffer.  It receives the buffer, a pointer to an
+evbuffer_cb_info structure, and a user-supplied argument.  The
+evbuffer_cb_info structure&#8217;s orig_size field records how many bytes
+there were on the buffer before its size changed; its n_added field
+records how many bytes were added to the buffer, and its n_deleted
+field records how many bytes were removed.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer_cb_entry;
+<strong>struct</strong> evbuffer_cb_entry *evbuffer_add_cb(<strong>struct</strong> evbuffer *buffer,
+    evbuffer_cb_func cb, <strong>void</strong> *cbarg);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_add_cb() function adds a callback to an evbuffer, and
+returns an opaque pointer that can later be used to refer to this
+particular callback instance.  The <em>cb</em> argument is the function that
+will be invoked, and the <em>cbarg</em> is the user-supplied pointer to pass
+to the function.</p></div>
+<div class="paragraph"><p>You can have multiple callbacks set on a single evbuffer.  Adding a
+new callback does not remove old callbacks.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/buffer.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+<i>/* Here's a callback that remembers how many bytes we have drained in</i>
+<i>   total from the buffer, and prints a dot every time we hit a</i>
+<i>   megabyte. */</i>
+<strong>struct</strong> total_processed {
+    size_t n;
+};
+<strong>void</strong> count_megabytes_cb(<strong>struct</strong> evbuffer *buffer,
+    <strong>const</strong> <strong>struct</strong> evbuffer_cb_info *info, <strong>void</strong> *arg)
+{
+    <strong>struct</strong> total_processed *tp = arg;
+    size_t old_n = tp-&gt;n;
+    <strong>int</strong> megabytes, i;
+    tp-&gt;n += info-&gt;n_deleted;
+    megabytes = ((tp-&gt;n) &gt;&gt; 20) - (old_n &gt;&gt; 20);
+    <strong>for</strong> (i=0; i&lt;megabytes; ++i)
+        putc('.', stdout);
+}
+
+<strong>void</strong> operation_with_counted_bytes(<strong>void</strong>)
+{
+    <strong>struct</strong> total_processed *tp = malloc(<strong>sizeof</strong>(*tp));
+    <strong>struct</strong> evbuffer *buf = evbuffer_new();
+    tp-&gt;n = 0;
+    evbuffer_add_cb(buf, count_megabytes_cb, tp);
+
+<i>    /* Use the evbuffer for a while.  When we're done: */</i>
+    evbuffer_free(buf);
+    free(tp);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Note in passing that freeing a nonempty evbuffer does not count as
+draining data from it, and that freeing an evbuffer does not free the
+user-supplied data pointer for its callbacks.</p></div>
+<div class="paragraph"><p>If you don&#8217;t want a callback to be permanently active on a buffer, you
+can <em>remove</em> it (to make it gone for good), or disable it (to turn it
+off for a while):</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_remove_cb_entry(<strong>struct</strong> evbuffer *buffer,
+    <strong>struct</strong> evbuffer_cb_entry *ent);
+<strong>int</strong> evbuffer_remove_cb(<strong>struct</strong> evbuffer *buffer, evbuffer_cb_func cb,
+    <strong>void</strong> *cbarg);
+
+#define EVBUFFER_CB_ENABLED 1
+<strong>int</strong> evbuffer_cb_set_flags(<strong>struct</strong> evbuffer *buffer,
+                          <strong>struct</strong> evbuffer_cb_entry *cb,
+                          ev_uint32_t flags);
+<strong>int</strong> evbuffer_cb_clear_flags(<strong>struct</strong> evbuffer *buffer,
+                          <strong>struct</strong> evbuffer_cb_entry *cb,
+                          ev_uint32_t flags);</code></pre>
+</div></div>
+<div class="paragraph"><p>You can remove a callback either by the evbuffer_cb_entry you got when
+you added it, or by the callback and pointer you used.  The
+evbuffer_remove_cb() functions return 0 on success and -1 on failure.</p></div>
+<div class="paragraph"><p>The evbuffer_cb_set_flags() function and the evbuffer_cb_clear_flags()
+function make a given flag be set or cleared on a given callback
+respectively.  Right now, only one user-visible flag is supported:
+<em>EVBUFFER_CB_ENABLED</em>.  The flag is set by default.  When it is
+cleared, modifications to the evbuffer do not cause this callback to
+get invoked.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_defer_callbacks(<strong>struct</strong> evbuffer *buffer, <strong>struct</strong> event_base *base);</code></pre>
+</div></div>
+<div class="paragraph"><p>As with bufferevent callbacks, you can cause evbuffer callbacks to not
+run immediately when the evbuffer is changed, but rather to be
+<em>deferred</em> and run as part of the event loop of a given event base.
+This can be helpful if you have multiple evbuffers whose callbacks
+potentially cause data to be added and removed from one another, and
+you want to avoid smashing the stack.</p></div>
+<div class="paragraph"><p>If an evbuffer&#8217;s callbacks are deferred, then when they are finally
+invoked, they may summarize the results for multiple operations.</p></div>
+<div class="paragraph"><p>Like bufferevents, evbuffers are internally reference-counted, so that
+it is safe to free an evbuffer even if it has deferred callbacks that
+have not yet executed.</p></div>
+<div class="paragraph"><p>This entire callback system was new in Libevent 2.0.1-alpha.  The
+evbuffer_cb_(set|clear)_flags() functions have existed with their
+present interfaces since 2.0.2-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_avoiding_data_copies_with_evbuffer_based_io">Avoiding data copies with evbuffer-based IO</h3>
+<div class="paragraph"><p>Really fast network programming often calls for doing as few data
+copies as possible.  Libevent provides some mechanisms to help out
+with this.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evbuffer_ref_cleanup_cb)(<strong>const</strong> <strong>void</strong> *data,
+    size_t datalen, <strong>void</strong> *extra);
+
+<strong>int</strong> evbuffer_add_reference(<strong>struct</strong> evbuffer *outbuf,
+    <strong>const</strong> <strong>void</strong> *data, size_t datlen,
+    evbuffer_ref_cleanup_cb cleanupfn, <strong>void</strong> *extra);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function adds a piece of data to the end of an evbuffer by
+reference.  No copy is performed: instead, the evbuffer just stores a
+pointer to the <em>datlen</em> bytes stored at <em>data</em>.  Therefore, the
+pointer must remain valid for as long as the evbuffer is using it.
+When the evbuffer no longer needs data, it will call the provided
+"cleanupfn" function with the provided "data" pointer, "datlen" value,
+and "extra" pointer as arguments.
+This function returns 0 on success, -1 on failure.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/buffer.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+<i>/* In this example, we have a bunch of evbuffers that we want to use to</i>
+<i>   spool a one-megabyte resource out to the network.  We do this</i>
+<i>   without keeping any more copies of the resource in memory than</i>
+<i>   necessary. */</i>
+
+#define HUGE_RESOURCE_SIZE (1024*1024)
+<strong>struct</strong> huge_resource {
+<i>    /* We keep a count of the references that exist to this structure,</i>
+<i>       so that we know when we can free it. */</i>
+    <strong>int</strong> reference_count;
+    <strong>char</strong> data[HUGE_RESOURCE_SIZE];
+};
+
+<strong>struct</strong> huge_resource *new_resource(<strong>void</strong>) {
+    <strong>struct</strong> huge_resource *hr = malloc(<strong>sizeof</strong>(<strong>struct</strong> huge_resource));
+    hr-&gt;reference_count = 1;
+<i>    /* Here we should fill hr-&gt;data with something.  In real life,</i>
+<i>       we'd probably load something or do a complex calculation.</i>
+<i>       Here, we'll just fill it with EEs. */</i>
+    memset(hr-&gt;data, 0xEE, <strong>sizeof</strong>(hr-&gt;data));
+    <strong>return</strong> hr;
+}
+
+<strong>void</strong> free_resource(<strong>struct</strong> huge_resource *hr) {
+    --hr-&gt;reference_count;
+    <strong>if</strong> (hr-&gt;reference_count == 0)
+        free(hr);
+}
+
+<strong>static</strong> <strong>void</strong> cleanup(<strong>const</strong> <strong>void</strong> *data, size_t len, <strong>void</strong> *arg) {
+    free_resource(arg);
+}
+
+<i>/* This is the function that actually adds the resource to the</i>
+<i>   buffer. */</i>
+<strong>void</strong> spool_resource_to_evbuffer(<strong>struct</strong> evbuffer *buf,
+    <strong>struct</strong> huge_resource *hr)
+{
+    ++hr-&gt;reference_count;
+    evbuffer_add_reference(buf, hr-&gt;data, HUGE_RESOURCE_SIZE,
+        cleanup, hr);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_add_reference() function has had is present
+interface since 2.0.2-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_adding_a_file_to_an_evbuffer">Adding a file to an evbuffer</h3>
+<div class="paragraph"><p>Some operating systems provide ways to write files to the network
+without ever copying the data to userspace.  You can access these
+mechanisms, where available, with the simple interface:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_add_file(<strong>struct</strong> evbuffer *output, <strong>int</strong> fd, ev_off_t offset,
+    size_t length);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_add_file() function assumes that it has an open file
+descriptor (not a socket, for once!) <em>fd</em> that is available for
+reading.  It adds <em>length</em> bytes from the file, starting at position
+<em>offset</em>, to the end of <em>output</em>.  It returns 0 on success, or -1 on
+failure.</p></div>
+<div class="paragraph"><div class="title">WARNING</div><p>In Libevent 2.0.x, the only reliable thing to do with data
+added this way was to send it to the network with evbuffer_write*(),
+drain it with evbuffer_drain(), or move it to another evbuffer with
+evbuffer_*_buffer().  You couldn&#8217;t reliably extract it from the buffer
+with evbuffer_remove(), linearize it with evbuffer_pullup(), and so
+on.  Libevent 2.1.x tries to fix this limitation.</p></div>
+<div class="paragraph"><p>If your operating system supports splice() or sendfile(), Libevent
+will use it to send data from <em>fd</em> to the network directly when call
+evbuffer_write(), without copying the data to user RAM at all.  If
+splice/sendfile don&#8217;t exist, but you have mmap(), Libevent will mmap
+the file, and your kernel can hopefully figure out that it never needs
+to copy the data to userspace.  Otherwise, Libevent will just read the
+data from disk into RAM.</p></div>
+<div class="paragraph"><p>The file descriptor will be closed after the data is flushed from the
+evbuffer, or when the evbuffer is freed.  If that&#8217;s not what you want, or if
+you want finer-grained control over the file, see the file_segment
+functionality below.</p></div>
+<div class="paragraph"><p>This function was introduced in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_fine_grained_control_with_file_segments">Fine-grained control with file segments</h3>
+<div class="paragraph"><p>The evbuffer_add_file() interface is inefficient for adding the same file
+more than once, since it takes ownership of the file.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evbuffer_file_segment;
+
+<strong>struct</strong> evbuffer_file_segment *evbuffer_file_segment_new(
+        <strong>int</strong> fd, ev_off_t offset, ev_off_t length, <strong>unsigned</strong> flags);
+<strong>void</strong> evbuffer_file_segment_free(<strong>struct</strong> evbuffer_file_segment *seg);
+<strong>int</strong> evbuffer_add_file_segment(<strong>struct</strong> evbuffer *buf,
+    <strong>struct</strong> evbuffer_file_segment *seg, ev_off_t offset, ev_off_t length);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_file_segment_new() function creates and returns a new
+evbuffer_file_segment object to represent a piece of the underlying file
+stored in <em>fd</em> that begins at <em>offset</em> and contains <em>length</em> bytes.  On
+error, it return NULL.</p></div>
+<div class="paragraph"><p>File segments are implemented with sendfile, splice, mmap, CreateFileMapping,
+or malloc()-and-read(), as appropriate.  They&#8217;re created using the most
+lightweight supported mechanism, and transition to a heavier-weight mechanism
+as needed.  (For example, if your OS supports sendfile and mmap, then a file
+segment can be implemented using only sendfile, until you try to actually
+inspect its contents.  At that point, it needs to be mmap()ed.)  You can
+control the fine-grained behavior of a file segment with these flags:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+EVBUF_FS_CLOSE_ON_FREE
+</dt>
+<dd>
+<p>
+    If this flag is set, freeing the file segment with
+    evbuffer_file_segment_free() will close the underlying file.
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUF_FS_DISABLE_MMAP
+</dt>
+<dd>
+<p>
+    If this flag is set, the file_segment will never use a mapped-memory
+    style backend (CreateFileMapping, mmap) for this file, even if that would
+    be appropriate.
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUF_FS_DISABLE_SENDFILE
+</dt>
+<dd>
+<p>
+    If this flag is set, the file_segment will never use a sendfile-style
+    backend (sendfile, splice) for this file, even if that would
+    be appropriate.
+</p>
+</dd>
+<dt class="hdlist1">
+EVBUF_FS_DISABLE_LOCKING
+</dt>
+<dd>
+<p>
+    If this flag is set, no locks are allocated for the file segment: it
+    won&#8217;t be safe to use it in any way where it can be seen by multiple
+    threads.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Once you have an evbuffer_file_segment, you can add some or all of it to an
+evbuffer using evbuffer_add_file_segment().  The <em>offset</em>
+argument here refers to an offset within the file segment, not to an offset
+within the file itself.</p></div>
+<div class="paragraph"><p>When you no longer want to use a file segment, you can free it with
+evbuffer_file_segment_free().  The actual storage won&#8217;t be released until no
+evbuffer any longer holds a reference to a piece of the file segment.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evbuffer_file_segment_cleanup_cb)(
+    <strong>struct</strong> evbuffer_file_segment <strong>const</strong> *seg, <strong>int</strong> flags, <strong>void</strong> *arg);
+
+<strong>void</strong> evbuffer_file_segment_add_cleanup_cb(<strong>struct</strong> evbuffer_file_segment *seg,
+        evbuffer_file_segment_cleanup_cb cb, <strong>void</strong> *arg);</code></pre>
+</div></div>
+<div class="paragraph"><p>You can add a callback function to a file segment that will be invoked when
+the final reference to the file segment has been released and the file
+segment is about to get freed.  This callback <strong>must not</strong> attempt to revivify
+the file segment, add it to any buffers, or so on.</p></div>
+<div class="paragraph"><p>These file-segment functions first appeared in Libevent 2.1.1-alpha;
+evbuffer_file_segment_add_cleanup_cb() was added in 2.1.2-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_adding_an_evbuffer_to_another_by_reference">Adding an evbuffer to another by reference</h3>
+<div class="paragraph"><p>You can also add one evbuffer&#8217;s to another by reference: rather than removing
+the contents of one buffer and adding them to another, you give one evbuffer
+a reference to another, and it behaves as though you had copied all the
+bytes in.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_add_buffer_reference(<strong>struct</strong> evbuffer *outbuf,
+    <strong>struct</strong> evbuffer *inbuf);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_add_buffer_reference() function behaves as though you had copied
+all the data from <em>outbuf</em> to <em>inbuf</em>, but does not perform any unnecessary
+copies.  It returns 0 if successful and -1 on failure.</p></div>
+<div class="paragraph"><p>Note that subsequent changes to the contents of <em>inbuf</em> are not reflected in
+<em>outbuf</em>: this function adds the current contents of the evbuffer by
+reference, not the evbuffer itself.</p></div>
+<div class="paragraph"><p>Note also that you cannot nest buffer references: a buffer that has already
+been the <em>outbuf</em> of one evbuffer_add_buffer_reference call cannot be the
+<em>inbuf</em> of another.</p></div>
+<div class="paragraph"><p>This function was introduced in Libevent 2.1.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_making_an_evbuffer_add_or_remove_only">Making an evbuffer add- or remove-only</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evbuffer_freeze(<strong>struct</strong> evbuffer *buf, <strong>int</strong> at_front);
+<strong>int</strong> evbuffer_unfreeze(<strong>struct</strong> evbuffer *buf, <strong>int</strong> at_front);</code></pre>
+</div></div>
+<div class="paragraph"><p>You can use these functions to temporarily disable changes to the
+front or end of an evbuffer.  The bufferevent code uses them
+internally to prevent accidental modifications to the front of an
+output buffer, or the end of an input buffer.</p></div>
+<div class="paragraph"><p>The evbuffer_freeze() functions were introduced in Libevent
+2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_obsolete_evbuffer_functions">Obsolete evbuffer functions</h3>
+<div class="paragraph"><p>The evbuffer interface changed a lot in Libevent 2.0.  Before then,
+every evbuffers was implemented as a contiguous chunk of RAM, which
+made access very inefficient.</p></div>
+<div class="paragraph"><p>The event.h header used to expose the internals of struct evbuffer.
+These are no longer available; they changed too much between 1.4 and
+2.0 for any code that relied on them to work.</p></div>
+<div class="paragraph"><p>To access the number of bytes in an evbuffer, there was an
+EVBUFFER_LENGTH() macro.  The actual data was available with
+EVBUFFER_DATA().  These are both available in event2/buffer_compat.h.
+Watch out, though: EVBUFFER_DATA(b) is an alias for evbuffer_pullup(b,
+-1), which can be very expensive.</p></div>
+<div class="paragraph"><p>Some other deprecated interfaces are:</p></div>
+<div class="listingblock">
+<div class="title">Deprecated Interface</div>
+<div class="content">
+<pre><code><strong>char</strong> *evbuffer_readline(<strong>struct</strong> evbuffer *buffer);
+<strong>unsigned</strong> <strong>char</strong> *evbuffer_find(<strong>struct</strong> evbuffer *buffer,
+    <strong>const</strong> <strong>unsigned</strong> <strong>char</strong> *what, size_t len);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evbuffer_readline() function worked like the current
+evbuffer_readln(buffer, NULL, EVBUFFER_EOL_ANY).</p></div>
+<div class="paragraph"><p>The evbuffer_find() function would search for the first occurrence of
+a string in a buffer, and return a pointer to it.  Unlike
+evbuffer_search(), it could only find the first string.  To stay
+compatible with old code that uses this function, it now linearizes
+the entire buffer up to the end of the located string.</p></div>
+<div class="paragraph"><p>The callback interface was different too:</p></div>
+<div class="listingblock">
+<div class="title">Deprecated Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evbuffer_cb)(<strong>struct</strong> evbuffer *buffer,
+    size_t old_len, size_t new_len, <strong>void</strong> *arg);
+<strong>void</strong> evbuffer_setcb(<strong>struct</strong> evbuffer *buffer, evbuffer_cb cb, <strong>void</strong> *cbarg);</code></pre>
+</div></div>
+<div class="paragraph"><p>An evbuffer could only have one callback set at a time, so setting a
+new callback would disable the previous callback, and setting a
+callback of NULL was the preferred way to disable a callbacks.</p></div>
+<div class="paragraph"><p>Instead of getting an evbuffer_cb_info_structure, the function was
+called with the old and new lengths of the evbuffer.  Thus, if old_len
+was greater than new_len, data was drained.  If new_len was greater
+than old_len, data was added.  It was not possible to defer callbacks,
+and so adds and deletes were never batched into a single callback
+invocation.</p></div>
+<div class="paragraph"><p>The obsolete functions here are still available in event2/buffer_compat.h.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>

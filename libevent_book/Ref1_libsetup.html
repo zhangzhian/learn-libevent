@@ -1,0 +1,1588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_setting_up_the_libevent_library">Setting up the Libevent library</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Libevent has a few global settings that are shared across the entire
+process.  These affect the entire library.</p></div>
+<div class="paragraph"><p>You <strong>must</strong> make any changes to these settings before you call any
+other part of the Libevent library.  If you don&#8217;t, Libevent could wind
+up in an inconsistent state.</p></div>
+<div class="sect2">
+<h3 id="_log_messages_in_libevent">Log messages in Libevent</h3>
+<div class="paragraph"><p>Libevent can log internal errors and warnings.  It also logs debugging
+messages if it was compiled with logging support.  By default, these
+messages are written to stderr.  You can override this behavior by
+providing your own logging function.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EVENT_LOG_DEBUG 0
+#define EVENT_LOG_MSG   1
+#define EVENT_LOG_WARN  2
+#define EVENT_LOG_ERR   3
+
+<i>/* Deprecated; see note at the end of this section */</i>
+#define _EVENT_LOG_DEBUG EVENT_LOG_DEBUG
+#define _EVENT_LOG_MSG   EVENT_LOG_MSG
+#define _EVENT_LOG_WARN  EVENT_LOG_WARN
+#define _EVENT_LOG_ERR   EVENT_LOG_ERR
+
+<strong>typedef</strong> <strong>void</strong> (*event_log_cb)(<strong>int</strong> severity, <strong>const</strong> <strong>char</strong> *msg);
+
+<strong>void</strong> event_set_log_callback(event_log_cb cb);</code></pre>
+</div></div>
+<div class="paragraph"><p>To override Libevent&#8217;s logging behavior, write your own function
+matching the signature of event_log_cb, and pass it as an argument to
+event_set_log_callback().  Whenever Libevent wants to log a message, it
+will pass it to the function you provided.  You can have Libevent return
+to its default behavior by calling event_set_log_callback() again with
+NULL as an argument.</p></div>
+<div class="listingblock">
+<div class="title">Examples</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;stdio.h&gt;
+
+<strong>static</strong> <strong>void</strong> discard_cb(<strong>int</strong> severity, <strong>const</strong> <strong>char</strong> *msg)
+{
+<i>    /* This callback does nothing. */</i>
+}
+
+<strong>static</strong> FILE *logfile = NULL;
+<strong>static</strong> <strong>void</strong> write_to_file_cb(<strong>int</strong> severity, <strong>const</strong> <strong>char</strong> *msg)
+{
+    <strong>const</strong> <strong>char</strong> *s;
+    <strong>if</strong> (!logfile)
+        <strong>return</strong>;
+    <strong>switch</strong> (severity) {
+        <strong>case</strong> _EVENT_LOG_DEBUG: s = "debug"; <strong>break</strong>;
+        <strong>case</strong> _EVENT_LOG_MSG:   s = "msg";   <strong>break</strong>;
+        <strong>case</strong> _EVENT_LOG_WARN:  s = "warn";  <strong>break</strong>;
+        <strong>case</strong> _EVENT_LOG_ERR:   s = "error"; <strong>break</strong>;
+        <strong>default</strong>:               s = "?";     <strong>break</strong>; /* never reached */
+    }
+    fprintf(logfile, "[%s] %s\n", s, msg);
+}
+
+<i>/* Turn off all logging from Libevent. */</i>
+<strong>void</strong> suppress_logging(<strong>void</strong>)
+{
+    event_set_log_callback(discard_cb);
+}
+
+<i>/* Redirect all Libevent log messages to the C stdio file 'f'. */</i>
+<strong>void</strong> set_logfile(FILE *f)
+{
+    logfile = f;
+    event_set_log_callback(write_to_file_cb);
+}</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">NOTE</div><p>It is not safe to invoke Libevent functions from within a user-provided
+event_log_cb callback!  For instance, if you try to write a log callback that
+uses bufferevents to send warning messages to a network socket, you are
+likely to run into strange and hard-to-diagnose bugs.  This restriction may
+be removed for some functions in a future version of Libevent.</p></div>
+<div class="paragraph"><p>Ordinarily, debug logs are not enabled, and are not sent to the logging
+callback.  You can turn them on manually, if Libevent was built to support
+them.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EVENT_DBG_NONE 0
+#define EVENT_DBG_ALL 0xffffffffu
+
+<strong>void</strong> event_enable_debug_logging(ev_uint32_t which);</code></pre>
+</div></div>
+<div class="paragraph"><p>Debugging logs are verbose, and not necessarily useful under most
+circumstances.  Calling event_enable_debug_logging() with EVENT_DBG_NONE gets
+default behavior; calling it with EVENT_DBG_ALL turns on all the supported
+debugging logs.  More fine-grained options may be supported in future
+versions.</p></div>
+<div class="paragraph"><p>These functions are declared in &lt;event2/event.h&gt;.  They first appeared in
+Libevent 1.0c, except for event_enable_debug_logging(), which first appeared
+in Libevent 2.1.1-alpha.</p></div>
+<div class="paragraph"><div class="title">COMPATIBILITY NOTE</div><p>Before Libevent 2.0.19-stable, the EVENT_LOG_* macros had names that began
+with an underscore: _EVENT_LOG_DEBUG, _EVENT_LOG_MSG, _EVENT_LOG_WARN, and
+_EVENT_LOG_ERR.  These older names are deprecated, and should only be used
+for backward compatibility with Libevent 2.0.18-stable and earlier.  They may
+be removed in a future version of Libevent.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_handling_fatal_errors">Handling fatal errors</h3>
+<div class="paragraph"><p>When Libevent detects a non-recoverable internal error (such as a corrupted
+data structure), its default behavior is to call exit() or abort() to leave the
+currently running process.  These errors almost always mean that there is a
+bug somewhere: either in your code, or in Libevent itself.</p></div>
+<div class="paragraph"><p>You can override Libevent&#8217;s behavior if you want your application to handle
+fatal errors more gracefully, by providing a function that Libevent should
+call in lieu of exiting.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*event_fatal_cb)(<strong>int</strong> err);
+<strong>void</strong> event_set_fatal_callback(event_fatal_cb cb);</code></pre>
+</div></div>
+<div class="paragraph"><p>To use these functions, you first define a new function that Libevent should
+call upon encountering a fatal error, then you pass it to
+event_set_fatal_callback().  Later, if Libevent encounters a fatal error, it
+will call the function you provided.</p></div>
+<div class="paragraph"><p>Your function <strong>should not</strong> return control to Libevent; doing so may cause
+undefined behavior, and Libevent might exit anyway to avoid crashing.  Once
+your function has been called, you should not call any other Libevent
+function.</p></div>
+<div class="paragraph"><p>These functions are declared in &lt;event2/event.h&gt;.  They first appeared
+in Libevent 2.0.3-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_memory_management">Memory management</h3>
+<div class="paragraph"><p>By default, Libevent uses the C library&#8217;s memory management functions to
+allocate memory from the heap.  You can have Libevent use another memory
+manager by providing your own replacements for malloc, realloc, and
+free.  You might want to do this if you have a more efficient allocator
+that you want Libevent to use, or if you have an instrumented allocator
+that you want Libevent to use in order to look for memory leaks.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> event_set_mem_functions(<strong>void</strong> *(*malloc_fn)(size_t sz),
+                             <strong>void</strong> *(*realloc_fn)(<strong>void</strong> *ptr, size_t sz),
+                             <strong>void</strong> (*free_fn)(<strong>void</strong> *ptr));</code></pre>
+</div></div>
+<div class="paragraph"><p>Here&#8217;s a simple example that replaces Libevent&#8217;s allocation functions
+with variants that count the total number of bytes that are allocated.
+In reality, you&#8217;d probably want to add locking here to prevent errors
+when Libevent is running in multiple threads.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;stdlib.h&gt;
+
+<i>/* This union's purpose is to be as big as the largest of all the</i>
+<i> * types it contains. */</i>
+<strong>union</strong> alignment {
+    size_t sz;
+    <strong>void</strong> *ptr;
+    <strong>double</strong> dbl;
+};
+<i>/* We need to make sure that everything we return is on the right</i>
+<i>   alignment to hold anything, including a double. */</i>
+#define ALIGNMENT <strong>sizeof</strong>(<strong>union</strong> alignment)
+
+<i>/* We need to do this cast-to-char* trick on our pointers to adjust</i>
+<i>   them; doing arithmetic on a void* is not standard. */</i>
+#define OUTPTR(ptr) (((<strong>char</strong>*)ptr)+ALIGNMENT)
+#define INPTR(ptr) (((<strong>char</strong>*)ptr)-ALIGNMENT)
+
+<strong>static</strong> size_t total_allocated = 0;
+<strong>static</strong> <strong>void</strong> *replacement_malloc(size_t sz)
+{
+    <strong>void</strong> *chunk = malloc(sz + ALIGNMENT);
+    <strong>if</strong> (!chunk) <strong>return</strong> chunk;
+    total_allocated += sz;
+    *(size_t*)chunk = sz;
+    <strong>return</strong> OUTPTR(chunk);
+}
+<strong>static</strong> <strong>void</strong> *replacement_realloc(<strong>void</strong> *ptr, size_t sz)
+{
+    size_t old_size = 0;
+    <strong>if</strong> (ptr) {
+        ptr = INPTR(ptr);
+        old_size = *(size_t*)ptr;
+    }
+    ptr = realloc(ptr, sz + ALIGNMENT);
+    <strong>if</strong> (!ptr)
+        <strong>return</strong> NULL;
+    *(size_t*)ptr = sz;
+    total_allocated = total_allocated - old_size + sz;
+    <strong>return</strong> OUTPTR(ptr);
+}
+<strong>static</strong> <strong>void</strong> replacement_free(<strong>void</strong> *ptr)
+{
+    ptr = INPTR(ptr);
+    total_allocated -= *(size_t*)ptr;
+    free(ptr);
+}
+<strong>void</strong> start_counting_bytes(<strong>void</strong>)
+{
+    event_set_mem_functions(replacement_malloc,
+                            replacement_realloc,
+                            replacement_free);
+}</code></pre>
+</div></div>
+<div class="ulist"><div class="title">NOTES</div><ul>
+<li>
+<p>
+Replacing the memory management functions affects all future calls to
+  allocate, resize, or free memory from Libevent.  Therefore, you
+  need to make sure that you replace the functions <em>before</em> you call any
+  other Libevent functions.  Otherwise, Libevent will use your version
+  of free to deallocate memory returned from the C library&#8217;s version of
+  malloc.
+</p>
+</li>
+<li>
+<p>
+Your malloc and realloc functions need to return memory chunks with
+  the same alignment as the C library.
+</p>
+</li>
+<li>
+<p>
+Your realloc function needs to handle realloc(NULL, sz) correctly
+  (that is, by treating it as malloc(sz)).
+</p>
+</li>
+<li>
+<p>
+Your realloc function needs to handle realloc(ptr, 0) correctly
+  (that is, by treating it as free(ptr)).
+</p>
+</li>
+<li>
+<p>
+Your free function does not need to handle free(NULL).
+</p>
+</li>
+<li>
+<p>
+Your malloc function does not need to handle malloc(0).
+</p>
+</li>
+<li>
+<p>
+The replaced memory management functions need to be threadsafe if you
+  are using Libevent from more than one thread.
+</p>
+</li>
+<li>
+<p>
+Libevent will use these functions to allocate memory that it returns to
+  you.  Thus, if you want to free memory that is allocated and returned by a
+  Libevent function, and you have replaced the malloc and realloc functions,
+  then you will probably have to use your replacement free function to free
+  it.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The event_set_mem_functions() function is declared in &lt;event2/event.h&gt;.
+It first appeared in Libevent 2.0.1-alpha.</p></div>
+<div class="paragraph"><p>Libevent can be built with event_set_mem_functions() disabled.  If it
+is, then programs using event_set_mem_functions will not compile or link.
+In Libevent 2.0.2-alpha and later, you can detect the presence of
+event_set_mem_functions() by checking whether the
+EVENT_SET_MEM_FUNCTIONS_IMPLEMENTED macro is defined.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_locks_and_threading">Locks and threading</h3>
+<div class="paragraph"><p>As you probably know if you&#8217;re writing multithreaded programs, it isn&#8217;t
+always safe to access the same data from multiple threads at the same
+time.</p></div>
+<div class="paragraph"><p>Libevent structures can generally work three ways with multithreading.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Some structures are inherently single-threaded: it is never safe to use
+  them from more than one thread at the same time.
+</p>
+</li>
+<li>
+<p>
+Some structures are optionally locked: you can tell Libevent for each
+  object whether you need to use it from multiple threads at once.
+</p>
+</li>
+<li>
+<p>
+Some structures are always locked: if Libevent is running with lock
+  support, then they are always safe to use from multiple threads at
+  once.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>To get locking in Libevent, you must tell Libevent which locking
+functions to use.  You need to do this before you call any Libevent
+function that allocates a structure that needs to be shared between
+threads.</p></div>
+<div class="paragraph"><p>If you are using the pthreads library, or the native Windows threading
+code, you&#8217;re in luck.  There are pre-defined functions that will set Libevent
+up to use the right pthreads or Windows functions for you.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#ifdef WIN32
+<strong>int</strong> evthread_use_windows_threads(<strong>void</strong>);
+#define EVTHREAD_USE_WINDOWS_THREADS_IMPLEMENTED
+#endif
+#ifdef _EVENT_HAVE_PTHREADS
+<strong>int</strong> evthread_use_pthreads(<strong>void</strong>);
+#define EVTHREAD_USE_PTHREADS_IMPLEMENTED
+#endif</code></pre>
+</div></div>
+<div class="paragraph"><p>Both functions return 0 on success, and -1 on failure.</p></div>
+<div class="paragraph"><p>If you need to use a different threading library, then you have a little
+more work ahead of you.  You need to define functions that use your
+library to implement:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Locks
+</p>
+</li>
+<li>
+<p>
+locking
+</p>
+</li>
+<li>
+<p>
+unlocking
+</p>
+</li>
+<li>
+<p>
+lock allocation
+</p>
+</li>
+<li>
+<p>
+lock destruction
+</p>
+</li>
+<li>
+<p>
+Conditions
+</p>
+</li>
+<li>
+<p>
+condition variable creation
+</p>
+</li>
+<li>
+<p>
+condition variable destruction
+</p>
+</li>
+<li>
+<p>
+waiting on a condition variable
+</p>
+</li>
+<li>
+<p>
+signaling/broadcasting to a condition variable
+</p>
+</li>
+<li>
+<p>
+Threads
+</p>
+</li>
+<li>
+<p>
+thread ID detection
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Then you tell Libevent about these functions, using the
+evthread_set_lock_callbacks and evthread_set_id_callback interfaces.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define EVTHREAD_WRITE  0x04
+#define EVTHREAD_READ   0x08
+#define EVTHREAD_TRY    0x10
+
+#define EVTHREAD_LOCKTYPE_RECURSIVE 1
+#define EVTHREAD_LOCKTYPE_READWRITE 2
+
+#define EVTHREAD_LOCK_API_VERSION 1
+
+<strong>struct</strong> evthread_lock_callbacks {
+       <strong>int</strong> lock_api_version;
+       <strong>unsigned</strong> supported_locktypes;
+       <strong>void</strong> *(*alloc)(<strong>unsigned</strong> locktype);
+       <strong>void</strong> (*free)(<strong>void</strong> *lock, <strong>unsigned</strong> locktype);
+       <strong>int</strong> (*lock)(<strong>unsigned</strong> mode, <strong>void</strong> *lock);
+       <strong>int</strong> (*unlock)(<strong>unsigned</strong> mode, <strong>void</strong> *lock);
+};
+
+<strong>int</strong> evthread_set_lock_callbacks(<strong>const</strong> <strong>struct</strong> evthread_lock_callbacks *);
+
+<strong>void</strong> evthread_set_id_callback(<strong>unsigned</strong> <strong>long</strong> (*id_fn)(<strong>void</strong>));
+
+<strong>struct</strong> evthread_condition_callbacks {
+        <strong>int</strong> condition_api_version;
+        <strong>void</strong> *(*alloc_condition)(<strong>unsigned</strong> condtype);
+        <strong>void</strong> (*free_condition)(<strong>void</strong> *cond);
+        <strong>int</strong> (*signal_condition)(<strong>void</strong> *cond, <strong>int</strong> broadcast);
+        <strong>int</strong> (*wait_condition)(<strong>void</strong> *cond, <strong>void</strong> *lock,
+            <strong>const</strong> <strong>struct</strong> timeval *timeout);
+};
+
+<strong>int</strong> evthread_set_condition_callbacks(
+        <strong>const</strong> <strong>struct</strong> evthread_condition_callbacks *);</code></pre>
+</div></div>
+<div class="paragraph"><p>The evthread_lock_callbacks structure describes your locking callbacks
+and their abilities.  For the version described above, the
+lock_api_version field must be set to EVTHREAD_LOCK_API_VERSION.  The
+supported_locktypes field must be set to a bitmask of the
+EVTHREAD_LOCKTYPE_* constants to describe which lock types you can
+support.  (As of 2.0.4-alpha, EVTHREAD_LOCK_RECURSIVE is mandatory and
+EVTHREAD_LOCK_READWRITE is unused.)
+The <em>alloc</em> function must return a new lock of the specified type.  The
+<em>free</em> function must release all resources held by a lock of the
+specified type.  The <em>lock</em> function must try to acquire the lock in the
+specified mode, returning 0 on success and nonzero on failure.  The
+<em>unlock</em> function must try to unlock the lock, returning 0 on success
+and nonzero on failure.</p></div>
+<div class="paragraph"><p>Recognized lock types are:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+0
+</dt>
+<dd>
+<p>
+        A regular, not-necessarily recursive lock.
+</p>
+</dd>
+<dt class="hdlist1">
+EVTHREAD_LOCKTYPE_RECURSIVE
+</dt>
+<dd>
+<p>
+        A lock that does not block a thread already holding it from
+        requiring it again.  Other threads can acquire the lock once
+        the thread holding it has unlocked it as many times as it was
+        initially locked.
+</p>
+</dd>
+<dt class="hdlist1">
+EVTHREAD_LOCKTYPE_READWRITE
+</dt>
+<dd>
+<p>
+        A lock that allows multiple threads to hold it at once for
+        reading, but only one thread at a time to hold it for writing.
+        A writer excludes all readers.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Recognized lock modes are:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+EVTHREAD_READ
+</dt>
+<dd>
+<p>
+        For READWRITE locks only: acquire or release the lock for
+        reading.
+</p>
+</dd>
+<dt class="hdlist1">
+EVTHREAD_WRITE
+</dt>
+<dd>
+<p>
+        For READWRITE locks only: acquire or release the lock for
+        writing.
+</p>
+</dd>
+<dt class="hdlist1">
+EVTHREAD_TRY
+</dt>
+<dd>
+<p>
+        For locking only: acquire the lock only if the lock can be
+        acquired immediately.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>The id_fn argument must be a function returning an unsigned long
+identifying what thread is calling the function.  It must always return
+the same number for the same thread, and must not ever return the same
+number for two different threads if they are both executing at the same
+time.</p></div>
+<div class="paragraph"><p>The evthread_condition_callbacks structure describes callbacks related to
+condition variables.  For the version described above, the lock_api_version
+field must be set to EVTHREAD_CONDITION_API_VERSION.  The alloc_condition
+function must return a pointer to a new condition variable.  It receives 0 as
+its argument.  The free_condition function must release storage and resources
+held by a condition variable.  The wait_condition function takes three
+arguments: a condition allocated by alloc_condition, a lock allocated by the
+evthread_lock_callbacks.alloc function you provided, and an optional timeout.
+The lock will be held whenever the function is called; the function must
+release the lock, and wait until the condition becomes signalled or until the
+(optional) timeout has elapsed.  The wait_condition function should return -1
+on an error, 0 if the condition is signalled, and 1 on a timeout.  Before it
+returns, it should make sure it holds the lock again.  Finally, the
+signal_condition function should cause <em>one</em> thread waiting on the condition
+to wake up (if its broadcast argument is false) and <em>all</em> threads currently
+waiting on the condition to wake up (if its broadcast argument is true).  It
+will only be held while holding the lock associated with the condition.</p></div>
+<div class="paragraph"><p>For more information on condition variables, look at the documentation for
+pthreads&#8217;s pthread_cond_* functions, or Windows&#8217;s CONDITION_VARIABLE
+functions.</p></div>
+<div class="listingblock">
+<div class="title">Examples</div>
+<div class="content">
+<pre><code>For an example of how to use these functions, see evthread_pthread.c and
+evthread_win32.c in the Libevent source distribution.</code></pre>
+</div></div>
+<div class="paragraph"><p>The functions in this section are declared in &lt;event2/thread.h&gt;.  Most of
+them first
+appeared in Libevent 2.0.4-alpha.  Libevent versions from 2.0.1-alpha through
+2.0.3-alpha used an older interface to set locking functions.  The
+event_use_pthreads() function requires you to link your program against the
+event_pthreads library.</p></div>
+<div class="paragraph"><p>The condition-variable functions were new in Libevent 2.0.7-rc; they were
+added to solve some otherwise intractable deadlock problems.</p></div>
+<div class="paragraph"><p>Libevent can be built with locking support disabled.  If it is, then
+programs built to use the above thread-related functions will not
+run.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_debugging_lock_usage">Debugging lock usage</h3>
+<div class="paragraph"><p>To help debug lock usage, Libevent has an optional "lock debugging"
+feature that wraps its locking calls in order to catch typical lock
+errors, including:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+unlocking a lock that we don&#8217;t actually hold
+</p>
+</li>
+<li>
+<p>
+re-locking a non-recursive lock
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If one of these lock errors occurs, Libevent exits with an assertion failure.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> evthread_enable_lock_debugging(<strong>void</strong>);
+#define evthread_enable_lock_debuging() evthread_enable_lock_debugging()</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">This function MUST be called before any locks are created or used.  To
+be safe, call it just after you set your threading functions.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>This function was new in Libevent 2.0.4-alpha with the misspelled name
+"evthread_enable_lock_debuging()."  The spelling was fixed to
+evthread_enable_lock_debugging() in 2.1.2-alpha; both names are currently
+supported.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_debugging_event_usage">Debugging event usage</h3>
+<div class="paragraph"><p>There are some common errors in using events that Libevent can detect and
+report for you.  They include:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Treating an uninitialized struct event as though it were initialized.
+</p>
+</li>
+<li>
+<p>
+Try to reinitialize a pending struct event.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Tracking which events are initialized requires that Libevent use extra memory
+and CPU, so you should only enable debug mode when actually debugging your
+program.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> event_enable_debug_mode(<strong>void</strong>);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function must only be called before any event_base is created.</p></div>
+<div class="paragraph"><p>When using debug mode, you might run out of memory if your program uses a
+large number of events created with event_assign() [not event_new()].  This
+happens because Libevent has no way of telling when an event created with
+event_assign() will no longer be used.  (It can tell that an event_new()
+event has become invalid when you call event_free() on it.)  If you want to
+avoid running out of memory while debugging, you can explicitly tell Libevent
+that such events are no longer to be treated as assigned:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> event_debug_unassign(<strong>struct</strong> event *ev);</code></pre>
+</div></div>
+<div class="paragraph"><p>Calling event_debug_unassign() has no effect when debugging is not enabled.</p></div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;event2/event_struct.h&gt;
+
+#include &lt;stdlib.h&gt;
+
+<strong>void</strong> cb(evutil_socket_t fd, <strong>short</strong> what, <strong>void</strong> *ptr)
+{
+<i>    /* We pass 'NULL' as the callback pointer for the heap allocated</i>
+<i>     * event, and we pass the event itself as the callback pointer</i>
+<i>     * for the stack-allocated event. */</i>
+    <strong>struct</strong> event *ev = ptr;
+
+    <strong>if</strong> (ev)
+        event_debug_unassign(ev);
+}
+
+<i>/* Here's a simple mainloop that waits until fd1 and fd2 are both</i>
+<i> * ready to read. */</i>
+<strong>void</strong> mainloop(evutil_socket_t fd1, evutil_socket_t fd2, <strong>int</strong> debug_mode)
+{
+    <strong>struct</strong> event_base *base;
+    <strong>struct</strong> event event_on_stack, *event_on_heap;
+
+    <strong>if</strong> (debug_mode)
+       event_enable_debug_mode();
+
+    base = event_base_new();
+
+    event_on_heap = event_new(base, fd1, EV_READ, cb, NULL);
+    event_assign(&amp;event_on_stack, base, fd2, EV_READ, cb, &amp;event_on_stack);
+
+    event_add(event_on_heap, NULL);
+    event_add(&amp;event_on_stack, NULL);
+
+    event_base_dispatch(base);
+
+    event_free(event_on_heap);
+    event_base_free(base);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Detailed event debugging is a feature which can only be enabled at compile-time using
+the CFLAGS environment variable "-DUSE_DEBUG". With this flag enabled, any program compiled
+against Libevent will output a very verbose log detailing low-level activity on the back-end.
+These logs include, but not limited to, the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+event additions
+</p>
+</li>
+<li>
+<p>
+event deletions
+</p>
+</li>
+<li>
+<p>
+platform specific event notification information
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This feature cannot be enabled or disabled via an API call so it must only be
+used in developer builds.</p></div>
+<div class="paragraph"><p>These debugging functions were added in Libevent 2.0.4-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_detecting_the_version_of_libevent">Detecting the version of Libevent</h3>
+<div class="paragraph"><p>New versions of Libevent can add features and remove bugs.  Sometimes
+you&#8217;ll want to detect the Libevent version, so that you can:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Detect whether the installed version of Libevent is good enough to
+  build your program.
+</p>
+</li>
+<li>
+<p>
+Display the Libevent version for debugging.
+</p>
+</li>
+<li>
+<p>
+Detect the version of Libevent so that you can warn the user about
+  bugs, or work around them.
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>#define LIBEVENT_VERSION_NUMBER 0x02000300
+#define LIBEVENT_VERSION "2.0.3-alpha"
+<strong>const</strong> <strong>char</strong> *event_get_version(<strong>void</strong>);
+ev_uint32_t event_get_version_number(<strong>void</strong>);</code></pre>
+</div></div>
+<div class="paragraph"><p>The macros make available the compile-time version of the Libevent
+library; the functions return the run-time version.  Note that if you
+have dynamically linked your program against Libevent, these versions
+may be different.</p></div>
+<div class="paragraph"><p>You can get a Libevent version in two formats: as a string suitable for
+displaying to users, or as a 4-byte integer suitable for numerical
+comparison.  The integer format uses the high byte for the major version,
+the second byte for the minor version, the third byte for the patch version, and
+the low byte to indicate release status (0 for release, nonzero for a
+development series after a given release).</p></div>
+<div class="paragraph"><p>Thus, the released Libevent 2.0.1-alpha has the version number of [02 00
+01 00], or 0x02000100.  A development versions between 2.0.1-alpha and
+2.0.2-alpha might have a version number of [02 00 01 08], or 0x02000108.</p></div>
+<div class="listingblock">
+<div class="title">Example: Compile-time checks</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+
+#<strong>if</strong> !defined(LIBEVENT_VERSION_NUMBER) || LIBEVENT_VERSION_NUMBER &lt; 0x02000100
+#error "This version of Libevent is not supported; Get 2.0.1-alpha or later."
+#endif
+
+<strong>int</strong>
+make_sandwich(<strong>void</strong>)
+{
+<i>        /* Let's suppose that Libevent 6.0.5 introduces a make-me-a</i>
+<i>           sandwich function. */</i>
+#<strong>if</strong> LIBEVENT_VERSION_NUMBER &gt;= 0x06000500
+        evutil_make_me_a_sandwich();
+        <strong>return</strong> 0;
+#<strong>else</strong>
+        <strong>return</strong> -1;
+#endif
+}</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Example: Run-time checks</div>
+<div class="content">
+<pre><code>#include &lt;event2/event.h&gt;
+#include &lt;string.h&gt;
+
+<strong>int</strong>
+check_for_old_version(<strong>void</strong>)
+{
+    <strong>const</strong> <strong>char</strong> *v = event_get_version();
+<i>    /* This is a dumb way to do it, but it is the only thing that works</i>
+<i>       before Libevent 2.0. */</i>
+    <strong>if</strong> (!strncmp(v, "0.", 2) ||
+        !strncmp(v, "1.1", 3) ||
+        !strncmp(v, "1.2", 3) ||
+        !strncmp(v, "1.3", 3)) {
+
+        printf("Your version of Libevent is very old.  If you run into bugs,"
+               " consider upgrading.\n");
+        <strong>return</strong> -1;
+    } <strong>else</strong> {
+        printf("Running with Libevent version %s\n", v);
+        <strong>return</strong> 0;
+    }
+}
+
+<strong>int</strong>
+check_version_match(<strong>void</strong>)
+{
+    ev_uint32_t v_compile, v_run;
+    v_compile = LIBEVENT_VERSION_NUMBER;
+    v_run = event_get_version_number();
+    <strong>if</strong> ((v_compile &amp; 0xffff0000) != (v_run &amp; 0xffff0000)) {
+        printf("Running with a Libevent version (%s) very different from the "
+               "one we were built with (%s).\n", event_get_version(),
+               LIBEVENT_VERSION);
+        <strong>return</strong> -1;
+    }
+    <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The macros and functions in this section are defined in
+&lt;event2/event.h&gt;.  The event_get_version() function first appeared in
+Libevent 1.0c; the others first appeared in Libevent 2.0.1-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_freeing_global_libevent_structures">Freeing global Libevent structures</h3>
+<div class="paragraph"><p>Even when you&#8217;ve freed all the objects that you allocated with Libevent,
+there will be a few globally allocated structures left over.  This isn&#8217;t
+usually a problem: once the process exits, they will all get cleaned up
+anyway.  But having these structures can confuse some debugging tools into
+thinking that Libevent is leaking resources.  If you need to make sure that
+Libevent has released all internal library-global data structures, you can
+call:</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> libevent_global_shutdown(<strong>void</strong>);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function doesn&#8217;t free any structures that were returned to you by a
+Libevent function.  If you want to free everything before exiting, you&#8217;ll
+need to free all events, event_bases, bufferevents, and so on yourself.</p></div>
+<div class="paragraph"><p>Calling libevent_global_shutdown() will make other Libevent functions behave
+unpredictably; don&#8217;t call it except as the last Libevent function your
+program invokes.  One exception is that libevent_global_shutdown() is
+idempotent: it is okay to call it even if it has already been called.</p></div>
+<div class="paragraph"><p>This function is declared in &lt;event2/event.h&gt;. It was introduced in Libevent
+2.1.1-alpha.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>

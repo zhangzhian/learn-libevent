@@ -1,0 +1,1080 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>These documents are Copyright (c) 2009-2012 by Nick Mathewson, and are made
+available under the Creative Commons Attribution-Noncommercial-Share Alike
+license, version 3.0.  Future versions may be made available under a less
+restrictive license.</p></div>
+<div class="paragraph"><p>Additionally, the source code examples in these documents are also licensed
+under the so-called "3-Clause" or "Modified" BSD license. See
+<a href="license_bsd.html">the license_bsd file</a> distributed with these documents
+for the full terms.</p></div>
+<div class="paragraph"><p>For the latest version of this document, see
+   <a href="http://www.wangafu.net/~nickm/libevent-book/TOC.html">http://www.wangafu.net/~nickm/libevent-book/TOC.html</a></p></div>
+<div class="paragraph"><p>To get the source for the latest version of this document, install git
+and run "git clone git://github.com/nmathewson/libevent-book.git"</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect1">
+<h2 id="_connection_listeners_accepting_tcp_connections">Connection listeners: accepting TCP connections</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The evconnlistener mechanism gives you a way to listen for and accept
+incoming TCP connections.</p></div>
+<div class="paragraph"><p>All the functions and types in this section are declared in
+event2/listener.h.  They first appeared in Libevent 2.0.2-alpha, unless
+otherwise noted.</p></div>
+<div class="sect2">
+<h3 id="_creating_or_freeing_an_evconnlistener">Creating or freeing an evconnlistener</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>struct</strong> evconnlistener *evconnlistener_new(<strong>struct</strong> event_base *base,
+    evconnlistener_cb cb, <strong>void</strong> *ptr, <strong>unsigned</strong> flags, <strong>int</strong> backlog,
+    evutil_socket_t fd);
+<strong>struct</strong> evconnlistener *evconnlistener_new_bind(<strong>struct</strong> event_base *base,
+    evconnlistener_cb cb, <strong>void</strong> *ptr, <strong>unsigned</strong> flags, <strong>int</strong> backlog,
+    <strong>const</strong> <strong>struct</strong> sockaddr *sa, <strong>int</strong> socklen);
+<strong>void</strong> evconnlistener_free(<strong>struct</strong> evconnlistener *lev);</code></pre>
+</div></div>
+<div class="paragraph"><p>The two evconnlistener_new*() functions both allocate and return a new
+connection listener object.  A connection listener uses an event_base to
+note when there is a new TCP connection on a given listener socket.
+When a new connection arrives, it invokes the callback function you give it.</p></div>
+<div class="paragraph"><p>In both functions, the <em>base</em> parameter is an event_base that the listener
+should use to listen for connections.  The <em>cb</em> function is a callback to
+invoke when a new connection is received; if <em>cb</em> is NULL, the listener is
+treated as disabled until a callback is set.  The <em>ptr</em> pointer will be passed
+to the callback.  The <em>flags</em> argument controls the behavior of the listener&#8201;&#8212;&#8201;more on this below.  The <em>backlog</em> parameter controls the maximum number
+of pending connections that the network stack should allow to wait in a
+not-yet-accepted state at any time; see documentation for your system&#8217;s
+listen() function for more details.  If <em>backlog</em> is negative, Libevent tries
+to pick a good value for the backlog; if it is zero, Libevent assumes that
+you have already called listen() on the socket you are providing it.</p></div>
+<div class="paragraph"><p>The functions differ in how they set up their listener socket.  The
+evconnlistener_new() function assumes that you have already bound a socket to
+the port you want to listen on, and that you&#8217;re passing the socket in as
+<em>fd</em>.  If you want Libevent to allocate and bind to a socket on its own,
+call evconnlistener_new_bind(), and pass in the sockaddr you want to bind to,
+and its length.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">[When using evconnlistener_new, make sure your listening socket is in
+non-blocking mode by using evutil_make_socket_nonblocking or by manually
+setting the correct socket option. When the listening socket is left in
+blocking mode, undefined behavior might occur.]</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>To free a connection listener, pass it to evconnlistener_free().</p></div>
+<div class="sect3">
+<h4 id="_recognized_flags">Recognized flags</h4>
+<div class="paragraph"><p>These are the flags you can pass to the <em>flags</em> argument of the
+evconnlistener_new() function.  You can give any number of these, OR&#8217;d
+together.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+LEV_OPT_LEAVE_SOCKETS_BLOCKING
+</dt>
+<dd>
+<p>
+    By default, when the connection listener accepts a new incoming
+    socket, it sets it up to be nonblocking so that you can use it
+    with the rest of Libevent.  Set this flag if you do not want this
+    behavior.
+</p>
+</dd>
+<dt class="hdlist1">
+LEV_OPT_CLOSE_ON_FREE
+</dt>
+<dd>
+<p>
+    If this option is set, the connection listener closes its
+    underlying socket when you free it.
+</p>
+</dd>
+<dt class="hdlist1">
+LEV_OPT_CLOSE_ON_EXEC
+</dt>
+<dd>
+<p>
+    If this option is set, the connection listener sets the
+    close-on-exec flag on the underlying listener socket.  See your
+    platform documentation for fcntl and FD_CLOEXEC for more
+    information.
+</p>
+</dd>
+<dt class="hdlist1">
+LEV_OPT_REUSEABLE
+</dt>
+<dd>
+<p>
+    By default on some platforms, once a listener socket is closed,
+    no other socket can bind to the same port until a while has
+    passed.  Setting this option makes Libevent mark the socket as
+    reusable, so that once it is closed, another socket can be
+    opened to listen on the same port.
+</p>
+</dd>
+<dt class="hdlist1">
+LEV_OPT_THREADSAFE
+</dt>
+<dd>
+<p>
+    Allocate locks for the listener, so that it&#8217;s safe to use it from
+    multiple threads.  New in Libevent 2.0.8-rc.
+</p>
+</dd>
+<dt class="hdlist1">
+LEV_OPT_DISABLED
+</dt>
+<dd>
+<p>
+    Initialize the listener to be disabled, not enabled.  You can
+    turn it on manually with evconnlistener_enable(). New in Libevent
+    2.1.1-alpha.
+</p>
+</dd>
+<dt class="hdlist1">
+LEV_OPT_DEFERRED_ACCEPT
+</dt>
+<dd>
+<p>
+    If possible, tell the kernel to not announce sockets as having been
+    accepted until some data has been received on them, and they are ready
+    for reading. Do not use this option if your protocol
+    <em>doesn&#8217;t</em> start out with the client transmitting data, since in that case
+    this option will sometimes cause the kernel to never tell you about the
+    connection. Not all operating systems support this option: on ones that
+    don&#8217;t, this option has no effect.  New in Libevent 2.1.1-alpha.
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect3">
+<h4 id="_the_connection_listener_callback">The connection listener callback</h4>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evconnlistener_cb)(<strong>struct</strong> evconnlistener *listener,
+    evutil_socket_t sock, <strong>struct</strong> sockaddr *addr, <strong>int</strong> len, <strong>void</strong> *ptr);</code></pre>
+</div></div>
+<div class="paragraph"><p>When a new connection is received, the provided callback function is
+invoked.  The <em>listener</em> argument is the connection listener that
+received the connection.  The <em>sock</em> argument is the new socket
+itself.  The <em>addr</em> and <em>len</em> arguments are the address from which
+the connection was received and the length of that address
+respectively.  The <em>ptr</em> argument is the user-supplied pointer that
+was passed to evconnlistener_new().</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enabling_and_disabling_an_evconnlistener">Enabling and disabling an evconnlistener</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>int</strong> evconnlistener_disable(<strong>struct</strong> evconnlistener *lev);
+<strong>int</strong> evconnlistener_enable(<strong>struct</strong> evconnlistener *lev);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions temporarily disable or reenable listening for new connections.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_adjusting_an_evconnlistener_8217_s_callback">Adjusting an evconnlistener&#8217;s callback</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>void</strong> evconnlistener_set_cb(<strong>struct</strong> evconnlistener *lev,
+    evconnlistener_cb cb, <strong>void</strong> *arg);</code></pre>
+</div></div>
+<div class="paragraph"><p>This function adjusts the callback and callback argument of an existing
+evconnlistener.  It was introduced in 2.0.9-rc.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_inspecting_an_evconnlistener">Inspecting an evconnlistener</h3>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code>evutil_socket_t evconnlistener_get_fd(<strong>struct</strong> evconnlistener *lev);
+<strong>struct</strong> event_base *evconnlistener_get_base(<strong>struct</strong> evconnlistener *lev);</code></pre>
+</div></div>
+<div class="paragraph"><p>These functions return a listener&#8217;s associated socket and event_base
+respectively.</p></div>
+<div class="paragraph"><p>The evconnlistener_get_fd() function first appeared in Libevent 2.0.3-alpha.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_detecting_errors">Detecting errors</h3>
+<div class="paragraph"><p>You can set an error callback that gets informed whenever an accept() call
+fails on the listener.  This can be important to do if you&#8217;re facing an error
+condition that would lock the process unless you addressed it.</p></div>
+<div class="listingblock">
+<div class="title">Interface</div>
+<div class="content">
+<pre><code><strong>typedef</strong> <strong>void</strong> (*evconnlistener_errorcb)(<strong>struct</strong> evconnlistener *lis, <strong>void</strong> *ptr);
+<strong>void</strong> evconnlistener_set_error_cb(<strong>struct</strong> evconnlistener *lev,
+    evconnlistener_errorcb errorcb);</code></pre>
+</div></div>
+<div class="paragraph"><p>If you use evconnlistener_set_error_cb() to set an error callback on a
+listener, the callback will be invoked every time that an error occurs on the
+listener.  It will receive the listener as its first argument, and the
+argument passed as <em>ptr</em> to evconnlistener_new() as its second argument.</p></div>
+<div class="paragraph"><p>This function was introduced in Libevent 2.0.8-rc.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_example_code_an_echo_server">Example code: an echo server.</h3>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre><code>#include &lt;event2/listener.h&gt;
+#include &lt;event2/bufferevent.h&gt;
+#include &lt;event2/buffer.h&gt;
+
+#include &lt;arpa/inet.h&gt;
+
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+
+<strong>static</strong> <strong>void</strong>
+echo_read_cb(<strong>struct</strong> bufferevent *bev, <strong>void</strong> *ctx)
+{
+<i>        /* This callback is invoked when there is data to read on bev. */</i>
+        <strong>struct</strong> evbuffer *input = bufferevent_get_input(bev);
+        <strong>struct</strong> evbuffer *output = bufferevent_get_output(bev);
+
+<i>        /* Copy all the data from the input buffer to the output buffer. */</i>
+        evbuffer_add_buffer(output, input);
+}
+
+<strong>static</strong> <strong>void</strong>
+echo_event_cb(<strong>struct</strong> bufferevent *bev, <strong>short</strong> events, <strong>void</strong> *ctx)
+{
+        <strong>if</strong> (events &amp; BEV_EVENT_ERROR)
+                perror("Error from bufferevent");
+        <strong>if</strong> (events &amp; (BEV_EVENT_EOF | BEV_EVENT_ERROR)) {
+                bufferevent_free(bev);
+        }
+}
+
+<strong>static</strong> <strong>void</strong>
+accept_conn_cb(<strong>struct</strong> evconnlistener *listener,
+    evutil_socket_t fd, <strong>struct</strong> sockaddr *address, <strong>int</strong> socklen,
+    <strong>void</strong> *ctx)
+{
+<i>        /* We got a new connection! Set up a bufferevent for it. */</i>
+        <strong>struct</strong> event_base *base = evconnlistener_get_base(listener);
+        <strong>struct</strong> bufferevent *bev = bufferevent_socket_new(
+                base, fd, BEV_OPT_CLOSE_ON_FREE);
+
+        bufferevent_setcb(bev, echo_read_cb, NULL, echo_event_cb, NULL);
+
+        bufferevent_enable(bev, EV_READ|EV_WRITE);
+}
+
+<strong>static</strong> <strong>void</strong>
+accept_error_cb(<strong>struct</strong> evconnlistener *listener, <strong>void</strong> *ctx)
+{
+        <strong>struct</strong> event_base *base = evconnlistener_get_base(listener);
+        <strong>int</strong> err = EVUTIL_SOCKET_ERROR();
+        fprintf(stderr, "Got an error %d (%s) on the listener. "
+                "Shutting down.\n", err, evutil_socket_error_to_string(err));
+
+        event_base_loopexit(base, NULL);
+}
+
+<strong>int</strong>
+main(<strong>int</strong> argc, <strong>char</strong> **argv)
+{
+        <strong>struct</strong> event_base *base;
+        <strong>struct</strong> evconnlistener *listener;
+        <strong>struct</strong> sockaddr_in sin;
+
+        <strong>int</strong> port = 9876;
+
+        <strong>if</strong> (argc &gt; 1) {
+                port = atoi(argv[1]);
+        }
+        <strong>if</strong> (port&lt;=0 || port&gt;65535) {
+                puts("Invalid port");
+                <strong>return</strong> 1;
+        }
+
+        base = event_base_new();
+        <strong>if</strong> (!base) {
+                puts("Couldn't open event base");
+                <strong>return</strong> 1;
+        }
+
+<i>        /* Clear the sockaddr before using it, in case there are extra</i>
+<i>         * platform-specific fields that can mess us up. */</i>
+        memset(&amp;sin, 0, <strong>sizeof</strong>(sin));
+<i>        /* This is an INET address */</i>
+        sin.sin_family = AF_INET;
+<i>        /* Listen on 0.0.0.0 */</i>
+        sin.sin_addr.s_addr = htonl(0);
+<i>        /* Listen on the given port. */</i>
+        sin.sin_port = htons(port);
+
+        listener = evconnlistener_new_bind(base, accept_conn_cb, NULL,
+            LEV_OPT_CLOSE_ON_FREE|LEV_OPT_REUSEABLE, -1,
+            (<strong>struct</strong> sockaddr*)&amp;sin, <strong>sizeof</strong>(sin));
+        <strong>if</strong> (!listener) {
+                perror("Couldn't create listener");
+                <strong>return</strong> 1;
+        }
+        evconnlistener_set_error_cb(listener, accept_error_cb);
+
+        event_base_dispatch(base);
+        <strong>return</strong> 0;
+}</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-02-19 14:29:30 PST
+</div>
+</div>
+</body>
+</html>
