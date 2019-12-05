@@ -49,7 +49,7 @@ static void read_cb(struct bufferevent *bev, void *arg)
 	evTcpContext* context = (evTcpContext*)arg;
 	//读取evbuffer
 	struct evbuffer *input = bufferevent_get_input(bev);
-	printf("[Libevent]read_cb while size %d\n",evbuffer_get_length(input));	
+	printf("[Libevent]read_cb size %d\n",evbuffer_get_length(input));	
 	
 	UINT8 *data = NULL;
 
@@ -60,8 +60,7 @@ static void read_cb(struct bufferevent *bev, void *arg)
 			break;
 		if (size == 0)
 			continue;
-	
-		
+			
 		//printf("[Libevent]");
 		//int i;
 		//for ( i = 0; i < size; i++)
@@ -128,7 +127,7 @@ static void cb_listener(
    printf("[Libevent]constructing bufferevent\n");
    // 给bufferevent缓冲区设置回调
    bufferevent_setcb(bev,read_cb,write_cb, event_cb, ptr);
-   bufferevent_enable(bev, EV_READ);
+   bufferevent_enable(bev, EV_READ|EV_WRITE);
 }
 
 static void accept_error_cb(struct evconnlistener *listener, void *ctx)
@@ -168,35 +167,30 @@ int yds_libevent_init(){
 	return ret;
 }
 
+int yds_libevent_addTimerEvent(struct event **ev, 
+							   YDS_TIMER_TYPE_E eFlag, 
+							   struct timeval delayTime, 
+							   event_callback_fn cb){
 
-int yds_libevent_addTimerEvent(YDS_TIMER_TYPE_E eFlag, struct timeval delayTime, void (*cb)(evutil_socket_t, short, void *)){
-	struct event *ev_timeout = NULL;
-	struct event *ev_now_timeout = NULL;
 	struct timeval tv = {0,0};
 	int res;
 
+	if (eFlag == TIMER_ONCE)
+	{
+		*ev = evtimer_new(evBase, cb, event_self_cbarg());
+		res = event_add(*ev, &delayTime);
+			
+	}
+
 	if (eFlag == TIMER_TIMEOUT)
 	{
-		ev_timeout = event_new(evBase, -1, EV_PERSIST, cb, event_self_cbarg());
-		res = event_add(ev_timeout, &delayTime);
-	}
-	if (eFlag == TIMER_NOW_TIMEOUT)
-	{
-		ev_now_timeout = evtimer_new(evBase, cb, event_self_cbarg());
-		ev_timeout = event_new(evBase, -1, EV_PERSIST, cb, event_self_cbarg());
-
-		res = event_add(ev_now_timeout, &tv);//立即执行一次，然后定时
-
-		if (res == 0)
-		{
-			res = event_add(ev_timeout, &delayTime);
-		}
+		*ev = event_new(evBase, -1, EV_PERSIST, cb, event_self_cbarg());
+		res = event_add(*ev, &delayTime);
+		
 	}
 
 	return res;
 }
-
-
 
 int yds_libevent_addTcpServerEvent(int port,
 							  tcp_decode decode,
@@ -299,15 +293,11 @@ struct bufferevent* yds_libevent_addTcpClientEvent(const char* ip, int port,
 	return bev;
 }
 
-struct event* yds_libevent_addManualActiveEvent(void (*cb)(evutil_socket_t, short, void *)){
+int yds_libevent_addManualActiveEvent(struct event **ev ,event_callback_fn cb){
 	
-	struct event *ev = NULL;
+	*ev = event_new(evBase, -1, EV_READ | EV_WRITE, cb, NULL);
 
-	ev = event_new(evBase, -1, EV_READ | EV_WRITE, cb, NULL);
-
-	event_add(ev, NULL);
-
-	return ev;
+	return event_add(*ev, NULL);
 }
 
 int yds_libevent_removeEvent(struct event *ev){

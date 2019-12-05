@@ -2,7 +2,7 @@
 **     Filename  : yds_libevent_utils.h
 **     Project   : 
 **     Processor : ARM7
-**     Component : FDA
+**     Component : 
 **     Version   : 
 **     Compiler  : 
 **     Date/Time : 2019/12/03, 20:10
@@ -41,11 +41,10 @@
 #define yds_libevent_tcpSendData(bufev, data, size)	\
 	bufferevent_write((bufev), (data),  (size))
 
-
 typedef enum
 {
+	TIMER_ONCE,					//wait ... exec
     TIMER_TIMEOUT,				//wait ... exec ... wait
-    TIMER_NOW_TIMEOUT,			//exec ... wait ... exec
 }YDS_TIMER_TYPE_E;
 
 typedef enum
@@ -54,13 +53,6 @@ typedef enum
     CONN_CLOSE,					//connection closed
 	CONN_ERROR,					//connection error
 }YDS_CONN_RESULT_E;
-
-//typedef enum
-//{
-//	FORMAT_NANO,				//nano
-//    FORMAT_NORMAL,				//normal
-//	FORMAT_HZ_PROTOBUF,			//hz protobuf 
-//}YDS_TCP_DATA_FORMAT_E;
 
 typedef enum
 {
@@ -80,20 +72,11 @@ typedef struct
 
 typedef int (*tcp_decode)(struct evbuffer *buff, UINT8 **data);
 
-//typedef struct
-//{
-//	YDS_TCP_DATA_FORMAT_E type;	
-//	int allLength;
-//	const char* header;	
-//
-//} evTcpDataFormat;
-
 typedef struct
 {
-	YDS_TCP_TYPE_E	tcp;
-	//evTcpDataFormat* format;
-	tcp_decode		decode;
-	bufferEvCB		*cb;
+	YDS_TCP_TYPE_E		tcp;
+	tcp_decode			decode;
+	bufferEvCB			*cb;
 
 } evTcpContext;
 
@@ -127,9 +110,10 @@ int yds_libevent_init();
 **     Returns     : None
 ** ===================================================================
 */
-int yds_libevent_addTimerEvent( YDS_TIMER_TYPE_E eFlag, 
-								struct timeval delayTime, 
-								void (*cb)(evutil_socket_t, short, void *));
+int yds_libevent_addTimerEvent(struct event **ev, 
+							   YDS_TIMER_TYPE_E eFlag, 
+							   struct timeval delayTime, 
+							   event_callback_fn cb);
 
 /*
 ** ===================================================================
@@ -144,10 +128,9 @@ int yds_libevent_addTimerEvent( YDS_TIMER_TYPE_E eFlag,
 **     Returns     : None
 ** ===================================================================
 */
-int yds_libevent_addTcpServerEvent( int port,
-									//evTcpDataFormat format,
-									tcp_decode decode,
-									bufferEvCB cb);
+int yds_libevent_addTcpServerEvent(int port, 
+								   tcp_decode decode, 
+								   bufferEvCB cb);
 
 /*
 ** ===================================================================
@@ -162,9 +145,8 @@ int yds_libevent_addTcpServerEvent( int port,
 **     Returns     : None
 ** ===================================================================
 */
-struct bufferevent* yds_libevent_addTcpClientEvent( const char* ip,
+struct bufferevent* yds_libevent_addTcpClientEvent( const char *ip,
 													int port,
-													//evTcpDataFormat format,
 													tcp_decode decode,
 													bufferEvCB cb);
 
@@ -182,7 +164,8 @@ struct bufferevent* yds_libevent_addTcpClientEvent( const char* ip,
 **     Returns     : None
 ** ===================================================================
 */
-struct event* yds_libevent_addManualActiveEvent(void (*cb)(evutil_socket_t, short, void *));
+int yds_libevent_addManualActiveEvent(struct event **ev, 
+									  event_callback_fn cb);
 
 /*
 ** ===================================================================
@@ -227,7 +210,7 @@ int yds_libevent_run();
 **     Returns     : None
 ** ===================================================================
 */
-//void yds_libevent_getBase(struct event_base **ev);
+void yds_libevent_getBase(struct event_base **ev);
 
 /*
 ** ===================================================================
