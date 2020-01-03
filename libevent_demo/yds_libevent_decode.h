@@ -16,6 +16,15 @@
 **
 ** ###################################################################*/
 
+
+#ifndef libevent_decode__h
+#define libevent_decode__h
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 /** ===========================include=============================== **/
 #include <event2/bufferevent.h>
 #include <event2/event.h>
@@ -87,3 +96,9 @@ int tcp_decode_universal(struct evbuffer *buff, UINT8 **data, evUniversalForamt 
 ** ===================================================================
 */
 int tcp_decode_all(struct evbuffer *buff, UINT8 **data);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

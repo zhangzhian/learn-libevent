@@ -30,7 +30,6 @@ int tcp_decode_hz_protobuf(struct evbuffer *buff, UINT8 **data){
 	format.sizeType = TCP_SIZE_ONLY_DATA;
 	format.otherLength = 0;
 	return tcp_decode_universal(buff,data,format);
-
 }
 
 /*
@@ -48,13 +47,18 @@ int tcp_decode_hz_protobuf(struct evbuffer *buff, UINT8 **data){
 */
 int tcp_decode_all(struct evbuffer *buff, UINT8 **data){
 	
+	int size = -1;
 	int msize = evbuffer_get_length(buff);
+
 	//完整数据
 	//取数据
-	*data = (UINT8 *)malloc(msize);
-	evbuffer_remove(buff,*data,msize);		
-	
-	return msize;
+	if (msize > 0)
+	{
+		*data = ( UINT8 *)malloc(msize);
+		evbuffer_remove(buff,*data,msize);
+		size = msize;
+	}
+	return size;
 	
 }
 
