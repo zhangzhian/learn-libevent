@@ -26,6 +26,7 @@ extern "C"
 /** ===========================include=============================== **/
 #include <sys/types.h>
 #include <fcntl.h> 
+#include <sys/timerfd.h>
 #include "yds_rte.h"
 #include "yds_rte_api.h"
 
@@ -53,9 +54,9 @@ extern "C"
 **
 **     Description :
 **         libevent manual active event
-**     Parameters  : 
-**                 : 
-**                 : 
+**     Parameters  : ev an event to make active.
+**                 : res a set of flags to pass to the event's callback.
+**                 : ncalls @param ncalls an obsolete argument: this is ignored.
 **                 : 
 **     Returns     : None
 ** ===================================================================
@@ -69,11 +70,11 @@ extern "C"
 **
 **     Description :
 **         libevent remove Event
-**     Parameters  : 
+**     Parameters  : ev: an event struct to be removed from the working set
 **                 : 
 **                 : 
 **                 : 
-**     Returns     : None
+**     Returns     : return 0 if successful, or -1 if an error occurred
 ** ===================================================================
 */
 #define yds_libevent_removeEvent(ev) \
@@ -85,7 +86,7 @@ extern "C"
 **
 **     Description :
 **         libevent Tcp close Connect
-**     Parameters  : 
+**     Parameters  : bufev the bufferevent structure to be freed.
 **                 : 
 **                 : 
 **                 : 
@@ -101,11 +102,11 @@ extern "C"
 **
 **     Description :
 **         libevent Tcp send data
-**     Parameters  : 
+**     Parameters  : bufev the bufferevent to be written to
+**                 : data a pointer to the data to be written
+**                 : size the length of the data, in bytes
 **                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or -1 if an error occurred
 ** ===================================================================
 */
 #define yds_libevent_tcpSendData(bufev, data, size)	\
@@ -117,11 +118,11 @@ extern "C"
 **
 **     Description :
 **         libevent remove evbuffer data
-**     Parameters  : 
+**     Parameters  : buf the evbuffer to be drained 
+**                 : len the number of bytes to drain from the beginning of the buffer
 **                 : 
 **                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : 0 on success, -1 on failure.
 ** ===================================================================
 */
 #define yds_libevent_removeEvbufferData(buf, len) \
@@ -132,12 +133,12 @@ extern "C"
 **     Method      :  yds_libevent_getEvbufferData
 **
 **     Description :
-**         libevent get evbuffer data, and del
-**     Parameters  : 
+**         libevent get len size evbuffer data, and del
+**     Parameters  : buf the evbuffer to be read from
+**                 : data the destination buffer to store the result
+**                 : len the maximum size of the destination buffer
 **                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : the number of bytes read, or -1 if we can't drain the buffer.
 ** ===================================================================
 */
 #define yds_libevent_getEvbufferData(buf, data, len) \
@@ -149,8 +150,8 @@ extern "C"
 **
 **     Description :
 **          libevent get all evbuffer data, and del
-**     Parameters  : 
-**                 : 
+**     Parameters  : buf the evbuffer to be read from
+**                 : data the destination buffer to store the result
 **                 : 
 **                 : 
 **     Returns     : None
@@ -165,11 +166,11 @@ extern "C"
 **
 **     Description :
 **         libevent copy evbuffer data, not del
-**     Parameters  : 
+**     Parameters  : buf the evbuffer to be read from
+**                 : data_out the destination buffer to store the result
+**                 : datlen the maximum size of the destination buffer
 **                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : the number of bytes read, or -1 if we can't drain the buffer.
 ** ===================================================================
 */
 #define yds_libevent_copyEvbufferData(buf, data, len) \
@@ -181,11 +182,11 @@ extern "C"
 **
 **     Description :
 **         libevent get evbuff data length
-**     Parameters  : 
+**     Parameters  : buf pointer to the evbuffer
 **                 : 
 **                 : 
 **                 : 
-**     Returns     : None
+**     Returns     : the number of bytes stored in the evbuffer
 ** ===================================================================
 */
 #define yds_libevent_getEvbuffLength(buf) \
@@ -197,11 +198,12 @@ extern "C"
 **
 **     Description :
 **         libevent get http param value by key
-**     Parameters  : 
+**     Parameters  : headers the evkeyvalq object in which to find the header
+**                 : key the name of the header to find
 **                 : 
 **                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : a pointer to the value for the header or NULL 
+**					 if the headercould not be found.
 ** ===================================================================
 */
 #define yds_libevent_getHttpParamValue(headers,key) \
@@ -213,9 +215,9 @@ extern "C"
 **
 **     Description :
 **         libevent send http error
-**     Parameters  : 
-**                 : 
-**                 : 
+**     Parameters  : req a request object
+**                 : error the HTTP error code
+**                 : reason a brief explanation of the error.
 **                 : 
 **     Returns     : None
 ** ===================================================================
@@ -263,6 +265,8 @@ typedef enum
 {
 	TIMER_ONCE,					//wait ... exec
     TIMER_TIMEOUT,				//wait ... exec ... wait
+	TIMER_RTC_ONCE,				//wait ... exec rtc
+	TIMER_RTC_TIMEOUT,			//wait ... exec ... wait rtc
 }YDS_TIMER_TYPE_E;
 
 typedef enum
@@ -276,7 +280,7 @@ typedef enum
 {
     TCP_CLIENT,				//clent
 	TCP_SERVER,				//server
-}YDS_TCP_TYPE_E;
+}YDS_TCP_TYPE_E;			//inner
 
 typedef enum
 {
@@ -296,12 +300,12 @@ typedef enum
 /**
    A callback function for an event.
  */
-typedef void (*timer_cb)(evutil_socket_t, short, void *);
+typedef void (*timer_cb)(evutil_socket_t fd, short what, void *arg);
 
 /**
    A callback function for an event.
  */
-typedef void (*manual_active_event_cb)(evutil_socket_t, short, void *);
+typedef void (*manual_active_event_cb)(evutil_socket_t fd, short what, void *arg);
 
 /**
    An decode data func for a evbuffer.
@@ -328,84 +332,83 @@ typedef void (*tcp_event_data_cb)(struct bufferevent *bev, short what, void *ctx
  */
 typedef void (*tcp_connlistener_err_cb)(struct evconnlistener *conn, void *ctx);
 
-
 typedef struct
 {
-	tcp_read_data_cb			readcb;
-	tcp_write_data_cb			writecb;
-	tcp_event_data_cb			eventcb;				//YDS_CONN_RESULT_E
+	tcp_read_data_cb			readcb;					//read data callback
+	tcp_write_data_cb			writecb;				//write data callback
+	tcp_event_data_cb			eventcb;				//event data callback, see YDS_CONN_RESULT_E
 	tcp_connlistener_err_cb		connlistrnercb;
 } ydsTcpEventCb;
 
 typedef struct
 {
-	YDS_TCP_TYPE_E			tcp;
+	YDS_TCP_TYPE_E			tcp;						
 	tcp_decode_func			decode;
 	ydsTcpEventCb			*cb;
 
-} ydsTcpContext;
+} ydsTcpContext;										//inner
 
 typedef struct
 {
-	YDS_HTTP_TYPE_E		type;
+	YDS_HTTP_TYPE_E		type;							// YDS_HTTP_TYPE_E
 	const char			*certificate_chain;				// if https
 	const char			*private_key;					// if https
-	UINT8				size;
-	CHAR				*uri[255];
+	UINT8				size;							// uri number
+	CHAR				*uri[255];						// need listener uri list, uri "/getinfo"
 }ydsEvHttpServerInfo;
 
 typedef struct
 {
-	struct evkeyvalq	*params;  
-	const char			*uri;
-	const char			*uriWithParam;
-	YDS_HTTP_REQ_TYPE	reqType;						//GET POST ...
+	struct evkeyvalq	*params;						//request uri params data
+	const char			*uri;							//request uri
+	const char			*uriWithParam;					//request uri include params
+	YDS_HTTP_REQ_TYPE	reqType;						//YDS_HTTP_REQ_TYPE :GET POST ...
 	struct evbuffer		*evbuff;						//if POST
 }ydsEvHttpServerUriRequestInfo;
 
 typedef struct
 {
-	int					code;
-	const char			*reason;
-	const char			*buffData;	
+	int					code;							//response client code  200,404,500....
+	const char			*reason;						//response client reason, header
+	const char			*buffData;						//response client buff data, body
 }ydsEvHttpServerUriResponseInfo;
 
 typedef void (*http_server_request_cb)(struct evhttp_request			*request, 
 									   ydsEvHttpServerUriRequestInfo	*info);
 
 typedef  struct  {
-	const char *key;
-	const char *value;
+	const char *key;									//key
+	const char *value;									//value
 	//CURLformoption value_type;
 } ydsPostFormatData;
 
 typedef  struct  {
-	const char *key;
-	const char *value;
+	const char *key;									//key
+	const char *value;									//value
 } ydsHeaderData;
 
 typedef struct
 {
-	const char				*requestUri; 
-	int						retries; 
-	struct timeval			timeoutConn;		//	connect timeout
-	struct timeval			timeoutWrite;		//	write timeout
-	struct timeval			timeoutRead;		//	read timeout
-	YDS_HTTP_REQ_TYPE		type;				//	get pos ...
-	YDS_HTTP_POST_TYPE_E	postType;
-	ydsPostFormatData		*format;
-	ydsHeaderData			*header;
-	int						formatSize;
-	int						headerSize;
-	const char				*postData;
-	const char				*filePath;
+	const char				*requestUrl;				//the whole uri that need requset server 
+	int						retries;					//retry number
+	struct timeval			timeoutConn;				//connect timeout
+	struct timeval			timeoutWrite;				//write timeout
+	struct timeval			timeoutRead;				//read timeout
+	YDS_HTTP_REQ_TYPE		type;						//get post ...
+	YDS_HTTP_POST_TYPE_E	postType;					//YDS_HTTP_REQ_TYPE
+	ydsPostFormatData		*format;					//if POST_FORMAT
+	ydsHeaderData			*header;					//if need add extra header 
+	int						formatSize;					//format number 
+	int						headerSize;					//header number
+	const char				*postData;					//if POST_BUFF
+	const char				*filePath;					//if POST_FILE
 }ydsEvHttpClientUriRequestInfo;
 
 typedef struct
 {
-	struct evbuffer		*buffData; 
-	int					code;
-    const char			*reason;
+	struct evbuffer		*buffData;						//http server response buff data
+	int					code;							//http server response cede
+    const char			*reason;						//http server response reason
 }ydsEvHttpClientUriResponseInfo;
 
 typedef void (*http_client_request_cb)(struct evhttp_request			*request, 
@@ -413,9 +416,9 @@ typedef void (*http_client_request_cb)(struct evhttp_request			*request,
 
 typedef struct
 {
-   struct bufferevent			*bev;
+   struct bufferevent			*bev;				
    http_client_request_cb		cb;
-}ydsEvHttpClientRequestDone;
+}ydsEvHttpClientRequestDone;							//inner
 
 /** ==========================func================================ **/
 
@@ -429,7 +432,7 @@ typedef struct
 **                 : 
 **                 : 
 **                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_init();
@@ -440,11 +443,11 @@ int yds_libevent_init();
 **
 **     Description :
 **         libevent add Timer Event
-**     Parameters  : 
-**                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Parameters  : ev: an timer event
+**                 : eFlag: timer type
+**                 : delayTime: timer delay time
+**                 : cb: timer callback
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_addTimerEvent(struct event			**ev, 
@@ -460,11 +463,12 @@ int yds_libevent_addTimerEvent(struct event			**ev,
 **
 **     Description :
 **         libevent add Tcp Server Event
-**     Parameters  : 
-**                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Parameters  : port: Tcp server listener port
+**                 : backlog: Passed to the listen() call to determine the length of the
+**							  acceptable connection backlog.  Set to -1 for a reasonable default.
+**                 : decode: decode receve data func
+**                 : cb: Tcp event callback
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_addTcpServerEvent(int				port, 
@@ -478,11 +482,11 @@ int yds_libevent_addTcpServerEvent(int				port,
 **
 **     Description :
 **         libevent add Tcp Client Event
-**     Parameters  : 
-**                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Parameters  : ip: Tcp server connect ip
+**                 : port: Tcp server connect port
+**                 : decode: decode receve data func
+**                 : cb: Tcp event callback
+**     Returns     : the bufferevent structure
 ** ===================================================================
 */
 struct bufferevent* yds_libevent_addTcpClientEvent(const char			*ip, 
@@ -496,11 +500,11 @@ struct bufferevent* yds_libevent_addTcpClientEvent(const char			*ip,
 **
 **     Description :
 **         libevent add Manual Active Event
-**     Parameters  : 
+**     Parameters  : ev: an manual active event
+**                 : cb: manual active event callback
 **                 : 
 **                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_addManualActiveEvent(struct event				**ev, 
@@ -512,11 +516,11 @@ int yds_libevent_addManualActiveEvent(struct event				**ev,
 **
 **     Description :
 **         libevent add http server
-**     Parameters  : 
+**     Parameters  : port: Http server connect port
+**                 : info: Http server conf info
+**                 : cb: Http server uri event callback
 **                 : 
-**                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_addHttpServer(int						port, 
@@ -529,11 +533,11 @@ int yds_libevent_addHttpServer(int						port,
 **
 **     Description :
 **         libevent add http client request
-**     Parameters  : 
+**     Parameters  : info: Http client req conf info
+**                 : cb: Http client uri event callback
 **                 : 
 **                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_addHttpClientRequest(ydsEvHttpClientUriRequestInfo		*info, 
@@ -545,11 +549,11 @@ int yds_libevent_addHttpClientRequest(ydsEvHttpClientUriRequestInfo		*info,
 **
 **     Description :
 **         libevent send http server response
-**     Parameters  : 
+**     Parameters  : request: Http requset struct evhttp_request
+**                 : responseInfo: Http need response info data
 **                 : 
 **                 : 
-**                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_sendHttpResponse(struct evhttp_request				*request,
@@ -557,15 +561,15 @@ int yds_libevent_sendHttpResponse(struct evhttp_request				*request,
 
 /*
 ** ===================================================================
-**     Method      :  yds_libevent_removeEvent
+**     Method      :  yds_libevent_run
 **
 **     Description :
-**         libevent run
+**         libevent start run
 **     Parameters  : 
 **                 : 
 **                 : 
 **                 : 
-**     Returns     : None
+**     Returns     : 0 if successful, or < -1 if an error occurred
 ** ===================================================================
 */
 int yds_libevent_run();

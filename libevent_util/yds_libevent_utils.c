@@ -46,8 +46,9 @@ void yds_libevent_deinit_openssl();
 static void void_cb(evutil_socket_t fd, short event, void *arg)
 {
 	static int num = 0;
-	YDS_LOG(LOG_LEVEL_DEBUG,"[Libevent]libevent is running %d \n",++num);	
+	YDS_LOG(LOG_LEVEL_INFO,"[Libevent]libevent is running %d \n",++num);	
 }
+
 
 // tcp read buff cb
 static void tcp_read_cb(struct bufferevent *bev, void *arg)
@@ -399,7 +400,7 @@ int yds_libevent_init(){
 	pthreads_ret = evthread_use_pthreads();
 
 	YDS_LOG(LOG_LEVEL_INFO,"[Libevent] evthread_use_pthreads %d\n",pthreads_ret);
-
+	
 	//create event_config
 	conf = event_config_new();
 
@@ -413,7 +414,7 @@ int yds_libevent_init(){
 		YDS_LOG(LOG_LEVEL_INFO,"[Libevent]Couldn't open event base\n");
 		return YDS_LIBEVENT_INIT_EVENT_BASE_ERR;
 	}
-
+	YDS_LOG(LOG_LEVEL_INFO,"[Libevent] Using Libevent with backend method %s.\n", event_base_get_method(base));
 	//void event, avoid libevent stopas
 	ev_void = event_new(base, -1, EV_PERSIST, void_cb, event_self_cbarg());
 	event_add(ev_void, &tv);
@@ -432,8 +433,11 @@ int yds_libevent_addTimerEvent(struct event			**ev,
 
 
 								   
-	int					ret;							   
+	int					ret;
+	int					tfd = 0;
 	struct timeval		tv = {0,0};
+	struct itimerspec	timeValue;
+	ydsTimerContext     context;
 
 	if (base == NULL)
 	{
@@ -453,6 +457,56 @@ int yds_libevent_addTimerEvent(struct event			**ev,
 		ret = event_add(*ev, &delayTime);		
 	}
 
+	if (eFlag == TIMER_RTC_ONCE)
+	{
+		tfd = timerfd_create(12, 0); //TFD_CLOEXEC or TFD_NONBLOCK
+
+		if (tfd < 0)
+		{
+			return YDS_LIBEVENT_ERROR;
+		}
+
+		//it_value表示定时器第一次超时时间，it_interval表示之后的超时时间即每隔多长时间超时
+		timeValue.it_value.tv_sec = (time_t)delayTime.tv_sec;
+		timeValue.it_value.tv_nsec = delayTime.tv_usec;
+
+		ret = timerfd_settime(tfd, 0, &timeValue, NULL);
+
+		if (ret < 0)
+		{
+			return YDS_LIBEVENT_ERROR;
+		}
+		*ev = event_new(base, tfd, EV_READ, cb, event_self_cbarg());
+		ret = event_add(*ev, NULL);		
+	}
+	if (eFlag == TIMER_RTC_TIMEOUT)
+	{
+		tfd = timerfd_create(12, 0); //TFD_CLOEXEC or TFD_NONBLOCK
+
+		if (tfd < 0)
+		{
+			return YDS_LIBEVENT_ERROR;
+		}
+
+		//it_value表示定时器第一次超时时间，it_interval表示之后的超时时间即每隔多长时间超时
+		timeValue.it_value.tv_sec = (time_t)delayTime.tv_sec;
+		timeValue.it_value.tv_nsec = delayTime.tv_usec;	
+		
+	    //设置定时器周期
+		timeValue.it_interval.tv_sec = (time_t)5;
+		timeValue.it_interval.tv_nsec = 0;	
+
+		ret = timerfd_settime(tfd, 0, &timeValue, NULL);
+
+		if (ret < 0)
+		{
+			return YDS_LIBEVENT_ERROR;
+		}
+		
+		*ev = event_new(base, tfd, EV_READ | EV_PERSIST, cb, event_self_cbarg());
+
+		ret = event_add(*ev, NULL);		
+	}
 	return ret;
 }
 
@@ -766,7 +820,7 @@ int yds_libevent_addHttpClientRequest(ydsEvHttpClientUriRequestInfo			*info,
 		goto end;
 	}
 
-	http_uri = evhttp_uri_parse(info->requestUri);
+	http_uri = evhttp_uri_parse(info->requestUrl);
 
 	if (http_uri == NULL) {
 		YDS_LOG(LOG_LEVEL_INFO,"[Libevent]url parse error \n");
